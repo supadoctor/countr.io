@@ -1,0 +1,147 @@
+.lane{:style => "background-color: #FFF;"}
+  %h1 Профиль пользователя
+  %dl.uk-description-list-horizontal
+    %dt Имя пользователя
+    %dd
+      %text#name #{@user.name}
+    %dt На сайте с
+    %dd #{@profile.created_at.strftime("%d.%m.%Y")}
+    %dt Тип доступа
+    -if @account.type == 1
+      %dd Полный
+    -else 
+      %dd
+        Базовый
+        %a{:href=>"/upgrade"}
+          Купить полный функционал
+    %dt Уведомления
+    -if @profile.sendnotification
+      %dd отправляются по #{@profile.notificationtype} #{@profile.notificationdate.strftime("%d")}-го числа каждого месяца
+    -else
+      %dd не отправляются
+  -@environment.each_with_index do |(h,v), i|
+    .uk-placeholder
+      %h4
+        Помещение #{i+1}
+        %a{:href=>"/home/#{i+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
+          %i.uk-icon-minus-circle
+        %a{:href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
+          %i.uk-icon-plus-circle
+      %dl.uk-description-list-horizontal
+        %dt.uk-margin-bottom Наименование
+        %dd.uk-margin-bottom
+          %text.hometitle{"data-pk"=>i+1} #{h.title}
+        %dt.uk-margin-bottom Адрес
+        %dd
+          %text.homeaddress{"data-pk"=>i+1} #{h.address}
+      .uk-panel.uk-panel-box
+        .uk-panel-title
+          Счетчики
+          %a{:href=>"/home/#{i+1}/counter/new", "data-uk-tooltip"=>"", :title=>"Добавить новый счетчик"}
+            %i.uk-icon-plus-circle
+        -if @environment[h][:counters].size > 0
+          %table.uk-table
+            %thead
+              %tr
+                %th Наименование
+                %th Тип счетчика
+                %th Лицевой счет
+            -@environment[h][:counters].each_with_index do |c, ci|
+              %tr
+                %td
+                  #{c.title}
+                  %a{:href=>"/home/#{i+1}/counter/#{ci+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
+                    %i.uk-icon-minus-circle
+                %td #{c.typestr}
+                %td #{c.account}
+        -else
+          .uk-alert.uk-alert-warning Счетчики не определены
+      .uk-panel.uk-panel-box.uk-margin-top
+        .uk-panel-title
+          Каналы передачи значений счетчиков
+          %a{:href=>"/home/#{i+1}/channel/new", "data-uk-tooltip"=>"", :title=>"Добавить новый канал передачи"}
+            %i.uk-icon-plus-circle
+        -if @environment[h][:channels].size > 0
+          %table.uk-table
+            %thead
+              %tr
+                %th Наименование
+                %th Способ передачи
+                %th Получатель
+                %th Шаблон передаваемого сообщения
+            -@environment[h][:channels].each_with_index do |ch, chi|
+              %tr
+                %td
+                  #{ch.title}
+                  %a{:href=>"/home/#{i+1}/channel/#{chi+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить канал передачи"}
+                    %i.uk-icon-minus-circle
+                %td #{ch.type}
+                %td #{ch.to}
+                %td
+                  %code #{ch.pattern}
+        -else
+          .uk-alert.uk-alert-warning Каналы передачи не определены
+
+
+:javascript
+  $(function() {
+
+    $.fn.editable.defaults.mode = 'inline';
+
+    $('#name').editable({
+      type: 'text',
+      url: '/nameupdate',
+      send: 'always',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+    $('.hometitle').editable({
+      type: 'text',
+      url: '/hometitleupdate',
+      send: 'always',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+    $('.homeaddress').editable({
+      type: 'text',
+      url: '/homeaddressupdate',
+      send: 'always',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+  });

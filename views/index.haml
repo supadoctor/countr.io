@@ -1,0 +1,182 @@
+.lane.lane-borders#home{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #40E0D0;"}
+  .uk-container-center.uk-width-large-2-3
+    %h1
+      %div
+        Добро пожаловать на
+        -brand
+        !
+    %h2 Но тсccc... мы работаем....
+    %h3 И мы делаем что-то особенное...
+    %p{:style=>"color:white;"} конечно, не так что-бы это перевернуло Вашу жизнь, но сделает проще - это уж точно! :)
+.lane#wtf{:style=>"background-color: #FFFFFF;"}
+  .uk-container-center.uk-width-large-2-3
+    %h2.uk-text-center
+      Что такое
+      -brand
+      и зачем это?
+    %p
+      -brand
+      ="- это онлайн система передачи показаний коммунальных счетчиков вашей квартитры или дома."
+    %p Все мы пользуемся водой, электричеством, газом и все мы должны регулярно, из месяца в месяц, передавать значения счетчиков в соответствующие организации. Казалось бы, что может быть проще? Посмотрели потребление, зашли на сайт расспределительной компании, заполнили форму, отправили... Но... Всегда ли мы помним, что уже пора передавать показания? Всегда ли мы помним что и куда мы уже передали?
+    %p
+      %div
+        Специально для тех кто, хочет превратить передачу показаний коммунальных счетчиков (по сути несложное, но жутко занудное меропритие) в удобное, быстрое и даже увлекательное занятие мы и создали
+        -brand
+    %p
+      %div
+        Если ваша распределительная компания принимает показания по электронной почте и/или SMS, то наш сервис специально для вас!
+        %a{:href=>"#signin"}
+          Регистрируйетсь
+        и забудьте о счетчиках навсегда!
+    %p
+      %div
+        Возможности
+        -brand
+    %ul
+      %li Поддержка нескольких помещений
+      %li Хранение неограниченного количества счетчиков
+      %li Передача показаний счетчиков по email, SMS
+      %li Напоминания о необходимости передачи показаний счетчиков по email, SMS
+      %li Хранение истории и статистики потребления
+      %li Многопользовательский режим работы
+.lane.lane-borders#happy{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #E04050;"}
+  .uk-container-center.uk-width-large-2-3
+    %h2.uk-text-center Жить стало лучше, жить стало веселей!
+.lane#price{:style=>"background-color: #FFFFFF"}
+  .uk-container-center.uk-width-large-2-3
+    %h2.uk-text-center Стоимость
+    %p Весь функцинал, необходимый для передачи показаний счетчиков, доступен БЕСПЛАТНО после регистрации. Однако для доступа к дополнительным функциям системы необходмо приобретение платной подписки. Стоимост подписки невелика и состовляет всего 10 руб. в месяц. А при приобретении подписики на год, вы получаете ДВА МЕСЯЦА В ПОДАРОК! Сранение функций бесплатной и платной верси приведено в таблице ниже.
+    -compare
+.lane.lane-borders#signin{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #804050;"}
+  .uk-container-center.uk-width-large-2-3
+    .uk-grid{"data-uk-grid-margin"=>""}
+      .uk-width-medium-1-2
+        %h2.uk-text-center{:style=>"color: #FFF"} Вход
+        .uk-panel.uk-panel-box
+          %p Введите ваш адрес электронной почты и пароль, указанные при регистрации, или войдите используя вашу учетную запись в одной из популярных социальных сетей.
+          %form#login.uk-form{:action => "/auth/login", :method=>"post"}
+            %fieldset
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"email", :required=>"", :placeholder=>"Адрес электронной почты", :name=>"login"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"login"}
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Пароль", :name=>"password"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"password"}
+              %button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
+          %hr
+          %a.uk-button.vkbutton.uk-align-center{:href=>"/auth/vk"}
+            %i.uk-icon-vk.uk-icon-small
+            Войти
+          %a.uk-button.facebookbutton.uk-align-center{:href=>"/auth/facebook"}
+            %i.uk-icon-facebook.uk-icon-small
+            Войти
+          %a.uk-button.gplusbutton.uk-align-center{:href=>"/auth/gplus"}
+            %i.uk-icon-google-plus.uk-icon-small
+            Войти
+          %hr
+          %a{:href=>"/resetpassword"}
+            .uk-text-small.uk-text-center Забыли пароль?
+      .uk-width-medium-1-2
+        %h2.uk-text-center{:style=>"color: #FFF"} Регистрация
+        .uk-panel.uk-panel-box
+          %p
+            %div
+              Для БЕСПЛАТНОЙ регистрации в
+              -brand 
+              укажите ваше имя, адрес электронной почты и пароль.
+          %form#registration.uk-form{:action => "/registration", :method => "post"}
+            %fieldset
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"text", :required=>"", :placeholder=>"Полное имя", :name=>"name"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"name"}
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"text", :required=>"", :placeholder=>"Адрес электронной почты", :name=>"email"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"email"}
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input#password1.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Пароль", :name=>"password1"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"password1"}
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Подтверждение пароля", :name=>"password2"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"password2"}
+              .uk-form-row
+                .uk-text-small Все поля обязательны для заполнения
+              .uk-form-row
+                .uk-text-small
+                  %input{:type=>"checkbox", :name=>"terms"}
+                  Я принимаю
+                  %a{:href=>"/terms"}
+                    cоглашение об использовании
+                    -brand
+              %button.uk-button.uk-button-large.uk-button-primary.uk-align-center.uk-margin-top{:type=>"submit"} Начать передачу счетчиков
+:javascript
+
+  $(function() {
+
+    var loginvalidator = $("#login").validate({
+      debug: true,
+      rules: {
+        login: {
+          required: true
+        },
+        password: {
+          required: true
+        }
+      },
+      messages: {
+        login: "Введите адрес электронной почты",
+        password: "Введите пароль"
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+
+    var uservalidator = $("#registration").validate({
+      debug: true,
+      rules: {
+        email: {
+          required: true,
+          email: true,
+          remote: {
+            url: "/ajax/checkemail",
+            type: "post"
+          }
+        },
+        name: {
+          required: true,
+          remote: {
+            url: "/ajax/checkname",
+            type: "post"
+          }
+        },
+        password1: {
+          required: true,
+          minlength: 6
+        },
+        password2: {
+          equalTo: "#password1"
+        },
+        terms: {
+          required: true
+        }
+      },
+      messages: {
+        email: "Введите корректный адрес электронной почты",
+        name: "Введите полное имя",
+        password1: "Введите пароль длиною не менее 6 символов",
+        password2: "Ошибка при повторном вводе пароля",
+        terms: " "
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+    
+
+  });

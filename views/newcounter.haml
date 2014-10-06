@@ -1,0 +1,116 @@
+#template{:style=>"display: none;"}
+  .uk-placeholder{:id=>"counter{0}"}
+    .uk-badge.uk-badge-success.uk-margin-bottom
+      Счетчик №{0}
+    .uk-form-row{:style=>"margin-bottom: 20px;"}
+      .uk-grid
+        .uk-width-1-3
+          %label{:for=>"countername{0}"} Название:
+          %input.countername.uk-width-1-1{:type=>"text", :placeholder=>"Название", :name=>"countername{0}", :id=>"countername{0}"}
+          %br
+          %label.error.uk-text-small.uk-text-danger{:for=>"countername{0}"}
+        .uk-width-1-3
+          %label{:for=>"countertype{0}"} Тип:
+          %select.countertype.uk-width-1-1{:type=>"text", :name=>"countertype{0}", :id=>"countertype{0}"}
+            %option{:disabled =>"", :selected=>""} Выберите тип
+            %option{:value=>"11"} ХВС (холодная вода)
+            %option{:value=>"12"} ГВС (горячая вода)
+            %option{:value=>"20"} газ
+            %option{:value=>"31"} электричество (однотарифный)
+            %option{:value=>"32"} электричество (двухтарифный)
+            %option{:value=>"33"} электричество (трехтарифный)
+          %br
+          %label.error.uk-text-small.uk-text-danger{:for=>"countertype{0}"}
+        .uk-width-1-3
+          %label{:for=>"counteraccount{0}"} Лицевой счет:
+          %input.counteraccount.uk-width-1-1{:type=>"text", :placeholder=>"Лицевой счет", :name=>"counteraccount{0}", :id=>"counteraccount{0}"}
+          %br
+          %label.error.uk-text-small.uk-text-danger{:for=>"counteraccount{0}"}
+
+.lane{:style=>"background-color: #FFF;"}
+  %h1 Создание счетчиков
+  %h3 в помещении "#{@home.title}" по адресу #{@home.address}
+  %form#counter.uk-form{:action => "/home/@{@home_index}/counter/new", :method=>"post"}
+    %p
+      %div
+        Для создания счетчика укажите его название, например,
+        %code
+          Кухня
+        , тип, например,
+        %code
+          горячая вода
+        и номер лицевого счета (необязательный параметр). При помощи кнопок
+        %code +
+        и
+        %code -
+        вы можете создать столько счетчиков, сколько необходимо.
+    .uk-container-center.uk-width-2-3
+      .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+        #counters
+        .uk-text-center
+          %button.uk-button#btnDel{:disabled=>"", :style=>"margin-right: 20px;", :type=>"button"}
+            %i.uk-icon-minus
+          %button.uk-button#btnAdd{:type=>"button"}
+            %i.uk-icon-plus
+    .uk-text-center
+      %button.uk-button.uk-button-primary#tostep3{:type=>"submit"}
+        Сохранить
+        %i.uk-icon-angle-double-right
+        
+    //%button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
+
+
+:javascript
+  $(function() {
+    
+    $("#btnAdd").click(addRow);
+    $("#btnDel").click(delRow);
+
+    var template = jQuery.validator.format($("#template").html());
+
+    function addRow() {
+
+      $("#counters").append(template(i));
+      i++;
+      if (i>2) {
+        $('#btnDel').prop('disabled', false)
+      }
+    }
+
+    function delRow() {
+      if(i>2) {
+        i--;
+        $("#counter" + i).remove();
+        if (i==2) {
+          $('#btnDel').prop('disabled', true)
+        }
+      }
+    }
+
+    var i = 1;
+
+    addRow();
+
+    $.validator.addMethod("nameRequired", $.validator.methods.required, "Введите название");
+    $.validator.addMethod("nameMaxlength", $.validator.methods.maxlength, $.format("Название должно быть мнее {0} символов"));
+
+    $.validator.addMethod("countertypeRequired", $.validator.methods.required, "Выберите тип счетчика");
+    
+    $.validator.addMethod("accountDigits", $.validator.methods.digits, "Лицевой счет может содержать только цифры");
+    $.validator.addMethod("accountMaxlength", $.validator.methods.maxlength, $.format("Лицевой счет должен быть мнее {0} символов"));
+
+    $.validator.addClassRules({
+      countername: {
+        nameRequired: true,
+        nameMaxlength: 500
+      },
+      countertype: {
+        countertypeRequired: true
+      },
+      counteraccount: {
+        accountDigits: true,
+        accountMaxlength: 65535
+      }
+    });
+    
+  });

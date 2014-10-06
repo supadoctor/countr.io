@@ -1,0 +1,49 @@
+.lane{:style=>"background-color: #FFF;"}
+  %h1 Создание нового помещения
+  %form#home.uk-form{:action => "/home/new", :method=>"post"}
+    %p
+      %div
+        Для создания помещения введите его название, например,
+        %code Дом, милый дом  
+        и адрес, например,
+        %code ул.Голубева, 3-33
+    .uk-container-center.uk-width-2-3
+      .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+        %fieldset
+          .uk-form-row{:style=>"margin-bottom: 20px;"}
+            %input.homename.uk-width-1-1{:type=>"text", :placeholder=>"Название", :name=>"homename"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"homename"}
+          .uk-form-row{:style=>"margin-bottom: 20px;"}
+            %input.homeaddress.uk-width-1-1{:type=>"text", :placeholder=>"Адрес", :name=>"homeaddress"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"homeaddress"}
+    .uk-text-center
+      %button.uk-button.uk-button-primary#tostep3{:type=>"submit"}
+        Сохранить
+        %i.uk-icon-angle-double-right
+        
+    //%button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
+
+
+:javascript
+  $(function() {
+
+    $.validator.addMethod("homenameRequired", $.validator.methods.required, "Введите название");
+    $.validator.addMethod("homenameMaxlength", $.validator.methods.maxlength, $.format("Название должно быть мнее {0} символов"));
+    
+    $.validator.addMethod("homeaddressRequired", $.validator.methods.required, "Введите адрес");
+    $.validator.addMethod("homeaddressMaxlength", $.validator.methods.maxlength, $.format("Адрес должен быть мнее {0} символов"));
+
+    $.validator.addClassRules({
+      homename: {
+        homenameRequired: true,
+        homenameMaxlength: 500
+      },
+      homeaddress: {
+        homeaddressRequired: true,
+        homeaddressMaxlength: 500
+      }
+    });
+    
+  });

@@ -1,0 +1,401 @@
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:521: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:521: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+ADMIN WAS CREATED!
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.0.sock, CTRL+C to stop
+95.79.236.206 - - [10/Sep/2014 21:26:24] "GET / HTTP/1.0" 200 19582 0.1960
+95.79.236.206 - - [10/Sep/2014 21:26:25] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0339
+95.79.236.206 - - [10/Sep/2014 21:26:25] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0470
+95.79.236.206 - - [10/Sep/2014 21:26:25] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0019
+95.79.236.206 - - [10/Sep/2014 21:26:25] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0032
+187.185.71.106 - - [10/Sep/2014 21:35:17] "GET /fufu/fuf/fu.php HTTP/1.0" 404 18 0.0014
+187.185.71.106 - - [10/Sep/2014 21:35:18] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0012
+80.74.153.16 - - [11/Sep/2014 00:45:17] "POST /cgi-bin/php?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0018
+80.74.153.16 - - [11/Sep/2014 00:45:18] "POST /cgi-bin/php5?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0016
+80.74.153.16 - - [11/Sep/2014 00:45:18] "POST /cgi-bin/php-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0019
+80.74.153.16 - - [11/Sep/2014 00:45:18] "POST /cgi-bin/php4?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0016
+80.74.153.16 - - [11/Sep/2014 00:45:19] "POST /cgi-bin/php5-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0028
+80.74.153.16 - - [11/Sep/2014 00:45:19] "POST /cgi-bin/php4-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0031
+80.74.153.16 - - [11/Sep/2014 00:45:19] "POST /cgi-sys/php-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0018
+80.74.153.16 - - [11/Sep/2014 00:45:20] "POST /cgi-bin/php.fcgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0015
+110.77.137.53 - - [11/Sep/2014 02:09:07] "GET /eheh/ehe/eh.php HTTP/1.0" 404 18 0.0235
+110.77.137.53 - - [11/Sep/2014 02:09:07] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0012
+110.77.137.53 - - [11/Sep/2014 02:09:08] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0012
+110.77.137.53 - - [11/Sep/2014 02:09:09] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0012
+121.40.131.106 - - [11/Sep/2014 04:23:06] "GET /ygyg/ygy/yg.php HTTP/1.0" 404 18 0.0013
+121.40.131.106 - - [11/Sep/2014 04:23:06] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0017
+121.40.131.106 - - [11/Sep/2014 04:23:07] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0012
+121.40.131.106 - - [11/Sep/2014 04:23:09] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0020
+93.158.148.30 - - [11/Sep/2014 08:03:06] "GET /robots.txt HTTP/1.0" 200 75 0.0615
+93.158.148.30 - - [11/Sep/2014 08:03:10] "GET / HTTP/1.0" 200 19582 0.0053
+93.158.148.30 - - [11/Sep/2014 08:03:50] "GET /robots.txt HTTP/1.0" 200 75 0.0012
+93.158.148.30 - - [11/Sep/2014 08:03:52] "GET / HTTP/1.0" 200 19582 0.0036
+93.158.148.30 - - [11/Sep/2014 08:03:52] "GET / HTTP/1.0" 200 19582 0.0033
+93.158.148.30 - - [11/Sep/2014 08:03:55] "GET / HTTP/1.0" 200 19582 0.0035
+93.158.148.30 - - [11/Sep/2014 08:03:56] "GET / HTTP/1.0" 200 19582 0.0038
+66.249.78.17 - - [11/Sep/2014 10:57:48] "GET /robots.txt HTTP/1.0" 200 75 0.0018
+66.249.78.17 - - [11/Sep/2014 10:57:48] "GET / HTTP/1.0" 200 19582 0.0033
+66.249.78.24 - - [11/Sep/2014 10:59:09] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0022
+66.249.78.31 - - [11/Sep/2014 10:59:09] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0019
+66.249.78.17 - - [11/Sep/2014 13:55:13] "GET / HTTP/1.0" 200 19582 0.0034
+66.249.81.86 - - [11/Sep/2014 15:31:20] "GET /img/app_logo_120x120.jpg HTTP/1.0" 200 7206 0.0160
+66.249.81.86 - - [11/Sep/2014 15:32:12] "GET /img/m.jpg HTTP/1.0" 404 18 0.0012
+66.249.81.86 - - [11/Sep/2014 15:32:12] "GET /img/me.jpg HTTP/1.0" 404 18 0.0012
+66.249.81.86 - - [11/Sep/2014 15:32:12] "GET /img/met.jpg HTTP/1.0" 404 18 0.0012
+66.249.81.86 - - [11/Sep/2014 15:32:14] "GET /img/mete.jpg HTTP/1.0" 404 18 0.0012
+66.249.81.86 - - [11/Sep/2014 15:32:14] "GET /img/meter.jpg HTTP/1.0" 200 154246 0.0015
+66.249.81.86 - - [11/Sep/2014 15:32:20] "GET /img/meter.p HTTP/1.0" 404 18 0.0017
+66.249.81.86 - - [11/Sep/2014 15:32:21] "GET /img/meter.pn HTTP/1.0" 404 18 0.0019
+66.249.81.86 - - [11/Sep/2014 15:32:21] "GET /img/meter.png HTTP/1.0" 200 8471 0.0012
+66.249.78.24 - - [11/Sep/2014 16:50:40] "GET / HTTP/1.0" 200 19582 0.0041
+209.143.156.138 - - [11/Sep/2014 18:41:54] "HEAD / HTTP/1.0" 200 19582 0.0034
+5.255.253.37 - - [11/Sep/2014 19:33:55] "GET /robots.txt HTTP/1.0" 200 75 0.0023
+66.249.78.24 - - [11/Sep/2014 19:46:35] "GET / HTTP/1.0" 200 19582 0.0044
+217.160.128.124 - - [11/Sep/2014 20:00:18] "GET /zvzv/zvz/zv.php HTTP/1.0" 404 18 0.0283
+217.160.128.124 - - [11/Sep/2014 20:00:18] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0017
+217.160.128.124 - - [11/Sep/2014 20:00:18] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0020
+217.160.128.124 - - [11/Sep/2014 20:00:19] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0013
+5.255.253.37 - - [11/Sep/2014 21:13:18] "GET / HTTP/1.0" 200 19582 0.0034
+124.118.16.158 - - [12/Sep/2014 02:27:18] "GET /oeoe/oeo/oe.php HTTP/1.0" 404 18 0.0018
+124.118.16.158 - - [12/Sep/2014 02:27:18] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0012
+124.118.16.158 - - [12/Sep/2014 02:27:19] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0012
+124.118.16.158 - - [12/Sep/2014 02:27:20] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0021
+31.186.11.250 - - [12/Sep/2014 07:13:35] "POST /cgi-bin/php?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0082
+31.186.11.250 - - [12/Sep/2014 07:13:35] "POST /cgi-bin/php5?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0015
+31.186.11.250 - - [12/Sep/2014 07:13:36] "POST /cgi-bin/php-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0029
+31.186.11.250 - - [12/Sep/2014 07:13:36] "POST /cgi-bin/php4?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0026
+31.186.11.250 - - [12/Sep/2014 07:13:37] "POST /cgi-bin/php5-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0015
+31.186.11.250 - - [12/Sep/2014 07:13:38] "POST /cgi-bin/php4-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0015
+31.186.11.250 - - [12/Sep/2014 07:13:38] "POST /cgi-sys/php-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0015
+31.186.11.250 - - [12/Sep/2014 07:13:39] "POST /cgi-bin/php.fcgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0015
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-bin/php?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0015
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-bin/php5?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0016
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-bin/php-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0025
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-bin/php4?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0026
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-bin/php5-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0023
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-bin/php4-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0016
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-sys/php-cgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0016
+80.71.250.4 - - [12/Sep/2014 07:19:52] "POST /cgi-bin/php.fcgi?%2D%64+%61%6C%6C%6F%77%5F%75%72%6C%5F%69%6E%63%6C%75%64%65%3D%6F%6E+%2D%64+%73%61%66%65%5F%6D%6F%64%65%3D%6F%66%66+%2D%64+%73%75%68%6F%73%69%6E%2E%73%69%6D%75%6C%61%74%69%6F%6E%3D%6F%6E+%2D%64+%64%69%73%61%62%6C%65%5F%66%75%6E%63%74%69%6F%6E%73%3D%22%22+%2D%64+%6F%70%65%6E%5F%62%61%73%65%64%69%72%3D%6E%6F%6E%65+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%64+%63%67%69%2E%66%6F%72%63%65%5F%72%65%64%69%72%65%63%74%3D%30+%2D%64+%63%67%69%2E%72%65%64%69%72%65%63%74%5F%73%74%61%74%75%73%5F%65%6E%76%3D%22%79%65%73%22+%2D%64+%63%67%69%2E%66%69%78%5F%70%61%74%68%69%6E%66%6F%3D%31+%2D%64+%61%75%74%6F%5F%70%72%65%70%65%6E%64%5F%66%69%6C%65%3D%70%68%70%3A%2F%2F%69%6E%70%75%74+%2D%6E HTTP/1.0" 404 18 0.0016
+5.255.253.37 - - [12/Sep/2014 09:00:37] "GET /robots.txt HTTP/1.0" 200 75 0.0016
+5.255.253.37 - - [12/Sep/2014 09:20:15] "GET /robots.txt HTTP/1.0" 200 75 0.0012
+5.255.253.37 - - [12/Sep/2014 09:20:16] "GET /robots.txt HTTP/1.0" 200 75 0.0013
+5.255.253.37 - - [12/Sep/2014 09:20:16] "GET / HTTP/1.0" 200 19582 0.0046
+5.255.253.37 - - [12/Sep/2014 09:20:17] "GET / HTTP/1.0" 200 19582 0.0039
+5.255.253.37 - - [12/Sep/2014 09:20:18] "GET / HTTP/1.0" 200 19582 0.0038
+5.255.253.37 - - [12/Sep/2014 09:20:20] "GET / HTTP/1.0" 200 19582 0.0033
+5.255.253.37 - - [12/Sep/2014 09:20:21] "GET / HTTP/1.0" 200 19582 0.0037
+66.249.69.80 - - [12/Sep/2014 10:36:36] "GET /robots.txt HTTP/1.0" 200 75 0.0012
+66.249.78.242 - - [12/Sep/2014 10:36:36] "GET / HTTP/1.0" 200 19582 0.0033
+66.249.78.228 - - [12/Sep/2014 10:39:47] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0583
+66.249.78.242 - - [12/Sep/2014 10:39:48] "GET /css/custom.css HTTP/1.0" 200 2577 0.0023
+66.249.78.242 - - [12/Sep/2014 10:39:48] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0217
+66.249.78.242 - - [12/Sep/2014 10:39:50] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0126
+66.249.78.228 - - [12/Sep/2014 10:39:50] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0203
+222.209.132.222 - - [12/Sep/2014 11:13:01] "GET /render/hoteldiv.jsp?&__jscallback=XQScript_4 HTTP/1.0" 404 18 0.0019
+142.234.110.138 - - [12/Sep/2014 14:08:08] "GET / HTTP/1.0" 200 19582 0.0032
+200.105.200.115 - - [12/Sep/2014 16:47:29] "GET /usus/usu/us.php HTTP/1.0" 404 18 0.0014
+200.105.200.115 - - [12/Sep/2014 16:47:30] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0013
+200.105.200.115 - - [12/Sep/2014 16:47:31] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0017
+200.105.200.115 - - [12/Sep/2014 16:47:32] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0020
+116.58.243.46 - - [12/Sep/2014 22:51:57] "GET /cmcm/cmc/cm.php HTTP/1.0" 404 18 0.0195
+116.58.243.46 - - [12/Sep/2014 22:51:58] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0012
+116.58.243.46 - - [12/Sep/2014 22:51:58] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0017
+116.58.243.46 - - [12/Sep/2014 22:51:59] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0014
+66.249.64.153 - - [13/Sep/2014 00:20:44] "GET /robots.txt HTTP/1.0" 200 75 0.0397
+66.249.64.149 - - [13/Sep/2014 00:20:44] "GET / HTTP/1.0" 200 19582 0.0033
+66.249.64.140 - - [13/Sep/2014 01:07:27] "GET /robots.txt HTTP/1.0" 200 75 0.0015
+66.249.64.144 - - [13/Sep/2014 01:07:27] "GET / HTTP/1.0" 200 19582 0.0036
+103.253.238.18 - - [13/Sep/2014 01:50:22] "GET /tqtq/tqt/tq.php HTTP/1.0" 404 18 0.0019
+103.253.238.18 - - [13/Sep/2014 01:50:22] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0012
+103.253.238.18 - - [13/Sep/2014 01:50:23] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0020
+103.253.238.18 - - [13/Sep/2014 01:50:24] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0013
+178.62.139.66 - - [13/Sep/2014 03:05:20] "GET / HTTP/1.0" 200 19582 0.0033
+198.20.69.74 - - [13/Sep/2014 03:36:49] "GET / HTTP/1.0" 200 19582 0.0049
+198.20.69.74 - - [13/Sep/2014 03:36:50] "GET /robots.txt HTTP/1.0" 200 75 0.0021
+198.20.69.74 - - [13/Sep/2014 03:37:02] "GET / HTTP/1.0" 200 19582 0.0035
+198.20.69.74 - - [13/Sep/2014 03:37:02] "GET /robots.txt HTTP/1.0" 200 75 0.0012
+198.20.69.74 - - [13/Sep/2014 04:51:52] "GET / HTTP/1.0" 200 19582 0.0035
+222.212.180.59 - - [13/Sep/2014 11:09:08] "GET /render/hoteldiv.jsp?&__jscallback=XQScript_4 HTTP/1.0" 404 18 0.0018
+2.93.148.74 - - [13/Sep/2014 14:26:25] "GET /order/83 HTTP/1.0" 404 18 0.0198
+176.193.11.61 - - [13/Sep/2014 14:26:25] "GET /order/57 HTTP/1.0" 404 18 0.0012
+5.255.253.37 - - [13/Sep/2014 14:48:11] "GET /robots.txt HTTP/1.0" 200 75 0.0015
+5.255.253.37 - - [13/Sep/2014 14:48:13] "GET /?page=6 HTTP/1.0" 200 19582 0.0033
+71.172.250.43 - - [13/Sep/2014 16:34:32] "HEAD / HTTP/1.0" 200 19582 0.0032
+110.77.137.53 - - [13/Sep/2014 20:15:36] "GET /eheh/ehe/eh.php HTTP/1.0" 404 18 0.0015
+110.77.137.53 - - [13/Sep/2014 20:15:37] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0019
+110.77.137.53 - - [13/Sep/2014 20:15:38] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0012
+110.77.137.53 - - [13/Sep/2014 20:15:38] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0013
+164.40.153.130 - - [13/Sep/2014 22:55:05] "GET / HTTP/1.0" 200 19582 0.0051
+71.225.124.214 - - [14/Sep/2014 06:35:42] "GET /HNAP1/ HTTP/1.0" 404 18 0.0027
+93.174.94.139 - - [14/Sep/2014 06:36:13] "GET / HTTP/1.0" 200 19582 0.0033
+5.255.253.37 - - [14/Sep/2014 07:37:22] "GET /robots.txt HTTP/1.0" 200 75 0.0083
+5.255.253.37 - - [14/Sep/2014 07:37:23] "GET /robots.txt HTTP/1.0" 200 75 0.0011
+5.255.253.37 - - [14/Sep/2014 07:37:25] "GET / HTTP/1.0" 200 19582 0.0051
+5.255.253.37 - - [14/Sep/2014 07:37:25] "GET / HTTP/1.0" 200 19582 0.0033
+5.255.253.37 - - [14/Sep/2014 07:37:28] "GET / HTTP/1.0" 200 19582 0.0034
+5.255.253.37 - - [14/Sep/2014 07:37:30] "GET / HTTP/1.0" 200 19582 0.0033
+66.249.67.16 - - [14/Sep/2014 10:05:47] "GET /robots.txt HTTP/1.0" 200 75 0.0012
+66.249.67.16 - - [14/Sep/2014 10:05:47] "GET / HTTP/1.0" 200 19582 0.0050
+5.255.253.37 - - [14/Sep/2014 11:42:57] "GET /robots.txt HTTP/1.0" 200 75 0.0015
+5.255.253.37 - - [14/Sep/2014 13:40:50] "GET /order/70 HTTP/1.0" 404 18 0.0016
+5.255.253.37 - - [14/Sep/2014 14:26:18] "GET /news HTTP/1.0" 404 18 0.0012
+5.255.253.37 - - [14/Sep/2014 14:58:39] "GET /terms HTTP/1.0" 404 18 0.0012
+5.255.253.37 - - [14/Sep/2014 14:58:42] "GET /order/93 HTTP/1.0" 404 18 0.0012
+66.85.142.100 - - [14/Sep/2014 17:00:10] "GET / HTTP/1.0" 200 19582 0.0055
+125.231.171.12 - - [14/Sep/2014 18:02:35] "GET /yaya/yay/ya.php HTTP/1.0" 404 18 0.0028
+125.231.171.12 - - [14/Sep/2014 18:02:35] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0018
+125.231.171.12 - - [14/Sep/2014 18:02:36] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0013
+125.231.171.12 - - [14/Sep/2014 18:02:37] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0012
+176.99.6.189 - - [14/Sep/2014 18:05:08] "GET / HTTP/1.0" 200 19582 0.0040
+66.249.67.113 - - [14/Sep/2014 19:46:36] "GET /robots.txt HTTP/1.0" 200 75 0.0025
+66.249.67.105 - - [14/Sep/2014 19:46:36] "GET / HTTP/1.0" 200 19582 0.0033
+66.249.67.105 - - [14/Sep/2014 19:49:43] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0191
+66.249.67.121 - - [14/Sep/2014 19:49:44] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0303
+66.249.67.121 - - [14/Sep/2014 19:49:45] "GET /css/custom.css HTTP/1.0" 200 2577 0.0120
+101.108.188.125 - - [14/Sep/2014 20:27:48] "GET /jqjq/jqj/jq.php HTTP/1.0" 404 18 0.0012
+101.108.188.125 - - [14/Sep/2014 20:27:48] "GET /phpMyAdmin/scripts/setup.php HTTP/1.0" 404 18 0.0012
+101.108.188.125 - - [14/Sep/2014 20:27:49] "GET /pma/scripts/setup.php HTTP/1.0" 404 18 0.0017
+101.108.188.125 - - [14/Sep/2014 20:27:50] "GET /myadmin/scripts/setup.php HTTP/1.0" 404 18 0.0013
+Exiting!
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:626: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:626: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:626: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+ADMIN WAS CREATED!
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.0.sock, CTRL+C to stop
+Exiting!
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:626: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:626: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:627: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+ADMIN WAS CREATED!
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.0.sock, CTRL+C to stop
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 13:59:15] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0084
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 13:59:15] "GET /css/custom.css HTTP/1.0" 200 2577 0.0174
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 13:59:15] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0342
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 13:59:15] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0315
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 13:59:15] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0221
+142.234.110.138 - - [15/Sep/2014 14:28:28] "GET / HTTP/1.0" 200 19582 0.0949
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:24] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0041
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:24] "GET /css/custom.css HTTP/1.0" 200 2577 0.0030
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:24] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0019
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:24] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0017
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:24] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0031
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:29] "GET / HTTP/1.0" 200 19582 0.0041
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:29] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0018
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:29] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0013
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:29] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0015
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:29] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0023
+192.168.191.32, 80.237.85.130 - - [15/Sep/2014 15:20:30] "GET /favicon.ico HTTP/1.0" 404 18 0.0028
+66.240.192.138 - - [15/Sep/2014 16:20:14] "GET /robots.txt HTTP/1.0" 200 75 0.0149
+66.249.78.235 - - [15/Sep/2014 21:38:11] "GET / HTTP/1.0" 200 19582 0.0038
+66.249.78.242 - - [15/Sep/2014 21:39:08] "GET /css/custom.css HTTP/1.0" 200 2636 0.0016
+213.5.67.223 - - [16/Sep/2014 06:21:19] "GET /cgi-bin/php HTTP/1.0" 404 18 0.1107
+213.5.67.223 - - [16/Sep/2014 06:21:19] "GET /cgi-bin/php-cgi HTTP/1.0" 404 18 0.0013
+213.5.67.223 - - [16/Sep/2014 06:21:20] "GET /cgi-bin/php4 HTTP/1.0" 404 18 0.0013
+Exiting!
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:674: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:904: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:904: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+Writing PID to pid/thin.0.pid
+/home/sergey_rodionov/src/countr/countr.rb:991: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+Exiting!
+/home/sergey_rodionov/src/countr/countr.rb:13:in `require': cannot load such file -- russian (LoadError)
+	from /home/sergey_rodionov/src/countr/countr.rb:13:in `<top (required)>'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `require'
+	from /home/sergey_rodionov/src/countr/config.ru:8:in `block in <main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `instance_eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/builder.rb:55:in `initialize'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `new'
+	from /home/sergey_rodionov/src/countr/config.ru:1:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/rack/adapter/loader.rb:33:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:182:in `load_rackup_config'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:72:in `start'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+	from /home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'

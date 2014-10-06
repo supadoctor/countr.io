@@ -1,0 +1,338 @@
+#template{:style=>"display: none;"}
+  .uk-placeholder{:id=>"channel{0}"}
+    .uk-badge.uk-badge-success.uk-margin-bottom
+      Канал №{0}
+    .uk-form-row{:style=>"margin-bottom: 20px;"}
+      %label{:for=>"channelname{0}"} Название:
+      %input.channelname.uk-width-1-1{:type=>"text", :placeholder=>"Название", :name=>"channelname{0}", :id=>"channelname{0}"}
+      %br
+      %label.error.uk-text-small.uk-text-danger{:for=>"channelname{0}"}
+    .uk-form-row{:style=>"margin-bottom: 20px;"}
+      %label{:for=>"channeltype{0}"} Тип:
+      %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"email", :id=>"channeltype{0}"} Электронная почта
+      %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"sms", :id=>"channeltype{0}"} SMS
+      %br
+      %label.error.uk-text-small.uk-text-danger{:for=>"channeltype{0}"}
+    .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelemail{0}"}
+      %input.channelemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"channelemail{0}"}
+      %br
+      %label.error.uk-text-small.uk-text-danger{:for=>"channelemail{0}"}
+    .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelsms{0}"}
+      %input.channelsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"channelsms{0}"}
+      %br
+      %label.error.uk-text-small.uk-text-danger{:for=>"channelsms{0}"}
+    .uk-form-row{:style=>"margin-bottom: 20px;"}
+      %label{:for=>"channelpattern{0}"} Шаблон:
+      %textarea.channelpattern.uk-width-1-1{:type=>"text", :name=>"channelpattern{0}", :rows=>"6", :id=>"channelpattern{0}"}
+      %br
+      %label.error.uk-text-small.uk-text-danger{:for=>"channelpattern{0}"}
+    .uk-text-center
+      %a.checkpattern.uk-button{:href=>"#", :id=>"checkpattern{0}"}
+        Тест        
+
+.lane{:style=>"background-color: #FFF"}
+  %h1 Настройка учетной записи
+  %form#account.uk-form{:action => "/configure", :method=>"post"}
+    #step3
+      .uk-alert
+        Шаг 3/4 - настройка каналов передачи показаний счетчиков
+      %p
+        %div
+          На этом шаге давайте настроим каналы передачи показаний счетчиков и шаблоны отправляемых по ним сообщений.
+          -brand
+          подерживает передачу показаний по email и по SMS. Передача показаний по SMS возможна только после
+          %a{:href=>"/upgrade"} покупки полного функционала.
+      %p
+        %div
+          Для настройки каналов передачи вы должны знать:
+          %ul
+            %li адрес электронной почты получателя (если показания будут передаваться по электронной почте)
+            %li мобильный номер получателя (если показания будут передаваться по SMS)
+            %li формат, отправляемого по каналу сообщения (более актуально для передачи по SMS, т.к. как правило показания по электронной почте передаются в произвольной форме)
+          Эту информацию вы можете уточнить на сайтах сбытовых и распределительных компаний.
+      %p
+        %div
+          Для создания канала передачи определите его название, например,
+          %code Показания для ДУК
+          , выберите тип, укажите получателя (адрес электронной почты или мобильный номер) и сформируйте шаблон сообщения, отправляемого по этому каналу.
+          Для формирования шаблона перенесите
+          %code
+            элементы данных
+          , находящихся справа, в текстовое поле шаблона.
+          Для проверки корректности формирования сообщения по вашему шаблону, воспользуйетсь функцией "ТЕСТ".
+          А при помощи кнопок
+          %code +
+          и
+          %code -
+          вы можете настроить необходимое количество каналов передачи.
+      %p
+        %div          
+          Если же сейчас вы не готовы настроить каналы передачи данных, то это можно сделать позже.         
+      .uk-container-center.uk-width-xlarge-2-3
+        .uk-grid
+          .uk-width-2-3
+            .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+              #channels
+              .uk-text-center
+                %button.uk-button#btnDel{:disabled=>"", :style=>"margin-right: 20px;", :type=>"button"}
+                  %i.uk-icon-minus
+                %button.uk-button#btnAdd{:type=>"button"}
+                  %i.uk-icon-plus
+          .uk-width-1-3
+            .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom{"data-uk-sticky" => "{top:50, bottom:590}", :style=>"z-index: 1;"}
+              -patternpanel
+      .uk-text-center
+        %a.uk-button.uk-button-primary#tostep4{:href=>"#"}
+          Далее
+          %i.uk-icon-angle-double-right
+    #step4{:style=>"display: none;"}
+      .uk-alert
+        Шаг 4/4 - создание напоминаний
+      %p
+        %div
+          Мы в единственном шаге от завершения настройки учетной записи. Осталось установить дату, когда
+          -brand
+          будет напоминать вам о необходимости передачи показаний счетчиков.
+          -brand
+          подерживает отправку напоминаний по email и по SMS. Отправка напоминания по SMS возможна только после
+          %a{:href=>"/upgrade"} покупки полного функционала
+          -"."
+          Если вы хотите получать такие напоминания, то выберите выберите соответствующую опцию и укажите способ отправки, реквизиты получателя напоминания и дату.
+      .uk-container-center.uk-width-2-3
+        .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+          .uk-form-row{:style=>"margin-bottom: 20px;"}
+            %label{:for=>"notificationtype"} Получать напоминания:
+            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"none", :id=>"notificationtype"} нет
+            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"email", :id=>"notificationtype"} по электронной почте
+            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"sms", :id=>"notificationtype"} по SMS
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtype"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationemail"}
+            %input.notificationemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"notificationemail"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationemail"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationsms"}
+            %input.notificationsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"notificationsms"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationsms"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationdate"}
+            %label{:for=>"notificationtype"} Выберите дату получения напоминания (число каждого месяца):
+            %input.notificationdate{:name=>"notificationdate", :type=>"text", "data-uk-datepicker"=>"{weekstart: 1, format: 'DD', i18n: {months:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь', 'Декабрь'], weekdays:['Вс','Пн','Вт','Ср','Чт','Пт','Сб']}}"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationdate"}
+      .uk-text-center
+        %a.uk-button#backtostep3{:href=>"#", :style=>"margin-right: 20px;"}
+          %i.uk-icon-angle-double-left
+          Назад
+        %button.uk-button.uk-button-primary#finish{:type=>"submit"}
+          Далее
+          %i.uk-icon-angle-double-right
+          
+      //%button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
+    
+
+#patterntestmodal.uk-modal
+  .uk-modal-dialog.uk-modal-dialog-slide
+    %a.uk-modal-close.uk-close
+    %h2 Тест шаблона
+    %p
+      %div
+        Ниже находится пример сообщения, сформированного по вашему шаблону. Разумеется, вместо
+        %code ##
+        будут ваши реальные показания счетчиков, которые вы введете перед отправкой сообщения.
+    %pre
+      %code
+        #patterntestresult
+
+:javascript
+  
+  $(function() {
+  
+    $("input[type=radio][name*='notificationtype']").change(function() {
+        if (this.value == 'email') {
+            $('#notificationemail').show();
+            $('#notificationsms').hide();
+            $('#notificationdate').show();
+        }
+        if (this.value == 'sms') {
+            $('#notificationemail').hide();
+            $('#notificationsms').show();
+            $('#notificationdate').show();
+        }
+        if (this.value == 'none') {
+            $('#notificationemail').hide();
+            $('#notificationsms').hide();
+            $('#notificationdate').hide();
+        }
+    });
+    
+    $(document.body).on("change", "input[type=radio][name*='channeltype']", function() {
+        var k = ($(this).attr('name')).match(/\d+$/);
+        if (this.value == 'email') {
+            $('#channelemail'+k).show();
+            $('#channelsms'+k).hide();
+        }
+        else if (this.value == 'sms') {
+            $('#channelemail'+k).hide();
+            $('#channelsms'+k).show();
+        }
+    });
+
+    $("#btnAdd").click(addRow);
+    $("#btnDel").click(delRow);
+
+    var template = jQuery.validator.format($("#template").html());
+
+    function addRow() {
+
+      $("#channels").append(template(i));
+      initDroppable($("#channelpattern"+i));
+      i++;
+      if (i>2) {
+        $('#btnDel').prop('disabled', false)
+      }
+    }
+    
+    function delRow() {
+      if(i>2) {
+        i--;
+        $("#channel" + i).remove();
+        if (i==2) {
+          $('#btnDel').prop('disabled', true)
+        }
+      }
+    }
+
+    var i = 1;
+
+    addRow();
+    
+    $('#tostep4').click(function() {
+      if ($('#account').valid()) {
+        $('#step3').toggle();
+        $('#step4').toggle();
+      }
+    });
+
+    $('#backtostep3').click(function() {
+      if ($('#account').valid()) {
+        $('#step4').toggle();
+        $('#step3').toggle();
+      }
+    });
+
+
+    $.validator.addMethod("nameRequired", $.validator.methods.required, "Введите название");
+    $.validator.addMethod("nameMaxlength", $.validator.methods.maxlength, $.format("Название должно быть менее {0} символов"));
+
+    $.validator.addMethod("chaneltypeRequired", $.validator.methods.required, "Выберите канал передачи показаний счетчиков");
+    
+    $.validator.addMethod("emailRequired", $.validator.methods.required, "Введите адрес электронной почты получателя показаний счетчиков");
+    $.validator.addMethod("emailEmail", $.validator.methods.email, "Введите корректный адрес электронной почты");
+
+    $.validator.addMethod("smsRequired", $.validator.methods.required, "Введите мобильный номер получателя показаний счетчиков");
+    
+    $.validator.addMethod("patternRequired", $.validator.methods.required, "Введите шаблон");
+    $.validator.addMethod("patternMaxlength", $.validator.methods.maxlength, $.format("Название должно быть менее {0} символов"));
+
+    $.validator.addMethod("notificationtypeRequired", $.validator.methods.required, "Выберите канал передачи показаний счетчиков");
+
+    $.validator.addMethod("notificationemailRequired", $.validator.methods.required, "Введите адрес электронной почты получателя уведомлений");
+    $.validator.addMethod("notificationemailEmail", $.validator.methods.email, "Введите корректный адрес электронной почты");
+
+    $.validator.addMethod("notificationsmsRequired", $.validator.methods.required, "Введите мобильный номер получателя уведомлений");
+
+    $.validator.addMethod("notificationdateRequired", $.validator.methods.required, "Выберите день отправки уведомления");
+    $.validator.addMethod("notificationdateDigits", $.validator.methods.digits, $.format("Поле может содержать только цифры"));
+    $.validator.addMethod("notificationdateMax", $.validator.methods.max, $.format("Число должно быть не более {0}"));
+
+    $.validator.addClassRules({
+      channelname: {
+        nameRequired: true,
+        nameMaxlength: 500
+      },
+      channeltype: {
+        chaneltypeRequired: true
+      },
+      channelemail: {
+        emailRequired: true,
+        emailEmail: true
+      },
+      channelsms: {
+        smsRequired: true,
+        remote: {
+          url: "/ajax/checkphone",
+          type: "post"
+        }
+      },
+      channelpattern: {
+        patternRequired: true,
+        patternMaxlength: 65535
+      },
+      notificationtype: {
+        notificationtypeRequired: true
+      },
+      notificationemail: {
+        notificationemailRequired: true,
+        notificationemailEmail: true
+      },
+      notificationsms: {
+        notificationsmsRequired: true,
+        remote: {
+          url: "/ajax/checkphone2",
+          type: "post"
+        }
+      },
+      notificationdate: {
+        notificationdateRequired: true,
+        notificationdateDigits: true,
+        notificationdateMax: 31
+      }
+    });
+
+    $(".draggable").draggable({
+      appendTo: "body",
+      opacity: 0.7,
+      helper: "clone",
+      cursor: "move",
+      revert: "invalid"
+    });
+
+    //initDroppable($(".channelpattern"));
+    function initDroppable($elements) {
+      $elements.droppable({
+        hoverClass: "textarea",
+        accept: ":not(.ui-sortable-helper)",
+        drop: function(event, ui) {
+          var $this = $(this);
+          var tempid = ui.draggable.text().trim();
+          var dropText;
+          dropText = "{"+tempid+"}";
+          var droparea = document.getElementById($this.attr("id"));
+          var range1 = droparea.selectionStart;
+          var range2 = droparea.selectionEnd;
+          var val = droparea.value;
+          var str1 = val.substring(0, range1);
+          var str3 = val.substring(range1, val.length);
+         droparea.value = str1 + dropText + str3;
+        }
+      });
+    }
+    
+    $(document.body).on("click", ".checkpattern", function() {
+      var k = ($(this).attr('id')).match(/\d+$/);
+      var data = $('#channelpattern'+k).val();
+      var modal = $.UIkit.modal("#patterntestmodal");
+      $.ajax({
+        type: "POST",
+        dataType: "text",
+        url: "/ajax/testpattern",
+        data: "pattern=" + data,
+        success: function(reply_text) {
+          //alert(reply_text);
+          $("#patterntestresult").html(reply_text);
+          modal.show();
+        }
+      });
+    })
+  });
