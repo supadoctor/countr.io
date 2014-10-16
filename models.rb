@@ -79,8 +79,22 @@ class Profile
     :messages => {
       :format  => "Неверный формат мобильного номера. Номер должен начинатся с +7 или 8 и затем содержать 10 цифр"
     }
+  property :timezone, String
 
   belongs_to :user, :required => true
+
+  def notificationdateinlocaltime
+    self.notificationdate.new_offset(self.timezone.to_i/24.0)
+  end
+
+  def notificationto
+    case self.notificationtype
+    when "sms"
+      return self.notificationsms
+    when "email"
+      return self.notificationemail
+    end
+  end
 end
 
 class Channel
@@ -117,7 +131,10 @@ class Counter
   property :id, Serial
   property :title, String, :length => 500, :required => true
   property :type, Integer, :required => true #11 - cold water, 12 - hot water, 20 - gas, 31 - electricity (one), 32 - electricity (two), 33 - electricity (three)
-  property :account, String, :length => 500, :required => false
+  property :account, String, :length => 500, :required => false, :format => /^\d+$/,
+    :messages => {
+      :format  => "Лицевой счет может содержать только цифры"
+    }
   
   has n, :indications
   belongs_to :home, :required => true

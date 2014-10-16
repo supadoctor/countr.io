@@ -116,10 +116,55 @@
             %br
             %label.error.uk-text-small.uk-text-danger{:for=>"notificationsms"}
           .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationdate"}
-            %label{:for=>"notificationtype"} Выберите дату получения напоминания (число каждого месяца):
+            %label{:for=>"notificationdate"} Выберите дату получения уведомлений (число каждого месяца):
             %input.notificationdate{:name=>"notificationdate", :type=>"text", "data-uk-datepicker"=>"{weekstart: 1, format: 'DD', i18n: {months:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь', 'Декабрь'], weekdays:['Вс','Пн','Вт','Ср','Чт','Пт','Сб']}}"}
             %br
             %label.error.uk-text-small.uk-text-danger{:for=>"notificationdate"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtimezone"}
+            %label{:for=>"notificationtimezone"} Выберите часовой пояс, в котром вы находитесь:
+            %select.notificationtimezone{:name=>"notificationtimezone", :type=>"text"}
+              %option{:disabled=>"", :selected=>""} Выберите часовой пояс
+              %option{:value=>"+3"} Калининград... (МСК-1)
+              %option{:value=>"+4"} Москва, С.Петербург, Н.Новгород, Волгоград... (МСК)
+              %option{:value=>"+6"} Екатеринбург, Пермь, Уфа, Челябинск, Тюмень... (МСК+2)
+              %option{:value=>"+7"} Омск, Новосибирск, Барнаул, Кемерово, Томск... (МСК+3)
+              %option{:value=>"+8"} Красноярск, Нориоьск, Абакан... (МСК+4)
+              %option{:value=>"+9"} Иркутск, Улан-Удэ... (МСК+5)
+              %option{:value=>"+10"} Якутск, Чита, Благовещенск... (МСК+6)
+              %option{:value=>"+11"} Владивосток, Хабаровск... (МСК+7)
+              %option{:value=>"+12"} Магадан, Петропавловск-Камчатский, Анадырь... (МСК+8)
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtimezone"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtime"}
+            %label{:for=>"notificationtime"} Выберите час отправки уведомлений:
+            %select.notificationtime{:name=>"notificationtime", :type=>"text"}
+              %option{:disabled=>"", :selected=>""} Выберите час
+              %option{:value=>"0"} 00
+              %option{:value=>"1"} 01
+              %option{:value=>"2"} 02
+              %option{:value=>"3"} 03
+              %option{:value=>"4"} 04
+              %option{:value=>"5"} 05
+              %option{:value=>"6"} 06
+              %option{:value=>"7"} 07
+              %option{:value=>"8"} 08
+              %option{:value=>"9"} 09
+              %option{:value=>"10"} 10
+              %option{:value=>"11"} 11
+              %option{:value=>"12"} 12
+              %option{:value=>"13"} 13
+              %option{:value=>"14"} 14
+              %option{:value=>"15"} 15
+              %option{:value=>"16"} 16
+              %option{:value=>"17"} 17
+              %option{:value=>"18"} 18
+              %option{:value=>"19"} 19
+              %option{:value=>"20"} 20
+              %option{:value=>"21"} 21
+              %option{:value=>"22"} 22
+              %option{:value=>"23"} 23
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtime"}
       .uk-text-center
         %a.uk-button#backtostep3{:href=>"#", :style=>"margin-right: 20px;"}
           %i.uk-icon-angle-double-left
@@ -153,16 +198,24 @@
             $('#notificationemail').show();
             $('#notificationsms').hide();
             $('#notificationdate').show();
+            $('#notificationtimezone').show();
+            $('#notificationtime').show();
+
         }
         if (this.value == 'sms') {
             $('#notificationemail').hide();
             $('#notificationsms').show();
             $('#notificationdate').show();
+            $('#notificationtimezone').show();
+            $('#notificationtime').show();
+
         }
         if (this.value == 'none') {
             $('#notificationemail').hide();
             $('#notificationsms').hide();
             $('#notificationdate').hide();
+            $('#notificationtimezone').hide();
+            $('#notificationtime').hide();
         }
     });
     
@@ -246,6 +299,10 @@
     $.validator.addMethod("notificationdateDigits", $.validator.methods.digits, $.format("Поле может содержать только цифры"));
     $.validator.addMethod("notificationdateMax", $.validator.methods.max, $.format("Число должно быть не более {0}"));
 
+    $.validator.addMethod("notificationtimezoneRequired", $.validator.methods.required, "Выберите временную зону");
+
+    $.validator.addMethod("notificationtimeRequired", $.validator.methods.required, "Выберите время");
+
     $.validator.addClassRules({
       channelname: {
         nameRequired: true,
@@ -287,6 +344,12 @@
         notificationdateRequired: true,
         notificationdateDigits: true,
         notificationdateMax: 31
+      },
+      notificationtimezone: {
+        notificationtimezoneRequired: true
+      },
+      notificationtime: {
+        notificationtimeRequired: true
       }
     });
 

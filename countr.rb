@@ -17,6 +17,7 @@ require './models.rb'
 class CountrIOApp < Sinatra::Application
   configure do
     set :logging, true
+    #ENV['TZ'] = 'Europe/Moscow'
     #set :root, File.dirname(__FILE__)
     use Rack::Session::Cookie, :key => "rack.session", :expire_after => 31557600, :secret => "supasecretphrasefotcountrio"
     I18n.default_locale = :ru
@@ -611,16 +612,30 @@ class CountrIOApp < Sinatra::Application
         z+=1
       end
     end
+    p = current_user.profile
+    if params[:notificationtype] == "sms"
+      nday = params[:notificationdate].to_i
+      nmonth = DateTime.now.month
+      nyear = DateTime.now.year
+      nhour = params[:notificationtime].to_i
+      ntz = params[:notificationtimezone]
+      ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
+      puts ndatetime
+      p.attributes = {:sendnotification=>true, :notificationsms=>params[:notificationsms], :notificationdate=>ndatetime.to_time, :notificationtype=>params[:notificationtype], :timezone=>ntz}
+    elsif params[:notificationtype] == "email"
+      nday = params[:notificationdate].to_i
+      nmonth = DateTime.now.month
+      nyear = DateTime.now.year
+      nhour = params[:notificationtime].to_i
+      ntz = params[:notificationtimezone]
+      ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
+      p.attributes = {:sendnotification=>true, :notificationemail=>params[:notificationemail], :notificationdate=>ndatetime.to_time, :notificationtype=>params[:notificationtype], :timezone=>ntz}
+      puts ndatetime
+    end
     begin
-      if params[:notificationtype] != "none"
-        if params[:notificationtype] == "sms"
-          current_user.profile.update(:sendnotification=>true, :notificationsms=>params[:notificationsms], :notificationdate=>params[notificationdate])
-        else
-          current_user.profile.update(:sendnotification=>true, :notificationemail=>params[:notificationemail], :notificationdate=>params[notificationdate])
-        end
-      end
+      p.save
     rescue
-      session[:messagetodisplay] = current_user.profile.errors.values.join("; ")
+      session[:messagetodisplay] = p.errors.values.join("; ")
     else
       #puts "NOTIFICATION WAS SAVED"
       session[:messagetodisplay] = @@text["notifications"]["setupfinished"]
@@ -923,6 +938,166 @@ class CountrIOApp < Sinatra::Application
     end
   end
 
+  post '/home/:home/countertitleupdate' do
+    content_type :json
+    user = current_user
+    account = user.account
+    home = account.homes.all[params[:home].to_i-1]
+    counter = home.counters.all[params[:pk].to_i-1]
+    counter.attributes = {:title=>params[:value]}
+    begin
+      counter.save
+    rescue
+      f={:success=>false, :msg=>counter.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Наименование счетчика успешно обновлено"}
+      f.to_json
+    end
+  end
+
+  post '/home/:home/countertypeupdate' do
+    content_type :json
+    user = current_user
+    account = user.account
+    home = account.homes.all[params[:home].to_i-1]
+    counter = home.counters.all[params[:pk].to_i-1]
+    counter.attributes = {:type=>params[:value]}
+    begin
+      counter.save
+    rescue
+      f={:success=>false, :msg=>counter.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Тип счетчика успешно обновлен"}
+      f.to_json
+    end
+  end
+
+  post '/home/:home/counteraccountupdate' do
+    content_type :json
+    user = current_user
+    account = user.account
+    home = account.homes.all[params[:home].to_i-1]
+    counter = home.counters.all[params[:pk].to_i-1]
+    counter.attributes = {:account=>params[:value]}
+    begin
+      counter.save
+    rescue
+      f={:success=>false, :msg=>counter.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Лицевой счет счетчика успешно обновлен"}
+      f.to_json
+    end
+  end
+
+  post '/home/:home/channeltitleupdate' do
+    content_type :json
+    user = current_user
+    account = user.account
+    home = account.homes.all[params[:home].to_i-1]
+    channel = home.channels.all[params[:pk].to_i-1]
+    channel.attributes = {:title=>params[:value]}
+    begin
+      channel.save
+    rescue
+      f={:success=>false, :msg=>channel.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Наименование канала успешно обновлено"}
+      f.to_json
+    end
+  end
+
+  post '/home/:home/channelreceiverupdate' do
+    content_type :json
+    user = current_user
+    account = user.account
+    home = account.homes.all[params[:home].to_i-1]
+    channel = home.channels.all[params[:pk].to_i-1]
+    if channel.type == 'sms'
+      channel.attributes = {:phone=>params[:value]}
+    else
+      channel.attributes = {:email=>params[:value]}
+    end
+    begin
+      channel.save
+    rescue
+      f={:success=>false, :msg=>channel.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Получатель успешно обновлен"}
+      f.to_json
+    end
+  end
+
+  post '/notificationtypeupdate' do
+    content_type :json
+  end
+
+  post '/notificationtoupdate' do
+    content_type :json
+    p = current_user.profile
+    if p.notificationtype == 'sms'
+      p.attributes = {:notificationsms=>params[:value]}
+    elsif p.notificationtype == 'email'
+      p.attributes = {:notificationemail=>params[:value]}
+    end
+    begin
+      p.save
+    rescue
+      f={:success=>false, :msg=>p.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Получатель уведомлений успешно обновлен"}
+      f.to_json
+    end
+  end
+
+  post '/notificationdateupdate' do
+    content_type :json
+    p = current_user.profile
+    nday = params[:value].to_i
+    nmonth = p.notificationdateinlocaltime.month
+    nyear = p.notificationdateinlocaltime.year
+    nhour = p.notificationdateinlocaltime.hour
+    ntz = p.timezone
+    ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
+    p.attributes = {:notificationdate=>ndatetime.to_time}
+    begin
+      p.save
+    rescue
+      f={:success=>false, :msg=>p.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Дата отправки уведомлений успешно обновлена"}
+      f.to_json
+    end
+  end
+
+  post '/notificationtimeupdate' do
+    content_type :json
+    p = current_user.profile
+    nday = p.notificationdateinlocaltime.day
+    nmonth = p.notificationdateinlocaltime.month
+    nyear = p.notificationdateinlocaltime.year
+    nhour = params[:value].to_i
+    ntz = p.timezone
+    ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
+    puts "WAS >>>", p.notificationdateinlocaltime
+    puts "WILL BE >>>", ndatetime
+    p.attributes = {:notificationdate=>ndatetime.to_time}
+    begin
+      p.save
+    rescue
+      f={:success=>false, :msg=>p.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true, :msg=>"Время отправки уведомлений успешно обновлено"}
+      f.to_json
+    end
+  end
 
   post '/auth/login' do
     env['warden'].authenticate!(:password)
@@ -937,7 +1112,7 @@ class CountrIOApp < Sinatra::Application
         :email => auth[:info][:email],
         :name => auth[:info][:first_name] + " " + auth[:info][:last_name],
         :profile => Profile.new(),
-        :account => Account.new(:type=>1))
+        :account => Account.new(:type=>0))
       begin
         user.save
       rescue
@@ -1024,4 +1199,11 @@ class CountrIOApp < Sinatra::Application
     decodepattern(params[:pattern], "test")
   end
 
-end  # END OF APP CLASS
+  get '/test' do
+    ndatetime = current_user.profile.notificationdate
+    puts ndatetime.class, ndatetime, ndatetime.zone
+    puts "******"
+    puts ndatetime.to_time.utc
+  end
+  
+end # END OF APP CLASS

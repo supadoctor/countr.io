@@ -1,24 +1,47 @@
 .lane{:style => "background-color: #FFF;"}
   %h1 Профиль пользователя
+  .uk-alert{"data-uk-alert"=>""}
+    %a.uk-alert-close.uk-close
+    %p
+      %div
+        На этой странице вы можете просмотреть информацию о своей учетной записи и профиле. Поля, отмеченные 
+        %span.editable-click подчеркиванием
+        , доступны для редактирования. Для изменения значение кликните на поле, введите новое значение и нажмите кнопку "ОК".
+        Также на этой странице вы можете добавить или удалить помещения, счетчики, каналы передачи показаний счетчиков.
   %dl.uk-description-list-horizontal
-    %dt Имя пользователя
-    %dd
+    %dt.uk-margin-bottom Имя пользователя
+    %dd.uk-margin-bottom
       %text#name #{@user.name}
-    %dt На сайте с
-    %dd #{@profile.created_at.strftime("%d.%m.%Y")}
-    %dt Тип доступа
+    %dt.uk-margin-bottom На сайте с
+    %dd.uk-margin-bottom #{@profile.created_at.strftime("%d.%m.%Y")}
+    %dt.uk-margin-bottom Тип доступа
     -if @account.type == 1
-      %dd Полный
+      %dd.uk-margin-bottom Полный
     -else 
-      %dd
+      %dd.uk-margin-bottom
         Базовый
-        %a{:href=>"/upgrade"}
+        -#
+          %a{:href=>"/upgrade"}
           Купить полный функционал
-    %dt Уведомления
+    %dt.uk-margin-bottom Уведомления
     -if @profile.sendnotification
-      %dd отправляются по #{@profile.notificationtype} #{@profile.notificationdate.strftime("%d")}-го числа каждого месяца
+      %dd.uk-margin-bottom
+        %span
+          по
+          %text#notificationtype{"data-value"=>@profile.notificationtype} #{@profile.notificationtype}
+          на
+          %text#notificationto{"data-value"=>@profile.notificationto} #{@profile.notificationto}
+          каждого месяца
+          %text#notificationdate{"data-value"=>@profile.notificationdateinlocaltime.strftime("%d")} #{@profile.notificationdateinlocaltime.strftime("%d")}
+          ='-го числа'
+          в
+          %text#notificationtime{"data-value"=>@profile.notificationdateinlocaltime.strftime("%H")} #{@profile.notificationdateinlocaltime.strftime("%H")}
+          =':00'
+          -if @profile.notificationtype == "sms" && @account.type != 1
+            .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Оповещения не отправляются до покупки полного функционала"} !
     -else
-      %dd не отправляются
+      %dd.uk-margin-bottom не отправляются
+                
   -@environment.each_with_index do |(h,v), i|
     .uk-placeholder
       %h4
@@ -43,17 +66,20 @@
           %table.uk-table
             %thead
               %tr
-                %th Наименование
-                %th Тип счетчика
-                %th Лицевой счет
+                %th{:width=>"34%"} Наименование
+                %th{:width=>"33%"} Тип счетчика
+                %th{:width=>"33%"} Лицевой счет
             -@environment[h][:counters].each_with_index do |c, ci|
               %tr
                 %td
-                  #{c.title}
+                  %text.countertitle{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/countertitleupdate"} #{c.title}
                   %a{:href=>"/home/#{i+1}/counter/#{ci+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
                     %i.uk-icon-minus-circle
-                %td #{c.typestr}
-                %td #{c.account}
+                %td
+                  %text.countertype{"data-pk"=>ci+1, "data-value"=>c.type, "data-url"=>"/home/#{i+1}/countertypeupdate"}
+                    //%option{:value=>c.type} #{c.typestr}
+                %td
+                  %text.counteraccount{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counteraccountupdate"} #{c.account}
         -else
           .uk-alert.uk-alert-warning Счетчики не определены
       .uk-panel.uk-panel-box.uk-margin-top
@@ -65,18 +91,23 @@
           %table.uk-table
             %thead
               %tr
-                %th Наименование
-                %th Способ передачи
-                %th Получатель
-                %th Шаблон передаваемого сообщения
+                %th{:width=>"25%"} Наименование
+                %th{:width=>"17%"} Способ передачи
+                %th{:width=>"25%"} Получатель
+                %th{:width=>"33%"} Шаблон передаваемого сообщения
             -@environment[h][:channels].each_with_index do |ch, chi|
               %tr
                 %td
-                  #{ch.title}
+                  %text.channeltitle{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channeltitleupdate"} #{ch.title}
                   %a{:href=>"/home/#{i+1}/channel/#{chi+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить канал передачи"}
                     %i.uk-icon-minus-circle
-                %td #{ch.type}
-                %td #{ch.to}
+                %td
+                  %span
+                    #{ch.type}
+                    -if ch.type == 'sms' && @account.type != 1
+                      .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Канал неактивен до покупки полного функционала"} !
+                %td
+                  %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
                 %td
                   %code #{ch.pattern}
         -else
@@ -125,7 +156,7 @@
         } 
       }
     });
-
+    
     $('.homeaddress').editable({
       type: 'text',
       url: '/homeaddressupdate',
@@ -144,4 +175,241 @@
         } 
       }
     });
+
+    $('.countertitle').editable({
+      type: 'text',
+      send: 'always',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+    $('.countertype').editable({
+      type: 'select',
+      send: 'always',
+      highlight: '#40e0d0',
+      source: [
+        {value: 11, text: 'ХВС'},
+        {value: 12, text: 'ГВС'},
+        {value: 20, text: 'ГАЗ'},
+        {value: 31, text: 'ЭЛЕКТРИЧЕСТВО (Т1)'},
+        {value: 32, text: 'ЭЛЕКТРИЧЕСТВО (Т2)'},
+        {value: 33, text: 'ЭЛЕКТРИЧЕСТВО (Т3)'}
+      ],
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+    $('#notificationtype').editable({
+      type: 'select',
+      url: '/notificationtypeupdate',
+      send: 'always',
+      highlight: '#40e0d0',
+      source: [
+        {value: 'sms', text: 'sms'},
+        {value: 'email', text: 'email'}
+      ],
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+    
+    $('#notificationdate').editable({
+      type: 'select',
+      url: '/notificationdateupdate',
+      send: 'always',
+      highlight: '#40e0d0',
+      source: [
+        {value: '01', text: '01'},
+        {value: '02', text: '02'},
+        {value: '03', text: '03'},
+        {value: '04', text: '04'},
+        {value: '05', text: '05'},
+        {value: '06', text: '06'},
+        {value: '07', text: '07'},
+        {value: '08', text: '08'},
+        {value: '09', text: '09'},
+        {value: '10', text: '10'},
+        {value: '11', text: '11'},
+        {value: '12', text: '12'},
+        {value: '13', text: '13'},
+        {value: '14', text: '14'},
+        {value: '15', text: '15'},
+        {value: '16', text: '16'},
+        {value: '17', text: '17'},
+        {value: '18', text: '18'},
+        {value: '19', text: '19'},
+        {value: '20', text: '20'},
+        {value: '21', text: '21'},
+        {value: '22', text: '22'},
+        {value: '23', text: '23'},
+        {value: '24', text: '24'},
+        {value: '25', text: '25'},
+        {value: '26', text: '26'},
+        {value: '27', text: '27'},
+        {value: '28', text: '28'},
+        {value: '29', text: '29'},
+        {value: '30', text: '30'},
+        {value: '31', text: '31'}
+      ],
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+    $('#notificationto').editable({
+      type: 'text',
+      url: '/notificationtoupdate',
+      send: 'always',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+
+    $('#notificationtime').editable({
+      type: 'select',
+      url: '/notificationtimeupdate',
+      send: 'always',
+      highlight: '#40e0d0',
+      source: [
+        {value: '00', text: '00'},
+        {value: '01', text: '01'},
+        {value: '02', text: '02'},
+        {value: '03', text: '03'},
+        {value: '04', text: '04'},
+        {value: '06', text: '06'},
+        {value: '07', text: '07'},
+        {value: '09', text: '09'},
+        {value: '10', text: '10'},
+        {value: '11', text: '11'},
+        {value: '12', text: '12'},
+        {value: '13', text: '13'},
+        {value: '14', text: '14'},
+        {value: '15', text: '15'},
+        {value: '16', text: '16'},
+        {value: '17', text: '17'},
+        {value: '19', text: '19'},
+        {value: '21', text: '21'},
+        {value: '22', text: '22'},
+        {value: '23', text: '23'}
+      ],
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+
+    $('.counteraccount').editable({
+      type: 'text',
+      send: 'always',
+      emptytext: 'Нет',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+    $('.channeltitle').editable({
+      type: 'text',
+      send: 'always',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
+    $('.channelto').editable({
+      type: 'text',
+      send: 'always',
+      highlight: '#40e0d0',
+      error: function(response, newValue) {
+        if(response.status === 500) {
+          return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
+        }
+      },
+      success: function(response, newValue) {
+        if(!response.success) {
+          return response.msg
+        } else {
+          displaynotify(response.msg);
+        } 
+      }
+    });
+
   });
