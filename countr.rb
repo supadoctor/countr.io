@@ -490,37 +490,49 @@ class CountrIOApp < Sinatra::Application
     end
 
   end  # END OF HELPERS
-
+    
   get '/' do
     if logged_in?
       @user = current_user
-      haml :home
+      @profile = @user.profile
+      @account = @user.account
+      @environment = Hash.new
+      #@homes = current_user.account.homes.all
+      @account.homes.all.each do |h|
+        @environment[h] = {}
+      end
+      if @environment.size > 0
+        err = 1
+        @environment.each_key do |h|
+          @channels = h.channels.all
+          @counters = h.counters.all
+          @environment[h][:channels] = @channels
+          @environment[h][:counters] = @counters
+          if @environment[h][:channels].size > 0
+            err = 0
+          end
+          @channels.each do |ch|
+            @countersinchannel = ch.counters.all
+          end
+        end
+        #hh = @env.keys[0]
+        #puts @env, "****************"
+        #puts hh.title, @env[hh][:channels][0].pattern, @env[hh][:counters][0].type
+        #puts @env
+        #puts "BEFORE DISPLAYING PROFILE"
+        if err == 1
+          haml :plsaddchannels
+        else
+          haml :home
+        end
+      else
+        haml :plssetup
+      end
     else
       haml :index
     end
   end
-  
-  #post '/registration' do
-  #  user = User.new(
-  #    :email => params[:email],
-  #    :password => params[:password],
-  #    :name => params[:name],
-  #    :account => Account.new(),
-  #    :profile => Profile.new()
-  #    )
-  #  begin
-  #    user.save
-  #  rescue
-  #    session[:messagetodisplay] = user.errors.values.join("; ")
-  #  else
-  #    puts "WAS", current_user.account.type
-  #    current_user.account.update(:type=>1) ### all new users are paid
-  #    puts "IS", current_user.account.type
-  #    session[:messagetodisplay] = @@text[:notifications][:reguser]
-  #    env['warden'].authenticate!(:password)
-  #  end
-  #  redirect '/setup'
-  #end
+
 
   get '/setup' do
     if logged_in?
@@ -642,30 +654,7 @@ class CountrIOApp < Sinatra::Application
       #puts "BEFORE CALLING /PROFILE"
       redirect '/profile'
     end
-  end
-  
-  get '/home' do
-    if logged_in?
-      @user = current_user
-      @homes = @user.account.homes.all
-      if @homes.size > 0
-        @env = {}
-        @homes.each do |h|
-          @channels = h.channels.all
-          @counters = h.counters.all
-          @channels.each do |ch|
-            @countersinchannel = ch.counters.all
-          end
-        end
-        haml :home
-      else
-        haml :plssetup
-      end
-    else
-      session[:messagetodisplay] = @@text["notifications"]["plslogin"]
-      redirect '/'
-    end
-  end
+  end  
 
   get '/profile' do
     if logged_in?
@@ -691,7 +680,7 @@ class CountrIOApp < Sinatra::Application
         #puts @env, "****************"
         #puts hh.title, @env[hh][:channels][0].pattern, @env[hh][:counters][0].type
         #puts @env
-        puts "BEFORE DISPLAYING PROFILE"
+        #puts "BEFORE DISPLAYING PROFILE"
         haml :profile
       else
         haml :plssetup
@@ -735,22 +724,24 @@ class CountrIOApp < Sinatra::Application
     end
   end
 
-  get '/home/:home/delete' do
+  delete '/home/:home/delete' do
     user = current_user
     account = user.account
     home = account.homes.all[params[:home].to_i-1]
     counters = home.counters.all
     channels = home.channels.all
-    begin
-      counters.destroy
-      channels.destroy
-      home.destroy
-    rescue
-      session[:messagetodisplay] = home.errors.values.join("; ")
-    else
-      session[:messagetodisplay] = @@text["notifications"]["homewasdeleted"]
+    counters.each do |c|
+      indications = c.indications.all
+      indications.destroy
     end
-    redirect '/profile'
+    counters.destroy
+    channels.destroy
+    if home.destroy
+      session[:messagetodisplay] = @@text["notifications"]["homewasdeleted"]
+    else
+      session[:messagetodisplay] = @@text["notifications"]["homewasnotdeleted"]
+    end
+    #redirect '/profile'
   end
   
   get '/home/:home/counter/new' do
@@ -805,20 +796,24 @@ class CountrIOApp < Sinatra::Application
     end
   end
   
-  get '/home/:home/counter/:counter/delete' do
+  delete '/home/:home/counter/:counter/delete' do
     user = current_user
     account = user.account
     home = account.homes.all[params[:home].to_i-1]
     counter = home.counters.all[params[:counter].to_i-1]
-    begin
-      counter.destroy
-    rescue
-      session[:messagetodisplay] = counter.errors.values.join("; ")
-    else
+    counter.indications.all.destroy
+    #channels = home.channels.all
+    #channels.each do |ch|
+    #  ch.destroy
+    #end
+    indications = counter.indications.all
+    indications.destroy
+    if counter.destroy
       session[:messagetodisplay] = @@text["notifications"]["counterwasdeleted"]
+    else
+      session[:messagetodisplay] = @@text["notifications"]["counterwasnotdeleted"]
     end
-    redirect '/profile'
-
+    #redirect '/profile'
   end
   
   get '/home/:home/channel/new' do
@@ -886,7 +881,20 @@ class CountrIOApp < Sinatra::Application
     redirect '/profile'
   end
 
-  get '/home/:home/channel/:channel/delete' do
+  delete '/home/:home/channel/:channel/delete' do
+    user = current_user
+    account = user.account
+    home = account.homes.all[params[:home].to_i-1]
+    channel = home.channels.all[params[:channel].to_i-1]
+    counters = home.counters.all(:channel => channel)
+    counters.each do |c|
+      c.update(:channel => nil)
+    end
+    if channel.destroy
+      session[:messagetodisplay] = @@text["notifications"]["channelwasdeleted"]
+    else
+      session[:messagetodisplay] = @@text["notifications"]["channelwasnotdeleted"]
+    end
   end
 
   post '/nameupdate' do
@@ -1034,6 +1042,29 @@ class CountrIOApp < Sinatra::Application
 
   post '/notificationtypeupdate' do
     content_type :json
+    p = current_user.profile
+    if params[:value] == 'sms'
+      p.attributes = {:notificationtype=>params[:value], :notificationemail=>nil}
+    elsif params[:value] == 'email'
+      p.attributes = {:notificationtype=>params[:value], :notificationsms=>nil}
+    end
+    begin
+      p.save
+    rescue
+      f={:success=>false, :msg=>p.errors.values.join("; ")}
+      f.to_json
+    else
+      f={:success=>true}
+      if params[:value] == 'sms'
+        session[:messagetodisplay] = "Способ передачи уведомлений успешно обновлен. Укажите мобильный номер получателя уведомлений"
+        #f={:success=>true, :msg=>"Способ передачи уведомлений успешно обновлен. Укажите мобильный номер получателя уведомлений"}
+      elsif params[:value] == 'email'
+        session[:messagetodisplay] = "Способ передачи уведомлений успешно обновлен. Укажите адрес электронной почты получателя уведомлений"
+        #f={:success=>true, :msg=>"Способ передачи уведомлений успешно обновлен. Укажите адрес электронной почты получателя уведомлений"}
+      end
+      f.to_json
+      #redirect '/profile'
+    end
   end
 
   post '/notificationtoupdate' do
@@ -1075,6 +1106,50 @@ class CountrIOApp < Sinatra::Application
       f.to_json
     end
   end
+  
+  post '/home/:home/counter/:counter/setvalue' do
+    content_type :json
+    account = current_user.account
+    home = account.homes.all[params[:home].to_i-1]
+    counter = home.counters.all[params[:counter].to_i-1]
+    startmonth = Date.new Date.today.year, Time.now.month, 1
+    endmonth = startmonth >> 1
+    indications = counter.indications.all(:period => startmonth..endmonth)
+    if indications.count == 0
+      puts "NO INDICATION WAS BEFORE"
+      counter.indications.new(:period => Date.today, :value => params[:value])
+      begin
+        counter.save
+      rescue
+        f={:success=>false, :msg=>counter.errors.values.join("; ")}
+        f.to_json
+      else
+        f={:success=>true, :msg=>"Показание счетчика записано, но не отправлено"}
+        f.to_json
+      end
+    else
+      puts "THERE IS INDICATION"
+      indication = indications[0]
+      if indication.submited == true
+        puts "AND IT WAS SUBMITED"
+        #f={:success=>false, :msg=>"Нельзя изменить уже переданное значение счетчика"}
+        #f.to_json
+        halt 200, {'Content-Type' => 'application/json'}, '{"success":false, "msg":"Нельзя изменить уже переданное значение счетчика"}'
+      else
+        puts "AND IT WAS NOT SUBMITED"
+        indication.attributes = {:period => Date.today, :value => params[:value]}
+        begin
+          indication.save
+        rescue
+          f={:success=>false, :msg=>indication.errors.values.join("; ")}
+          f.to_json
+        else
+          f={:success=>true, :msg=>"Показание счетчика обновлено, но не отправлено"}
+          f.to_json
+        end
+      end
+    end
+  end
 
   post '/notificationtimeupdate' do
     content_type :json
@@ -1097,6 +1172,36 @@ class CountrIOApp < Sinatra::Application
       f={:success=>true, :msg=>"Время отправки уведомлений успешно обновлено"}
       f.to_json
     end
+  end
+
+  get '/home/:home/channel/:channel/updatepattern' do
+    if logged_in?
+      account = current_user.account
+      home = account.homes.all[params[:home].to_i-1]
+      channel = home.channels.all[params[:channel].to_i-1]
+      @channelpattern = channel.pattern
+      @home_index = params[:home]
+      @channel_index = params[:channel]
+      haml :updatechannelpattern
+    else
+      session[:messagetodisplay] = @@text["notifications"]["plslogin"]
+      redirect '/'
+    end
+  end
+
+  post '/home/:home/channel/:channel/updatepattern' do
+    account = current_user.account
+    home = account.homes.all[params[:home].to_i-1]
+    channel = home.channels.all[params[:channel].to_i-1]
+    channel.attributes = {:pattern=>params[:channelpattern]}
+    begin
+      channel.save
+    rescue
+      session[:messagetodisplay] = channel.errors.values.join("; ")
+    else
+      session[:messagetodisplay] = "Шаблон сообщения успешно обновлен"
+    end
+    redirect '/profile'
   end
 
   post '/auth/login' do

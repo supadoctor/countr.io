@@ -44,10 +44,10 @@
                 
   -@environment.each_with_index do |(h,v), i|
     .uk-placeholder
-      %h4
+      %h2
         Помещение #{i+1}
-        %a{:href=>"/home/#{i+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
-          %i.uk-icon-minus-circle
+        %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
+          %i.uk-icon-minus-circle.delhome{"data-myhref"=>"/home/#{i+1}/delete"}
         %a{:href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
           %i.uk-icon-plus-circle
       %dl.uk-description-list-horizontal
@@ -73,8 +73,8 @@
               %tr
                 %td
                   %text.countertitle{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/countertitleupdate"} #{c.title}
-                  %a{:href=>"/home/#{i+1}/counter/#{ci+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
-                    %i.uk-icon-minus-circle
+                  %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
+                    %i.uk-icon-minus-circle.delcounter{"data-myhref"=>"/home/#{i+1}/counter/#{ci+1}/delete"}
                 %td
                   %text.countertype{"data-pk"=>ci+1, "data-value"=>c.type, "data-url"=>"/home/#{i+1}/countertypeupdate"}
                     //%option{:value=>c.type} #{c.typestr}
@@ -99,8 +99,8 @@
               %tr
                 %td
                   %text.channeltitle{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channeltitleupdate"} #{ch.title}
-                  %a{:href=>"/home/#{i+1}/channel/#{chi+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить канал передачи"}
-                    %i.uk-icon-minus-circle
+                  %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить канал передачи"}
+                    %i.uk-icon-minus-circle.delchannel{"data-myhref"=>"/home/#{i+1}/channel/#{chi+1}/delete"}
                 %td
                   %span
                     #{ch.type}
@@ -110,6 +110,7 @@
                   %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
                 %td
                   %code #{ch.pattern}
+                  %a{:href=>"/home/#{i+1}/channel/#{chi+1}/updatepattern"} Изменить
         -else
           .uk-alert.uk-alert-warning Каналы передачи не определены
 
@@ -238,7 +239,7 @@
         if(!response.success) {
           return response.msg
         } else {
-          displaynotify(response.msg);
+          window.location.reload();
         } 
       }
     });
@@ -300,6 +301,7 @@
       url: '/notificationtoupdate',
       send: 'always',
       highlight: '#40e0d0',
+      emptytext: 'значение не определено',
       error: function(response, newValue) {
         if(response.status === 500) {
           return 'Сервис временно недоступен, пожалуйста повторте попытку позже.';
@@ -360,7 +362,7 @@
     $('.counteraccount').editable({
       type: 'text',
       send: 'always',
-      emptytext: 'Нет',
+      emptytext: 'значение не определено',
       highlight: '#40e0d0',
       error: function(response, newValue) {
         if(response.status === 500) {
@@ -411,5 +413,44 @@
         } 
       }
     });
+
+   $('.delhome').click(function() {
+     var isConfirmed = confirm("Удаляя помещение вы удалите и все соответствующие счетчики, их показания и каналы передачи. Пожалуйста, подтвердите или отмените операцию удаления.");
+     if(isConfirmed) {
+       $.ajax({
+         url: $(this).data("myhref"),
+         type: 'DELETE',
+         success: function(result) {
+           window.location.reload();
+         }
+       });
+     }
+   });
+
+   $('.delcounter').click(function() {
+     var isConfirmed = confirm("Удаляя счетчик вы удалите их показания. Пожалуйста, подтвердите или отмените операцию удаления.");
+     if(isConfirmed) {
+       $.ajax({
+         url: $(this).data("myhref"),
+         type: 'DELETE',
+         success: function(result) {
+           window.location.reload();
+         }
+       });
+     }
+   });
+
+   $('.delchannel').click(function() {
+     var isConfirmed = confirm("Пожалуйста, подтвердите или отмените операцию удаления.");
+     if(isConfirmed) {
+       $.ajax({
+         url: $(this).data("myhref"),
+         type: 'DELETE',
+         success: function(result) {
+           window.location.reload();
+         }
+       });
+     }
+   });
 
   });

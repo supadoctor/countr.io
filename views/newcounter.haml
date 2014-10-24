@@ -29,8 +29,9 @@
 
 .lane{:style=>"background-color: #FFF;"}
   %h1 Создание счетчиков
-  %h3 в помещении "#{@home.title}" по адресу #{@home.address}
-  %form#counter.uk-form{:action => "/home/@{@home_index}/counter/new", :method=>"post"}
+  .uk-alert{"data-uk-alert"=>""}
+    в помещении "#{@home.title}" по адресу #{@home.address}
+  %form#counter.uk-form{:action => "/home/#{@home_index}/counter/new", :method=>"post"}
     %p
       %div
         Для создания счетчика укажите его название, например,
@@ -112,5 +113,7 @@
         accountMaxlength: 65535
       }
     });
+
+    $('#counter').validate();
     
   });

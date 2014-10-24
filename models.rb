@@ -156,15 +156,31 @@ class Counter
       return "ЭЛЕКТРИЧЕСТВО (Т3)"
     end
   end
+
+  def currentindication
+    startmonth = Date.new Date.today.year, Time.now.month, 1
+    endmonth = startmonth >> 1
+    indication = self.indications.all(:period => startmonth..endmonth)
+    if indication.count == 0
+      return nil
+    else
+      return indication[0].value
+    end
+  end
 end
 
 class Indication
   include DataMapper::Resource
   property :id, Serial
   property :period, Date
-  property :value, Float
+  property :value, Float, :format => /^\d+(.\d+)?$/,
+    :messages => {
+      :format  => "Неверный формат значения счетчика. Введите число"
+    }
+  property :submited, Boolean, :default  => false
 
   belongs_to :counter
+
 end
 
 DataMapper.finalize
