@@ -121,7 +121,7 @@ class Channel
     end
   end
 
-  has n, :counters
+  has n, :counters, :through => Resource
   belongs_to :home
 end
 
@@ -138,7 +138,8 @@ class Counter
   
   has n, :indications
   belongs_to :home, :required => true
-  belongs_to :channel, :required => false
+  #belongs_to :channel, :required => false
+  has n, :channels, :through => Resource
 
   def typestr
     case self.type

@@ -40,7 +40,10 @@
           -if @profile.notificationtype == "sms" && @account.type != 1
             .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Оповещения не отправляются до покупки полного функционала"} !
     -else
-      %dd.uk-margin-bottom не отправляются
+      %dd.uk-margin-bottom
+        не отправляются
+        %a{:href=>"/setnotification"}
+          Установить
                 
   -@environment.each_with_index do |(h,v), i|
     .uk-placeholder
@@ -428,7 +431,7 @@
    });
 
    $('.delcounter').click(function() {
-     var isConfirmed = confirm("Удаляя счетчик вы удалите их показания. Пожалуйста, подтвердите или отмените операцию удаления.");
+     var isConfirmed = confirm("Удаляя счетчик вы удалите их показания и все каналы передачи, их использующие. Пожалуйста, подтвердите или отмените операцию удаления.");
      if(isConfirmed) {
        $.ajax({
          url: $(this).data("myhref"),

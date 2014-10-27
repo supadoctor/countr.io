@@ -1,0 +1,175 @@
+.lane{:style=>"background-color: #FFF"}
+  %h1 Настройка рассылки напоминаний
+  %form#account.uk-form{:action => "/setnotification", :method=>"post"}
+    #step4
+      %p
+        %div
+          Можно настроить
+          -brand
+          , что-бы получать напоминания о необходимости передачи показаний счетчиков.
+          -brand
+          подерживает отправку напоминаний по email и по SMS. Отправка напоминания по SMS возможна только после
+          %a{:href=>"/upgrade"} покупки полного функционала
+          -"."
+          Если вы хотите получать такие напоминания, то выберите выберите соответствующую опцию и укажите способ отправки, реквизиты получателя напоминания и дату.
+      .uk-container-center.uk-width-2-3
+        .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+          .uk-form-row{:style=>"margin-bottom: 20px;"}
+            %label{:for=>"notificationtype"} Получать напоминания:
+            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"none", :id=>"notificationtype"} нет
+            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"email", :id=>"notificationtype"} по электронной почте
+            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"sms", :id=>"notificationtype"} по SMS
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtype"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationemail"}
+            %input.notificationemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"notificationemail"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationemail"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationsms"}
+            %input.notificationsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"notificationsms"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationsms"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationdate"}
+            %label{:for=>"notificationdate"} Выберите дату получения уведомлений (число каждого месяца):
+            %input.notificationdate{:name=>"notificationdate", :type=>"text", "data-uk-datepicker"=>"{weekstart: 1, format: 'DD', i18n: {months:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь', 'Декабрь'], weekdays:['Вс','Пн','Вт','Ср','Чт','Пт','Сб']}}"}
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationdate"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtimezone"}
+            %label{:for=>"notificationtimezone"} Выберите часовой пояс, в котром вы находитесь:
+            %select.notificationtimezone{:name=>"notificationtimezone", :type=>"text"}
+              %option{:disabled=>"", :selected=>""} Выберите часовой пояс
+              %option{:value=>"+2"} Калининград... (МСК-1)
+              %option{:value=>"+3"} Москва, С.Петербург, Н.Новгород, Волгоград... (МСК)
+              %option{:value=>"+4"} Самара, Ижевск... (МСК+1)
+              %option{:value=>"+5"} Екатеринбург, Пермь, Уфа, Челябинск, Тюмень... (МСК+2)
+              %option{:value=>"+6"} Омск, Новосибирск, Барнаул, Кемерово, Томск... (МСК+3)
+              %option{:value=>"+7"} Красноярск, Нориоьск, Абакан... (МСК+4)
+              %option{:value=>"+8"} Чита, Иркутск, Улан-Удэ... (МСК+5)
+              %option{:value=>"+9"} Якутск, Благовещенск... (МСК+6)
+              %option{:value=>"+10"} Владивосток, Хабаровск, Магадан... (МСК+7)
+              %option{:value=>"+11"} Среднеколымск, Северо-Курильск... (МСК+8)
+              %option{:value=>"+12"} Петропавловск-Камчатский, Анадырь... (МСК+9)
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtimezone"}
+          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtime"}
+            %label{:for=>"notificationtime"} Выберите час отправки уведомлений:
+            %select.notificationtime{:name=>"notificationtime", :type=>"text"}
+              %option{:disabled=>"", :selected=>""} Выберите час
+              %option{:value=>"0"} 00
+              %option{:value=>"1"} 01
+              %option{:value=>"2"} 02
+              %option{:value=>"3"} 03
+              %option{:value=>"4"} 04
+              %option{:value=>"5"} 05
+              %option{:value=>"6"} 06
+              %option{:value=>"7"} 07
+              %option{:value=>"8"} 08
+              %option{:value=>"9"} 09
+              %option{:value=>"10"} 10
+              %option{:value=>"11"} 11
+              %option{:value=>"12"} 12
+              %option{:value=>"13"} 13
+              %option{:value=>"14"} 14
+              %option{:value=>"15"} 15
+              %option{:value=>"16"} 16
+              %option{:value=>"17"} 17
+              %option{:value=>"18"} 18
+              %option{:value=>"19"} 19
+              %option{:value=>"20"} 20
+              %option{:value=>"21"} 21
+              %option{:value=>"22"} 22
+              %option{:value=>"23"} 23
+            %br
+            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtime"}
+      .uk-text-center
+        %button.uk-button.uk-button-primary#finish{:type=>"submit"}
+          Сохранить
+          %i.uk-icon-angle-double-right
+          
+
+:javascript
+  
+  $(function() {
+  
+    $("input[type=radio][name*='notificationtype']").change(function() {
+        if (this.value == 'email') {
+            $('#notificationemail').show();
+            $('#notificationsms').hide();
+            $('#notificationdate').show();
+            $('#notificationtimezone').show();
+            $('#notificationtime').show();
+
+        }
+        if (this.value == 'sms') {
+            $('#notificationemail').hide();
+            $('#notificationsms').show();
+            $('#notificationdate').show();
+            $('#notificationtimezone').show();
+            $('#notificationtime').show();
+
+        }
+        if (this.value == 'none') {
+            $('#notificationemail').hide();
+            $('#notificationsms').hide();
+            $('#notificationdate').hide();
+            $('#notificationtimezone').hide();
+            $('#notificationtime').hide();
+        }
+    });
+    
+    $(document.body).on("change", "input[type=radio][name*='channeltype']", function() {
+        var k = ($(this).attr('name')).match(/\d+$/);
+        if (this.value == 'email') {
+            $('#channelemail'+k).show();
+            $('#channelsms'+k).hide();
+        }
+        else if (this.value == 'sms') {
+            $('#channelemail'+k).hide();
+            $('#channelsms'+k).show();
+        }
+    });
+
+    $.validator.addMethod("notificationtypeRequired", $.validator.methods.required, "Выберите канал передачи показаний счетчиков");
+
+    $.validator.addMethod("notificationemailRequired", $.validator.methods.required, "Введите адрес электронной почты получателя уведомлений");
+    $.validator.addMethod("notificationemailEmail", $.validator.methods.email, "Введите корректный адрес электронной почты");
+
+    $.validator.addMethod("notificationsmsRequired", $.validator.methods.required, "Введите мобильный номер получателя уведомлений");
+
+    $.validator.addMethod("notificationdateRequired", $.validator.methods.required, "Выберите день отправки уведомления");
+    $.validator.addMethod("notificationdateDigits", $.validator.methods.digits, $.format("Поле может содержать только цифры"));
+    $.validator.addMethod("notificationdateMax", $.validator.methods.max, $.format("Число должно быть не более {0}"));
+
+    $.validator.addMethod("notificationtimezoneRequired", $.validator.methods.required, "Выберите временную зону");
+
+    $.validator.addMethod("notificationtimeRequired", $.validator.methods.required, "Выберите время");
+
+    $.validator.addClassRules({
+      notificationtype: {
+        notificationtypeRequired: true
+      },
+      notificationemail: {
+        notificationemailRequired: true,
+        notificationemailEmail: true
+      },
+      notificationsms: {
+        notificationsmsRequired: true,
+        remote: {
+          url: "/ajax/checkphone2",
+          type: "post"
+        }
+      },
+      notificationdate: {
+        notificationdateRequired: true,
+        notificationdateDigits: true,
+        notificationdateMax: 31
+      },
+      notificationtimezone: {
+        notificationtimezoneRequired: true
+      },
+      notificationtime: {
+        notificationtimeRequired: true
+      }
+    });
+
+  });

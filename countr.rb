@@ -802,10 +802,12 @@ class CountrIOApp < Sinatra::Application
     home = account.homes.all[params[:home].to_i-1]
     counter = home.counters.all[params[:counter].to_i-1]
     counter.indications.all.destroy
-    #channels = home.channels.all
-    #channels.each do |ch|
-    #  ch.destroy
-    #end
+    channels = counter.channels.all
+    channels.each do |ch|
+      link = ChannelCounter.get(ch.id, counter.id)
+      link.destroy
+      ch.destroy
+    end
     indications = counter.indications.all
     indications.destroy
     if counter.destroy
@@ -1106,6 +1108,47 @@ class CountrIOApp < Sinatra::Application
       f.to_json
     end
   end
+
+  get '/setnotification' do
+    if logged_in?
+      haml :newnotification
+    else
+      session[:messagetodisplay] = @@text["notifications"]["plslogin"]
+      redirect '/'
+    end
+  end
+
+  post '/setnotification' do
+    p = current_user.profile
+    if params[:notificationtype] == "sms"
+      nday = params[:notificationdate].to_i
+      nmonth = DateTime.now.month
+      nyear = DateTime.now.year
+      nhour = params[:notificationtime].to_i
+      ntz = params[:notificationtimezone]
+      ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
+      puts ndatetime
+      p.attributes = {:sendnotification=>true, :notificationsms=>params[:notificationsms], :notificationdate=>ndatetime.to_time, :notificationtype=>params[:notificationtype], :timezone=>ntz}
+    elsif params[:notificationtype] == "email"
+      nday = params[:notificationdate].to_i
+      nmonth = DateTime.now.month
+      nyear = DateTime.now.year
+      nhour = params[:notificationtime].to_i
+      ntz = params[:notificationtimezone]
+      ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
+      p.attributes = {:sendnotification=>true, :notificationemail=>params[:notificationemail], :notificationdate=>ndatetime.to_time, :notificationtype=>params[:notificationtype], :timezone=>ntz}
+      puts ndatetime
+    end
+    begin
+      p.save
+    rescue
+      session[:messagetodisplay] = p.errors.values.join("; ")
+    else
+      session[:messagetodisplay] = @@text["notifications"]["notificationwassaved"]
+      redirect '/profile'
+    end
+  end
+
   
   post '/home/:home/counter/:counter/setvalue' do
     content_type :json
