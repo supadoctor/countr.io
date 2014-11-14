@@ -234,7 +234,7 @@ class CountrIOApp < Sinatra::Application
                     end
                   end
                 end
-                if c.type < 30
+                if c.type < 31
                   haml_tag :ul do
                     haml_tag :li do
                       haml_tag :span, "data-uk-tooltip" => "", :title => "В это поле будет подставляться показания счетчика" do
@@ -305,69 +305,124 @@ class CountrIOApp < Sinatra::Application
 
     def compare
       haml_tag :div, :class=>"uk-grid", "data-uk-grid-margin"=>"" do
-        haml_tag :div, :class=>"uk-width-medium-1-2" do
-          haml_tag :div, :class=>"uk-panel uk-panel-box uk-panel-box-secondary" do
-            haml_tag :ul, :class=>"uk-list" do
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  1
+        haml_tag :div, :class=>"uk-width-medium-1-1" do
+          haml_tag :table, :class=>"uk-table" do
+            haml_tag :tbody do
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Неограниченное количество счетчиков"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
                 end
               end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  2
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Отправка показаний по email"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
                 end
               end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  3
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Получение напоминаний на email"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
                 end
               end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  4
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Отправка показаний по SMS"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
                 end
               end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  5
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Получение напоминаний по SMS"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+              end
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Поддержка нескольких помещений"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+              end
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Стоимость"
+                end
+                haml_tag :td, :class=>"uk-width-1-4" do
+                  haml_tag :h2, :class=>"uk-text-center" do
+                    haml_concat "БЕСПЛАТНО"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_concat "10 руб. в месяц"
+                  end
+                  haml_tag :span do
+                    haml_concat "или"
+                  end
+                  haml_tag :h2 do
+                    haml_concat "100 руб. в год"
+                  end
                 end
               end
             end
           end
         end
-        haml_tag :div, :class=>"uk-width-medium-1-2" do
-          haml_tag :div, :class=>"uk-panel uk-panel-box uk-panel-box-primary" do
-            haml_tag :ul, :class=>"uk-list" do
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  1
-                end
-              end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  2
-                end
-              end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  3
-                end
-              end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  4
-                end
-              end
-              haml_tag :li do
-                haml_tag :i, :class=>"uk-icon-check-square-o" do
-                  5
-                end
-              end
-            end
-          end
-        end
-      end          
+      end
     end
 
     def clearflashmessage
@@ -388,7 +443,7 @@ class CountrIOApp < Sinatra::Application
         return @current_account
       end
     end
-    
+
     def logged_in?
       current_user
     end
@@ -402,7 +457,7 @@ class CountrIOApp < Sinatra::Application
     end
 
     def decodepattern(pattern, mode)
-      patterns = ["{ИМЯ_ПОЛЬЗОВАТЕЛЯ}", "{ИМЯ_ПОМЕЩЕНИЯ}", "{АДРЕС_ПОМЕЩЕНИЯ}", "{НАЗВАНИЕ_СЧЕТЧИКА}", "{ПОКАЗАНИЕ_СЧЕТЧИКА}", "{ЛИЦЕВОЙ_СЧЕТ_СЧЕТЧИКА}", "{ТЕКУЩАЯ_ДАТА}", "{ТЕКУЩИЙ_МЕСЯЦ}", "{ПРОШЛЫЙ_МЕСЯЦ}"]
+      patterns = ["{ИМЯ_ПОЛЬЗОВАТЕЛЯ}", "{ИМЯ_ПОМЕЩЕНИЯ}", "{АДРЕС_ПОМЕЩЕНИЯ}", "{НАЗВАНИЕ_СЧЕТЧИКА}", "{ТИП_СЧЕТЧИКА}", "{ПОКАЗАНИЕ_СЧЕТЧИКА}", "{ЛИЦЕВОЙ_СЧЕТ_СЧЕТЧИКА}", "{ТЕКУЩАЯ_ДАТА}", "{ТЕКУЩИЙ_МЕСЯЦ}", "{ПРОШЛЫЙ_МЕСЯЦ}"]
       patterns.each do |p|
         case p
         when "{ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
@@ -427,6 +482,14 @@ class CountrIOApp < Sinatra::Application
            c = (h.counters.all)[nc-1]
            pattern.gsub!(t, c.title)
          end
+        when "{ТИП_СЧЕТЧИКА}"
+         pattern.scan(/{ТИП_СЧЕТЧИКА_\d+_\d+}/).each do |t|
+           nh = t.scan(/\d+/)[0].to_i
+           nc = t.scan(/\d+/)[1].to_i
+           h = (current_user.account.homes.all)[nh-1]
+           c = (h.counters.all)[nc-1]
+           pattern.gsub!(t, c.typestr)
+         end
         when "{ПОКАЗАНИЕ_СЧЕТЧИКА}"
          error = 1
          meters = pattern.scan(/{ПОКАЗАНИЕ_СЧЕТЧИКА_\d+_\d+}|{ПОКАЗАНИЕ_СЧЕТЧИКА_\d+_\d+_\(ТАРИФ\d+\)}/)
@@ -442,7 +505,13 @@ class CountrIOApp < Sinatra::Application
              if mode == "test"
                pattern.gsub!(t, "##")
              else
-               pattern.gsub!(t, "#REALVALUE")
+               indications = c.indications.all(:submited => false)
+               if indications.count == 0
+                 val = "##"
+               else
+                 val = indications[-1].value
+               end
+               pattern.gsub!(t, val.to_s)
              end
            end
          end
@@ -490,7 +559,7 @@ class CountrIOApp < Sinatra::Application
     end
 
   end  # END OF HELPERS
-    
+
   get '/' do
     if logged_in?
       @user = current_user
@@ -730,6 +799,13 @@ class CountrIOApp < Sinatra::Application
     home = account.homes.all[params[:home].to_i-1]
     counters = home.counters.all
     channels = home.channels.all
+    channels.each do |ch|
+      ch.counters.all.each do |c|
+        link = ChannelCounter.get(ch.id, c.id)
+        link.destroy
+      end
+      ch.destroy
+    end
     counters.each do |c|
       indications = c.indications.all
       indications.destroy
@@ -768,7 +844,7 @@ class CountrIOApp < Sinatra::Application
     @profile = @user.profile
     @account = @user.account
     @home = @account.homes.all[params[:home].to_i-1]
-    puts @home
+    #puts @home
     z = 1
     params.keys.map do |c|
       if c.start_with?("countername")
@@ -890,7 +966,8 @@ class CountrIOApp < Sinatra::Application
     channel = home.channels.all[params[:channel].to_i-1]
     counters = home.counters.all(:channel => channel)
     counters.each do |c|
-      c.update(:channel => nil)
+      link = ChannelCounter.get(channel.id, c.id)
+      link.destroy
     end
     if channel.destroy
       session[:messagetodisplay] = @@text["notifications"]["channelwasdeleted"]
@@ -1236,7 +1313,7 @@ class CountrIOApp < Sinatra::Application
     account = current_user.account
     home = account.homes.all[params[:home].to_i-1]
     channel = home.channels.all[params[:channel].to_i-1]
-    channel.attributes = {:pattern=>params[:channelpattern]}
+    channel.attributes = {:pattern=>h(params[:channelpattern])}
     begin
       channel.save
     rescue
@@ -1345,6 +1422,12 @@ class CountrIOApp < Sinatra::Application
 
   post '/ajax/testpattern' do
     decodepattern(params[:pattern], "test")
+  end
+
+  post '/ajax/testpattern2' do
+    account = current_user.account
+    channel = Channel.get(params[:channelid].to_i)
+    decodepattern(channel.pattern, "real")
   end
 
   get '/test' do

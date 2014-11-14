@@ -379,11 +379,34 @@
           var val = droparea.value;
           var str1 = val.substring(0, range1);
           var str3 = val.substring(range1, val.length);
-         droparea.value = str1 + dropText + str3;
+          droparea.value = str1 + dropText + str3;
+          SetCaretAtEnd(droparea);
         }
       });
     }
     
+    function SetCaretAtEnd(elem) {
+      var elemLen = elem.value.length;
+      // For IE Only
+      if (document.selection) {
+          // Set focus
+          elem.focus();
+          // Use IE Ranges
+          var oSel = document.selection.createRange();
+          // Reset position to 0 & then set at end
+          oSel.moveStart('character', -elemLen);
+          oSel.moveStart('character', elemLen);
+          oSel.moveEnd('character', 0);
+          oSel.select();
+      }
+      else if (elem.selectionStart || elem.selectionStart == '0') {
+          // Firefox/Chrome
+          elem.selectionStart = elemLen;
+          elem.selectionEnd = elemLen;
+          elem.focus();
+      } // if
+    } // SetCaretAtEnd()
+
     $(document.body).on("click", ".checkpattern", function() {
       var k = ($(this).attr('id')).match(/\d+$/);
       var data = $('#channelpattern'+k).val();
@@ -399,5 +422,5 @@
           modal.show();
         }
       });
-    })
+    });
   });

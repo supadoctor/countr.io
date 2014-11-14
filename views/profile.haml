@@ -1,4 +1,4 @@
-.uk-container-center.uk-width-large-2-3.lane{:style => "background-color: #FFF;"}
+.uk-container-center.uk-width-large-1-1.lane{:style => "background-color: #FFF;"}
   %h1 Профиль пользователя
   .uk-alert{"data-uk-alert"=>""}
     %a.uk-alert-close.uk-close
@@ -112,7 +112,9 @@
                 %td
                   %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
                 %td
-                  %code #{ch.pattern}
+                  %pre
+                    %code
+                      #{ch.pattern}
                   %a{:href=>"/home/#{i+1}/channel/#{chi+1}/updatepattern"} Изменить
         -else
           .uk-alert.uk-alert-warning Каналы передачи не определены
@@ -206,9 +208,12 @@
         {value: 11, text: 'ХВС'},
         {value: 12, text: 'ГВС'},
         {value: 20, text: 'ГАЗ'},
+        {value: 30, text: 'ЭЛЕКТРИЧЕСТВО '}
+        /*,
         {value: 31, text: 'ЭЛЕКТРИЧЕСТВО (Т1)'},
         {value: 32, text: 'ЭЛЕКТРИЧЕСТВО (Т2)'},
         {value: 33, text: 'ЭЛЕКТРИЧЕСТВО (Т3)'}
+        */
       ],
       error: function(response, newValue) {
         if(response.status === 500) {

@@ -130,12 +130,12 @@ class Counter
   include DataMapper::Resource
   property :id, Serial
   property :title, String, :length => 500, :required => true
-  property :type, Integer, :required => true #11 - cold water, 12 - hot water, 20 - gas, 31 - electricity (one), 32 - electricity (two), 33 - electricity (three)
+  property :type, Integer, :required => true #11 - cold water, 12 - hot water, 20 - gas, 30 - electricity, 31 - electricity (one), 32 - electricity (two), 33 - electricity (three)
   property :account, String, :length => 500, :required => false, :format => /^\d+$/,
     :messages => {
       :format  => "Лицевой счет может содержать только цифры"
     }
-  
+
   has n, :indications
   belongs_to :home, :required => true
   #belongs_to :channel, :required => false
@@ -149,8 +149,10 @@ class Counter
       return "ГВС"
     when 20
       return "ГАЗ"
+    when 30
+      return "ЭЛЕКТРИЧЕСТВО"
     when 31
-      return "ЭЛЕКТРИЧЕСТВО (Т1)"
+      return "ЭЛЕКТРИЧЕСТВО (T1)"
     when 32
       return "ЭЛЕКТРИЧЕСТВО (Т2)"
     when 33
