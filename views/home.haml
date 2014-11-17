@@ -60,82 +60,54 @@
                         .uk-text-center
                           %a.checkpattern.uk-button.uk-button{:id=>"checkpattern#{ch.id}"}
                             Тест
-                          %a.uk-button.uk-button-primary
+                          %a.sendpattern.uk-button.uk-button-primary{:id=>"sendpattern#{ch.id}"}
                             Отправить
-
-
-  -#
-    -@environment.each_with_index do |(h,v), i|
-    .uk-placeholder
-      %h4
-        Помещение #{i+1}
-        %a{:href=>"/home/#{i+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
-          %i.uk-icon-minus-circle
-        %a{:href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
-          %i.uk-icon-plus-circle
-      %dl.uk-description-list-horizontal
-        %dt.uk-margin-bottom Наименование
-        %dd.uk-margin-bottom
-          %text.hometitle{"data-pk"=>i+1} #{h.title}
-        %dt.uk-margin-bottom Адрес
-        %dd
-          %text.homeaddress{"data-pk"=>i+1} #{h.address}
-      .uk-panel.uk-panel-box
-        .uk-panel-title
-          Счетчики
-          %a{:href=>"/home/#{i+1}/counter/new", "data-uk-tooltip"=>"", :title=>"Добавить новый счетчик"}
-            %i.uk-icon-plus-circle
-        -if @environment[h][:counters].size > 0
-          %table.uk-table
-            %thead
-              %tr
-                %th{:width=>"34%"} Наименование
-                %th{:width=>"33%"} Тип счетчика
-                %th{:width=>"33%"} Лицевой счет
-            -@environment[h][:counters].each_with_index do |c, ci|
-              %tr
-                %td
-                  %text.countertitle{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/countertitleupdate"} #{c.title}
-                  %a{:href=>"/home/#{i+1}/counter/#{ci+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
-                    %i.uk-icon-minus-circle
-                %td
-                  %text.countertype{"data-pk"=>ci+1, "data-value"=>c.type, "data-url"=>"/home/#{i+1}/countertypeupdate"}
-                    //%option{:value=>c.type} #{c.typestr}
-                %td
-                  %text.counteraccount{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counteraccountupdate"} #{c.account}
-        -else
-          .uk-alert.uk-alert-warning Счетчики не определены
-      .uk-panel.uk-panel-box.uk-margin-top
-        .uk-panel-title
-          Каналы передачи значений счетчиков
-          %a{:href=>"/home/#{i+1}/channel/new", "data-uk-tooltip"=>"", :title=>"Добавить новый канал передачи"}
-            %i.uk-icon-plus-circle
-        -if @environment[h][:channels].size > 0
-          %table.uk-table
-            %thead
-              %tr
-                %th{:width=>"25%"} Наименование
-                %th{:width=>"17%"} Способ передачи
-                %th{:width=>"25%"} Получатель
-                %th{:width=>"33%"} Шаблон передаваемого сообщения
-            -@environment[h][:channels].each_with_index do |ch, chi|
-              %tr
-                %td
-                  %text.channeltitle{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channeltitleupdate"} #{ch.title}
-                  %a{:href=>"/home/#{i+1}/channel/#{chi+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить канал передачи"}
-                    %i.uk-icon-minus-circle
-                %td
-                  %span
-                    #{ch.type}
-                    -if ch.type == 'sms' && @account.type != 1
-                      .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Канал неактивен до покупки полного функционала"} !
-                %td
-                  %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
-                %td
-                  %code #{ch.pattern}
-        -else
-          .uk-alert.uk-alert-warning Каналы передачи не определены
-
+        %h2 История показаний
+        .uk-grid
+          .uk-width-1-1
+            %indication{:index=>"#{i}"}
+              %table.hist.uk-width-1-1#hist
+                %thead
+                  %tr
+                    %th{:width=>"25%"} Счетчик
+                    %th{:width=>"25%"} Период
+                    %th{:width=>"25%"} Показания
+                    %th{:width=>"25%"} Передано
+                -@environment[h][:counters].each do |c|
+                  -if c.allindications.count > 0
+                    -@err = 0
+                  -c.allindications.each do |ind|
+                    %tr
+                      %td{:style=>"padding: 5px;"}
+                        .uk-badge
+                          #{c.title} (#{c.typestr})
+                      %td{:style=>"padding: 5px;"}
+                        #{Russian::strftime(ind.period, "%B %Y")}
+                      %td{:style=>"padding: 5px;"}
+                        #{ind.value}
+                      %td{:style=>"padding: 5px;"}
+                        -if ind.submited
+                          .uk-badge.uk-alert-succes
+                            Да
+                        -else
+                          .uk-badge.uk-alert-warning
+                            Нет
+                -if @err != 0
+                  %tr
+                    %td{:colspan=>4}
+                      .uk-alert.uk-alert-warning{"data-uk-alert"=>""}
+                        %a.uk-alert-close.uk-close
+                        %p
+                          %div
+                            Нет показаний
+              -#
+                %table#hist1.uk-width-1-1
+                %thead
+                  %tr
+                    %th{:width=>"25%"} Счетчик
+                    %th{:width=>"25%"} Период
+                    %th{:width=>"25%"} Показания
+                    %th{:width=>"25%"} Передано
 #patterntestmodal.uk-modal
   .uk-modal-dialog.uk-modal-dialog-slide
     %a.uk-modal-close.uk-close
@@ -188,4 +160,102 @@
       });
     });
 
+    $('.sendpattern').click(function() {
+      var id = ($(this).attr('id')).match(/\d+$/);
+      $.ajax({
+        type: "POST",
+        dataType: "json",
+        url: "/sendpattern",
+        data: "channelid=" + id,
+        success: function(response) {
+          if(!response.success) {
+            displaynotify("Ошибка отправки показаний, повторите попытку");
+          } else {
+            displaynotify(response.msg);
+          } 
+        }
+      });
+    });
+
+
+  });
+
+  $(document).ready(function() {
+    if ($('#hist').length) {
+      $('table.hist').DataTable({
+        language: {
+          "sProcessing":   "Подождите...",
+          "sLengthMenu":   "Показать _MENU_ записей",
+          "sZeroRecords":  "Записи отсутствуют.",
+          "sInfo":         "Записи с _START_ до _END_ из _TOTAL_ записей",
+          "sInfoEmpty":    "Записи с 0 до 0 из 0 записей",
+          "sInfoFiltered": "(отфильтровано из _MAX_ записей)",
+          "sInfoPostFix":  "",
+          "sSearch":       "Поиск:",
+          "sUrl":          "",
+          "oPaginate": {
+              "sFirst": "Первая",
+              "sPrevious": "Предыдущая",
+              "sNext": "Следующая",
+              "sLast": "Последняя"
+          },
+          "oAria": {
+              "sSortAscending":  ": активировать для сортировки столбца по возрастанию",
+              "sSortDescending": ": активировать для сортировки столбцов по убыванию"
+          }
+        },
+        "columnDefs": [
+          { "visible": false, "targets": 1 }
+        ],
+        "drawCallback": function ( settings ) {
+          var api = this.api();
+          var rows = api.rows( {page:'current'} ).nodes();
+          var last=null;
+ 
+          api.column(1, {page:'current'} ).data().each( function ( group, i ) {
+            if ( last !== group ) {
+              $(rows).eq( i ).before(
+                '<tr class="group"><td colspan="3">'+group+'</td></tr>'
+              );
+ 
+              last = group;
+            }
+          });
+        }
+      });
+    }
+    /*
+    $('#hist1').DataTable({
+      language: {
+        "sProcessing":   "Подождите...",
+        "sLengthMenu":   "Показать _MENU_ записей",
+        "sZeroRecords":  "Записи отсутствуют.",
+        "sInfo":         "Записи с _START_ до _END_ из _TOTAL_ записей",
+        "sInfoEmpty":    "Записи с 0 до 0 из 0 записей",
+        "sInfoFiltered": "(отфильтровано из _MAX_ записей)",
+        "sInfoPostFix":  "",
+        "sSearch":       "Поиск:",
+        "sUrl":          "",
+        "oPaginate": {
+            "sFirst": "Первая",
+            "sPrevious": "Предыдущая",
+            "sNext": "Следующая",
+            "sLast": "Последняя"
+        },
+        "oAria": {
+            "sSortAscending":  ": активировать для сортировки столбца по возрастанию",
+            "sSortDescending": ": активировать для сортировки столбцов по убыванию"
+        }
+      },
+      ajax: {
+         url	: "/ajax/hist",
+         type	: "POST,
+         data	: function ( d ) {
+           d.counter = "myValue";
+           // d.custom = $('#myInput').val();
+           // etc
+         }
+      }
+    });
+    */      
   });

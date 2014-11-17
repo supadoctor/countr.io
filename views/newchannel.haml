@@ -61,7 +61,7 @@
         и
         %code -
         вы можете настроить необходимое количество каналов передачи.
-    .uk-container-center.uk-width-xlarge-2-3
+    .uk-container-center.uk-width-1-1
       .uk-grid
         .uk-width-2-3
           .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
@@ -72,15 +72,13 @@
               %button.uk-button#btnAdd{:type=>"button"}
                 %i.uk-icon-plus
         .uk-width-1-3
-          .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom{"data-uk-sticky" => "{top:50, bottom:590}", :style=>"z-index: 1;"}
+          .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+            //{"data-uk-sticky" => "{top:50, bottom:590}", :style=>"z-index: 1;"}
             -patternpanel
     .uk-text-center
-      %button.uk-button.uk-button-primary#finish{:type=>"submit"}
+      %button.uk-button.uk-button-primary{:type=>"submit"}
         Сохранить
         %i.uk-icon-angle-double-right
-        
-    //%button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
-    
 
 #patterntestmodal.uk-modal
   .uk-modal-dialog.uk-modal-dialog-slide

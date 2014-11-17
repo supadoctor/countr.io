@@ -3,7 +3,8 @@ require 'rubygems'
 require 'bundler'
 require 'sinatra'
 require 'haml'
-#require 'omniauth-gplus'
+require 'omniauth-gplus'
+require 'omniauth-vkontakte'
 require 'data_mapper'
 require 'bcrypt'
 require 'pony'
@@ -32,6 +33,14 @@ class CountrIOApp < Sinatra::Application
 
   use OmniAuth::Builder do
     provider :gplus, '2030779216-coi7emsv6c5kir3msr7m35nj5sojm7kt.apps.googleusercontent.com', 'YlLCQTrsEexKFfciIfgQRZM7', :redirect_uri => '/auth/gplus/callback'
+    provider :vkontakte, '4639260', 'kIT71ue6a0BHMK5yPdnW',
+      {
+        :scope => 'email',
+        :display => 'popup',
+        :lang => 'ru',
+        :image_size => 'original'
+      }
+    provider :facebook, '661945510588644', '5eb1be54f12b48f9e4f1526d8e7d0e3f', :scope => 'email, public_profile', :display => 'popup'
     #provider :att, 'client_id', 'client_secret', :callback_url => (ENV['BASE_DOMAIN'] 
   end
 
@@ -204,8 +213,9 @@ class CountrIOApp < Sinatra::Application
               end
             end
           end
-          @c = h.counters.all
-          @c.each do |counter|
+          c = h.counters.all
+          @counters = []
+          c.each do |counter|
             @counters << counter
           end
           haml_tag :p do
@@ -402,8 +412,8 @@ class CountrIOApp < Sinatra::Application
                 haml_tag :td, :class=>"uk-width-1-2" do
                   haml_concat "Стоимость"
                 end
-                haml_tag :td, :class=>"uk-width-1-4" do
-                  haml_tag :h2, :class=>"uk-text-center" do
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
                     haml_concat "БЕСПЛАТНО"
                   end
                 end
@@ -414,7 +424,7 @@ class CountrIOApp < Sinatra::Application
                   haml_tag :span do
                     haml_concat "или"
                   end
-                  haml_tag :h2 do
+                  haml_tag :h2, :class=>"uk-margin-top" do
                     haml_concat "100 руб. в год"
                   end
                 end
@@ -1337,7 +1347,7 @@ class CountrIOApp < Sinatra::Application
         :email => auth[:info][:email],
         :name => auth[:info][:first_name] + " " + auth[:info][:last_name],
         :profile => Profile.new(),
-        :account => Account.new(:type=>0))
+        :account => Account.new(:type=>1)) # 0 - free, 1 - full
       begin
         user.save
       rescue
@@ -1428,6 +1438,39 @@ class CountrIOApp < Sinatra::Application
     account = current_user.account
     channel = Channel.get(params[:channelid].to_i)
     decodepattern(channel.pattern, "real")
+  end
+
+  post '/ajax/hist' do
+  end
+
+  post '/sendpattern' do
+    content_type :json
+    account = current_user.account
+    channel = Channel.get(params[:channelid].to_i)
+    msg = decodepattern(channel.pattern, "real")
+    if channel.type == "email"
+      msg += "\n--\nОтправлено через сервис www.countr.io"
+      #Pony.mail(:to => channel.to, :subject => 'Показания счетчиков', :body => msg)
+      Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Показания счетчиков', :body => msg)
+      f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+      f.to_json
+    end
+  end
+
+  get '/cron/sendnotification' do
+    period1 = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, DateTime.now.hour, 0, 0)
+    period2 = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, DateTime.now.hour, 59, 59)
+    users = Profile.all(:sendnotification => true, :notificationdate => period1..period2)
+    msg4email1 = "Здравствуйте, "
+    msg4email2 = "!\nНапоминаем, что наступило время передавать показания счетчиков. Заходите не www.countr.io и сделайте это легко и быстро!\n\n--\nОтправлено через сервис www.countr.io"
+    msg4sms = "Время передавать показания счетчиков. www.countr.io"
+    users.each do |u|
+      if u.notificationtype = "email"
+        #Pony.mail(:to => u.notificationemail, :subject => 'Напоминание о счетчиках', :body => msg4email)
+        Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Напоминание о счетчиках', :body => msg4email1 + u.user.name + msg4email2)
+      elsif u.notificationtype = "sms"
+      end
+    end
   end
 
   get '/test' do

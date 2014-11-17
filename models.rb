@@ -170,6 +170,10 @@ class Counter
       return indication[0].value
     end
   end
+  
+  def allindications
+    return self.indications.all
+  end
 end
 
 class Indication
