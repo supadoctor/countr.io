@@ -1,0 +1,10 @@
+.lane{:style => "background-color: #FFF;"}
+  %h2
+    %div
+      Спасибо за оплату сервиса
+      -brand
+  %p
+    Вам предоставлен доступ ко всем функциям сайта до #{@account.paiduntil.strftime("%d.%m.%Y")}
+  .uk-text-center
+    %a.uk-button.uk-button-primary{:href=>"/"}
+      Продолжить работу

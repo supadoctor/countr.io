@@ -12,6 +12,7 @@ require 'json'
 require 'warden'
 #require 'sinatra/r18n'
 require 'russian'
+require 'yandex_money/api'
 
 require './models.rb'
 
@@ -74,6 +75,10 @@ class CountrIOApp < Sinatra::Application
       elsif user.authenticate(params[:login])
         begin
           user.update(:lastlogon => DateTime.now)
+          account = user.account
+          if account.type == 1 && account.paiduntil < Date.today
+            account.update(:type => 0)
+          end
         rescue
           #puts "Error on logon time updating:", user.errors.values
         end
@@ -95,6 +100,10 @@ class CountrIOApp < Sinatra::Application
       else
         begin
           user.update(:lastlogon => DateTime.now)
+          account = user.account
+          if account.type == 1 && account.paiduntil < Date.today
+            account.update(:type => 0)
+          end
         rescue
           #puts "Error on logon time updating:", user.errors.values
         end
@@ -786,6 +795,40 @@ class CountrIOApp < Sinatra::Application
     end
   end
 
+  get '/upgrade' do
+    if logged_in?
+      @user = current_user
+      @profile = @user.profile
+      @account = @user.account
+      if paid_account?
+        redirect '/'
+      else
+        haml :upgrade
+      end
+    else
+      session[:messagetodisplay] = @@text["notifications"]["plslogin"]
+      redirect '/'
+    end
+  end
+
+  post '/paymentresult' do
+    @account = Account.first(:id=>params[:label].to_i)
+    sum = params[:withdraw_amount].to_i
+    if sum == 20
+      pu = Date.today >> 1
+      @account.update(:paiduntil => pu)
+      haml :paymentok
+    elsif sum == 200
+      pu = Date.today >> 12
+      @account.update(:paiduntil => pu)
+      haml :paymentok
+    else
+      msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id_to_s + "\withdraw_ammount = " + sum.to_s
+      Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА', :body => msg)
+      haml :paymenterror
+    end
+  end
+
   post '/home/new' do
     @home = current_user.account.homes.new(:title => params[:homename], :address => params[:homeaddress])
     begin
@@ -1347,7 +1390,7 @@ class CountrIOApp < Sinatra::Application
         :email => auth[:info][:email],
         :name => auth[:info][:first_name] + " " + auth[:info][:last_name],
         :profile => Profile.new(),
-        :account => Account.new(:type=>1)) # 0 - free, 1 - full
+        :account => Account.new(:type=>0)) # 0 - free, 1 - full
       begin
         user.save
       rescue
@@ -1450,8 +1493,8 @@ class CountrIOApp < Sinatra::Application
     msg = decodepattern(channel.pattern, "real")
     if channel.type == "email"
       msg += "\n--\nОтправлено через сервис www.countr.io"
-      #Pony.mail(:to => channel.to, :subject => 'Показания счетчиков', :body => msg)
-      Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Показания счетчиков', :body => msg)
+      Pony.mail(:to => channel.to, :subject => 'Показания счетчиков', :body => msg)
+      #Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Показания счетчиков', :body => msg)
       f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
       f.to_json
     end
@@ -1466,18 +1509,16 @@ class CountrIOApp < Sinatra::Application
     msg4sms = "Время передавать показания счетчиков. www.countr.io"
     users.each do |u|
       if u.notificationtype = "email"
-        #Pony.mail(:to => u.notificationemail, :subject => 'Напоминание о счетчиках', :body => msg4email)
-        Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Напоминание о счетчиках', :body => msg4email1 + u.user.name + msg4email2)
+        Pony.mail(:to => u.notificationemail, :subject => 'Напоминание о счетчиках', :body => msg4email)
+        #Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Напоминание о счетчиках', :body => msg4email1 + u.user.name + msg4email2)
       elsif u.notificationtype = "sms"
       end
     end
   end
 
   get '/test' do
-    ndatetime = current_user.profile.notificationdate
-    puts ndatetime.class, ndatetime, ndatetime.zone
-    puts "******"
-    puts ndatetime.to_time.utc
+    @account = current_user.account
+    haml :paymentok
   end
   
 end # END OF APP CLASS
