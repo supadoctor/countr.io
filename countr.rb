@@ -24,6 +24,8 @@ class CountrIOApp < Sinatra::Application
     use Rack::Session::Cookie, :key => "rack.session", :expire_after => 31557600, :secret => "supasecretphrasefotcountrio"
     I18n.default_locale = :ru
     I18n.enforce_available_locales = false
+    MonthlyPrice = 20
+    YearlyPrice = 200
   end
 
   Pony.options = {
@@ -182,6 +184,10 @@ class CountrIOApp < Sinatra::Application
 
     def brand
       haml_concat "Countr.IO"
+    end
+
+    def numberofusers
+      User.all.count + 376
     end
 
     def patternpanel
@@ -428,13 +434,13 @@ class CountrIOApp < Sinatra::Application
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
                   haml_tag :h2 do
-                    haml_concat "10 руб. в месяц"
+                    haml_concat MonthlyPrice.to_s + " руб. в месяц"
                   end
                   haml_tag :span do
                     haml_concat "или"
                   end
                   haml_tag :h2, :class=>"uk-margin-top" do
-                    haml_concat "100 руб. в год"
+                    haml_concat YearlyPrice.to_s + " руб. в год"
                   end
                 end
               end
@@ -575,6 +581,14 @@ class CountrIOApp < Sinatra::Application
 
     def h(text)
       Rack::Utils.escape_html(text)
+    end
+
+    def getMonthlyPrice
+      MonthlyPrice
+    end
+
+    def getYearlyPrice
+      YearlyPrice
     end
 
   end  # END OF HELPERS
@@ -814,16 +828,16 @@ class CountrIOApp < Sinatra::Application
   post '/paymentresult' do
     @account = Account.first(:id=>params[:label].to_i)
     sum = params[:withdraw_amount].to_i
-    if sum == 20
+    if sum == MonthlyPrice
       pu = Date.today >> 1
       @account.update(:paiduntil => pu)
       haml :paymentok
-    elsif sum == 200
+    elsif sum == YearlyPrice
       pu = Date.today >> 12
       @account.update(:paiduntil => pu)
       haml :paymentok
     else
-      msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id_to_s + "\withdraw_ammount = " + sum.to_s
+      msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id_to_s + "\nwithdraw_ammount = " + sum.to_s
       Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА', :body => msg)
       haml :paymenterror
     end

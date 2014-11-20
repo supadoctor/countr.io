@@ -5,8 +5,8 @@
         Добро пожаловать на
         -brand
         !
-    %h2 Но тсccc... мы работаем....
-    %h3 И мы делаем что-то особенное...
+    .uk-h2 Но тсccc... мы работаем....
+    .uk-h3 И мы делаем что-то особенное...
     %p{:style=>"color:white;"} конечно, не так что-бы это перевернуло Вашу жизнь, но сделает проще - это уж точно! :)
 .lane#wtf{:style=>"background-color: #FFFFFF;"}
   .uk-container-center.uk-width-large-2-3
@@ -39,9 +39,16 @@
       %li Напоминания о необходимости передачи показаний счетчиков по email, SMS
       %li Хранение истории и статистики потребления
       %li Многопользовательский режим работы
-.lane.lane-borders#happy{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #E04050;"}
+.lane.lane-borders#happy{:style=>"color: white; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #E04050;"}
   .uk-container-center.uk-width-large-2-3
     %h2.uk-text-center Жить стало лучше, жить стало веселей!
+    %h2
+      Сервисом
+      -brand
+      пользуются уже
+      .uk-h1#grandnumberofusers.uk-display-inline.uk-text-bold
+        -haml_concat numberofusers
+      человек
 .lane#price{:style=>"background-color: #FFFFFF"}
   .uk-container-center.uk-width-large-2-3
     %h2.uk-text-center Стоимость
@@ -178,5 +185,16 @@
       }
     });
     
-
+    $('#grandnumberofusers').waypoint(function(direction) {
+      var options = {
+        useEasing : true, 
+        useGrouping : true, 
+        separator : '', 
+        decimal : '.',
+        prefix : '',
+        suffix : ''
+      }
+      var userscounter = new countUp("grandnumberofusers", #{numberofusers-300}, #{numberofusers}, 0, 3.5, options);
+      if (direction=='down') userscounter.start();
+    }, { offset: '100%' });
   });
