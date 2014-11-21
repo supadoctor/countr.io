@@ -62,7 +62,7 @@
   %body
     -navbar
     %div{:style=>"min-height:100%; position: relative;"}
-      .content{:style=>"padding: 0px 0px 141px;"}
+      .content{:style=>"padding: 0px 0px 200px;"}
         =yield
         -if session[:messagetodisplay].to_s.size > 0
           -session[:messagetodisplay].split("; ").each do |m|
@@ -82,10 +82,12 @@
               .uk-width-medium-1-4
                 %h4.uk-text-center Жить стало проще
                 .uk-h3
-                  для
-                  .uk-text-bold.uk-display-inline
-                    -haml_concat numberofusers
-                  пользователей
+                  %div.uk-display-inline
+                    для
+                    .uk-text-bold.uk-display-inline
+                      -haml_concat numberofusers
+                    пользователей
+                    -brand
               .uk-width-medium-1-4
                 %h4.uk-text-center Подписка на новости
                 %form.uk-form{:name=>"SR_form_4_97", :target=>"_blank", :action=>"https://smartresponder.ru/subscribe.html", :method=>"post"}

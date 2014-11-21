@@ -1,0 +1,43 @@
+.lane{:style => "background-color: #FFF;"}
+  %h2 Сброс пароля
+  %p
+    Введите новый пароль и нажмите кнопку
+    %code изменить пароль
+  .uk-container-center.uk-width-2-3
+    %form#resetpassword.uk-form.uk-form-horizontal{:action => "/updatepassword?reset=" + @newhash, :method => "post"}
+      .uk-form-row
+        %input#newpass1.uk-width-1-1{:type=>"password", :required=>"", :name=>"newpass1", :placeholder=>"Введите новый пароль"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"newpass1"}
+      .uk-form-row{:style=>"margin-top: 20px;"}
+        %input#newpass2.uk-width-1-1{:type=>"password", :required=>"", :name=>"newpass2", :placeholder=>"Повторите новый пароль"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"newpass2"}
+      %br
+      .uk-text-center
+        %button.uk-button.uk-button-success{:type=>"submit"} Изменить пароль
+          
+:javascript
+  $(function() {
+
+    var resetpass = $("#resetpassword").validate({
+      debug: true,
+      rules: {
+        newpass1: {
+          required: true,
+          minlength: 6
+        },
+        newpass2: {
+          equalTo: "#newpass1"
+        }
+      },
+      messages: {
+        newpass1: "Введите пароль длиною не менее 6 символов",
+        newpass2: "Ошибка при повторном вводе пароля"
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+    
+  });

@@ -1,13 +1,18 @@
 .lane.lane-borders#home{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #40E0D0;"}
   .uk-container-center.uk-width-large-2-3
-    %h1
+    .uk-h2.uk-text-center
       %div
         Добро пожаловать на
         -brand
         !
-    .uk-h2 Но тсccc... мы работаем....
+    %h1
+      %div
+        -brand
+        ="- система передачи показаний коммунальных счетчиков"
     .uk-h3 И мы делаем что-то особенное...
     %p{:style=>"color:white;"} конечно, не так что-бы это перевернуло Вашу жизнь, но сделает проще - это уж точно! :)
+%div{:style=>"position: relative; left: 0; top: 0;"}
+  %img{:src=>"./img/index_shadow1.png", :style=>"bottom: -70px; height: 70px; left: 0; position: absolute; width: 100%; z-index: 1;"}
 .lane#wtf{:style=>"background-color: #FFFFFF;"}
   .uk-container-center.uk-width-large-2-3
     %h2.uk-text-center
@@ -49,14 +54,19 @@
       .uk-h1#grandnumberofusers.uk-display-inline.uk-text-bold
         -haml_concat numberofusers
       человек
+%div{:style=>"position: relative; left: 0; top: 0;"}
+  %img{:src=>"./img/index_shadow1.png", :style=>"bottom: -70px; height: 70px; left: 0; position: absolute; width: 100%; z-index: 1;"}
 .lane#price{:style=>"background-color: #FFFFFF"}
   .uk-container-center.uk-width-large-2-3
     %h2.uk-text-center Стоимость
     %p Весь функцинал, необходимый для передачи показаний счетчиков, доступен БЕСПЛАТНО после регистрации. Однако для доступа к дополнительным функциям системы необходмо приобретение платной подписки. Стоимост подписки невелика и состовляет всего 10 руб. в месяц. А при приобретении подписики на год, вы получаете ДВА МЕСЯЦА В ПОДАРОК! Сранение функций бесплатной и платной верси приведено в таблице ниже.
-    -compare
+    .uk-panel.uk-panel-box
+      -compare
+    %div{:style=>"position: relative; left: 0; top: 0;"}
+      %img{:src=>"./img/index_shadow1.png", :style=>"bottom: -50px; height: 50px; left: 0; position: absolute; width: 100%; z-index: 1;"}
 .lane.lane-borders#signin{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #804050;"}
   .uk-container-center.uk-width-large-2-3
-    .uk-grid{"data-uk-grid-margin"=>""}
+    .uk-grid{"data-uk-grid-margin"=>"", "data-uk-grid-match"=>"{target:'.uk-panel'}"}
       .uk-width-medium-1-2
         %h2.uk-text-center{:style=>"color: #FFF"} Вход
         .uk-panel.uk-panel-box
@@ -64,7 +74,7 @@
           %form#login.uk-form{:action => "/auth/login", :method=>"post"}
             %fieldset
               .uk-form-row{:style=>"margin-bottom: 20px;"}
-                %input.uk-width-1-1{:type=>"email", :required=>"", :placeholder=>"Адрес электронной почты", :name=>"login"}
+                %input.uk-width-1-1{:type=>"email", :required=>"", :placeholder=>"Адрес электронной почты", :name=>"email"}
                 %br
                 %label.error.uk-text-small.uk-text-danger{:for=>"login"}
               .uk-form-row{:style=>"margin-bottom: 20px;"}
@@ -93,7 +103,7 @@
               Для БЕСПЛАТНОЙ регистрации в
               -brand 
               укажите ваше имя, адрес электронной почты и пароль.
-          %form#registration.uk-form{:action => "/registration", :method => "post"}
+          %form#registration.uk-form{:action => "/reguser", :method => "post"}
             %fieldset
               .uk-form-row{:style=>"margin-bottom: 20px;"}
                 %input.uk-width-1-1{:type=>"text", :required=>"", :placeholder=>"Полное имя", :name=>"name"}
@@ -104,9 +114,9 @@
                 %br
                 %label.error.uk-text-small.uk-text-danger{:for=>"email"}
               .uk-form-row{:style=>"margin-bottom: 20px;"}
-                %input#password1.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Пароль", :name=>"password1"}
+                %input#password.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Пароль", :name=>"password"}
                 %br
-                %label.error.uk-text-small.uk-text-danger{:for=>"password1"}
+                %label.error.uk-text-small.uk-text-danger{:for=>"password"}
               .uk-form-row{:style=>"margin-bottom: 20px;"}
                 %input.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Подтверждение пароля", :name=>"password2"}
                 %br
@@ -162,12 +172,12 @@
             type: "post"
           }
         },
-        password1: {
+        password: {
           required: true,
           minlength: 6
         },
         password2: {
-          equalTo: "#password1"
+          equalTo: "#password"
         },
         terms: {
           required: true
@@ -176,7 +186,7 @@
       messages: {
         email: "Введите корректный адрес электронной почты",
         name: "Введите полное имя",
-        password1: "Введите пароль длиною не менее 6 символов",
+        password: "Введите пароль длиною не менее 6 символов",
         password2: "Ошибка при повторном вводе пароля",
         terms: " "
       },

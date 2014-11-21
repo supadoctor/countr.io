@@ -187,7 +187,20 @@ class Indication
   property :submited, Boolean, :default  => false
 
   belongs_to :counter
+end
 
+class ResetPasswords
+  include DataMapper::Resource
+  include BCrypt
+  
+  property :id, Serial
+  property :email, String, :required => true, :format => :email_address,
+    :messages => {
+      :format => "Некорректный формат электронной почты",
+      :presence => "Обязательно укажите адрес электронной почты"
+    }
+  property :myhash, BCryptHash
+  property :td, DateTime
 end
 
 DataMapper.finalize

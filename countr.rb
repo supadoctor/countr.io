@@ -52,7 +52,9 @@ class CountrIOApp < Sinatra::Application
     config.serialize_into_session{|user| user.id }
     config.serialize_from_session{|id| User.get(id) }
 
-    config.scope_defaults :default,
+    config.default_scope = :password
+
+    config.scope_defaults :password,
       strategies: [:password],
       action: '/auth/unauthenticated'
   
@@ -67,14 +69,18 @@ class CountrIOApp < Sinatra::Application
 
   Warden::Strategies.add(:password) do
     def valid?
-      params[:login] && params[:password]
+      params["email"] && params["password"]
     end
 
     def authenticate!
-      user = User.first(:email => params[:login])
-      if user.nil?
+      puts "WARDEN PASSWORD STRATEGY BEGINS"
+      puts "****", params["email"]
+      user = User.first(:email => params["email"])
+      puts "****", user
+      if !user
+        puts "NO USER"
         session[:messagetodisplay]= @@text["notifications"]["wronguserorpassword"]
-      elsif user.authenticate(params[:login])
+      elsif user.authenticate(params["password"])
         begin
           user.update(:lastlogon => DateTime.now)
           account = user.account
@@ -82,10 +88,10 @@ class CountrIOApp < Sinatra::Application
             account.update(:type => 0)
           end
         rescue
-          #puts "Error on logon time updating:", user.errors.values
+          puts "ERROR DURING LOGON TIME UPDATING:", user.errors.values
         end
         success!(user)
-        #puts "Авторизация по паролю!"
+        puts "WARDEN PASSWORD STRATEGY WAS SUCCESSFULL :)"
       else
         session[:messagetodisplay]= @@text["notifications"]["wronguserorpassword"]
       end
@@ -94,10 +100,10 @@ class CountrIOApp < Sinatra::Application
   
   Warden::Strategies.add(:social) do
     def authenticate!
-      #puts "WARDEN SOCIAIL STRATEGY BEGINS"
+      puts "WARDEN SOCIAIL STRATEGY BEGINS"
       user = User.first(:email => env['omniauth.auth'][:info][:email])
-      if user.nil?
-        #puts "NO USER"
+      if !user
+        puts "NO USER"
         session[:messagetodisplay]= @@text["notifications"]["wronguser"]
       else
         begin
@@ -107,10 +113,10 @@ class CountrIOApp < Sinatra::Application
             account.update(:type => 0)
           end
         rescue
-          #puts "Error on logon time updating:", user.errors.values
+          puts "ERROR DURING LOGON TIME UPDATING:", user.errors.values
         end
         success!(user)
-        #puts "WARDEN SOCIAIL STRATEGY WAS SUCCESSFULL :)"
+        puts "WARDEN SOCIAIL STRATEGY WAS SUCCESSFULL :)"
       end
     end
   end
@@ -131,25 +137,25 @@ class CountrIOApp < Sinatra::Application
               end
               if !logged_in?
                 haml_tag :li do
-                  haml_tag :a, :href=>"#wtf" do
+                  haml_tag :a, :href=>"/#wtf" do
                     haml_tag :i, :class=>"uk-icon-question-circle"
                     haml_concat "Что это и зачем?"
                   end
                 end
                 haml_tag :li do
-                  haml_tag :a, :href=>"#happy" do
+                  haml_tag :a, :href=>"/#happy" do
                     haml_tag :i, :class=>"uk-icon-thumbs-up"
                     haml_concat "Жить стало лучше!"
                   end
                 end
                 haml_tag :li do
-                  haml_tag :a, :href=>"#price" do
+                  haml_tag :a, :href=>"/#price" do
                     haml_tag :i, :class=>"uk-icon-rub"
                     haml_concat "Стоимость"
                   end
                 end
                 haml_tag :li do
-                  haml_tag :a, :href=>"#signin" do
+                  haml_tag :a, :href=>"/#signin" do
                     haml_tag :i, :class=>"uk-icon-unlock-alt"
                     haml_concat "Войти или зарегистрироваться"
                   end
@@ -428,7 +434,7 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "Стоимость"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :h2, :class=>"uk-text-bold" do
                     haml_concat "БЕСПЛАТНО"
                   end
                 end
@@ -1391,9 +1397,36 @@ class CountrIOApp < Sinatra::Application
     redirect '/profile'
   end
 
+  post '/reguser' do
+    if !User.first(:email=>params[:email])
+      user = User.new(
+        :email => params[:email],
+        :name => params[:name],
+        :password => params[:password],
+        :profile => Profile.new(),
+        :account => Account.new(:type=>0)) # 0 - free, 1 - full
+      begin
+        user.save
+      rescue
+        puts "ERROR!!!! USER WAS NOT CREATED"
+        session[:messagetodisplay] = user.errors.values.join("; ")
+        redirect '/'
+      else
+        puts "USER WAS CREATED"
+        @msg = @@text["emails"]["registration"] + @@text["emails"]["regards"]
+        Pony.mail(:to => user.email, :subject => 'Регистрация на Countr.io', :body => @msg)
+        session[:messagetodisplay] = @@text["notifications"]["reguser"]
+        env['warden'].authenticate! #(:password)
+        redirect '/setup'
+      end
+    else
+      redirect '/'
+    end
+  end
+
   post '/auth/login' do
     env['warden'].authenticate!(:password)
-    redirect '/profile'
+    redirect '/'
   end
 
   get '/auth/:provider/callback' do
@@ -1424,6 +1457,70 @@ class CountrIOApp < Sinatra::Application
     end
   end
 
+  get '/resetpassword' do
+    haml :resetpassword
+  end
+
+  post '/resetpassword' do
+    user = User.first(:email=>params[:email])
+    if user
+      if user.password.to_s.length == 0
+        session[:messagetodisplay] = @@text["notifications"]["nopassword"]
+        redirect back
+      else
+        resetrequest = ResetPasswords.first_or_new({:email => user.email}, {:td => DateTime.now+1, :myhash => (user.email + DateTime.now.to_s)})
+        begin
+          resetrequest.save
+        rescue
+          session[:messagetodisplay] = @@text["notifications"]["resetpassworderror"]
+          session[:messagetodisplay] += resetrequest.errors.values.join("; ")
+          redirect back
+        end
+        session[:messagetodisplay] = @@text["notifications"]["resetpassword"]
+        @msg = "Здравствуйте!\nКто-то, возможно Вы, запросил сброc пароля на сайте www.countr.io. Для сброса пароля перейдите по ссылке (действительна в течении суток): http://www.countr.io/resetpass?reset=" + resetrequest.myhash.to_s + "\nЕсли Вы не запрашивали сброс пароля, то просто проигнорируйте это письмо" + @@text["emails"]["regards"]
+        Pony.mail(:to => user.email, :subject => 'Сброс пароля на Countr.io', :body => @msg)
+        redirect back
+      end
+    else
+      session[:messagetodisplay] = @@text["notifications"]["nouser"]
+      redirect back
+    end
+  end
+
+  get '/resetpass/?' do
+    resetrequest = ResetPasswords.first(:myhash => params[:reset])
+    if !resetrequest
+      session[:messagetodisplay] = @@text["notifications"]["resetpasswordwrongemail"]
+      redirect back
+    elsif resetrequest.td < DateTime.now
+      resetrequest.destroy
+      session[:messagetodisplay] = @@text["notifications"]["resetpasswordoverdue"]
+      redirect back
+    end
+    @newhash = resetrequest.myhash
+    haml :resetpass
+  end
+
+  post '/updatepassword' do
+    resetrequest = ResetPasswords.first(:myhash => params[:reset])
+    if resetrequest
+      user = User.first(:email => resetrequest.email)
+      user.attributes = {:password => params[:newpass1]}
+      begin
+        user.save
+      rescue
+        session[:messagetodisplay] = user.errors.values.join("; ")
+        redirect back
+      else
+        session[:messagetodisplay] = @@text["notifications"]["resetpasswordok"]
+        redirect '/'
+      end
+    else
+      session[:messagetodisplay] = @@text["notifications"]["resetpassworderror"]
+      redirect back
+    end
+  end
+
   ["/sign_out/?", "/signout/?", "/log_out/?", "/logout/?"].each do |path|
     get path do
       env['warden'].logout
@@ -1439,6 +1536,12 @@ class CountrIOApp < Sinatra::Application
   end
 
   get '/auth/unauthenticated' do
+    puts "get '/auth/unauthenticated'"
+    redirect '/'
+  end
+
+  post '/auth/unauthenticated' do
+    puts "post '/auth/unauthenticated'"
     redirect '/'
   end
 
