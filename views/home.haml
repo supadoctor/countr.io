@@ -18,11 +18,16 @@
       #homes
         //.uk-cover-background{:style=>"background-image: url('/img/house.png'); min-height: 200px; margin: 50px;"}
         //%img.uk-invisible{:src=>"", :width=>"", :height=>"", :alt=>""}
-        %h2.uk-margin-bottom-remove Помещение #{i+1}
+        %h2.uk-margin-bottom-remove
+          %mark
+            Помещение
+            //#{i+1}
+            ("#{h.title}", #{h.address})
         %a.uk-text-small{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
           скрыть/отобразить помещение
         %div.uk-margin-top{:id=>"home#{i+1}"}
-          %dl.uk-description-list-horizontal
+          -#
+            %dl.uk-description-list-horizontal
             %dt Наименование
             %dd #{h.title}
             %dt Адрес
@@ -58,6 +63,8 @@
                       %tr
                         %td{:style=>"padding: 5px;"}
                           .uk-badge.uk-badge-success #{ch.title}
+                          по
+                          #{ch.type}
                         %td{:style=>"padding: 5px;"}
                           .uk-text-center
                             %a.checkpattern.uk-button.uk-button{:id=>"checkpattern#{ch.id}"}
@@ -68,7 +75,7 @@
           .uk-grid
             .uk-width-1-1
               %indication{:index=>"#{i}"}
-                %table.hist.uk-width-1-1#hist
+                %table.hist.uk-width-1-1
                   %thead
                     %tr
                       %th{:width=>"25%"} Счетчик
@@ -87,7 +94,7 @@
                           #{Russian::strftime(ind.period, "%B %Y")}
                         %td{:style=>"padding: 5px;"}
                           #{ind.value}
-                        %td{:style=>"padding: 5px;"}
+                        %td.uk-text-center{:style=>"padding: 5px;"}
                           -if ind.submited
                             .uk-badge.uk-alert-succes
                               Да
@@ -95,21 +102,10 @@
                             .uk-badge.uk-alert-warning
                               Нет
                   -if @err != 0
-                    %tr
+                    %tr#nodatarow
                       %td{:colspan=>4}
-                        .uk-alert.uk-alert-warning{"data-uk-alert"=>""}
-                          %a.uk-alert-close.uk-close
-                          %p
-                            %div
-                              Нет показаний
-                -#
-                  %table#hist1.uk-width-1-1
-                  %thead
-                    %tr
-                      %th{:width=>"25%"} Счетчик
-                      %th{:width=>"25%"} Период
-                      %th{:width=>"25%"} Показания
-                      %th{:width=>"25%"} Передано
+                        .uk-alert.uk-alert-warning
+                          Нет показаний
 #patterntestmodal.uk-modal
   .uk-modal-dialog.uk-modal-dialog-slide
     %a.uk-modal-close.uk-close
@@ -171,7 +167,7 @@
         data: "channelid=" + id,
         success: function(response) {
           if(!response.success) {
-            displaynotify("Ошибка отправки показаний, повторите попытку");
+            displaynotify(response.msg);
           } else {
             displaynotify(response.msg);
           } 
@@ -183,7 +179,8 @@
   });
 
   $(document).ready(function() {
-    if ($('#hist').length) {
+    //var hist = document.querySelector("table.hist");
+    if (!document.querySelector("tr#nodatarow")) {
       $('table.hist').DataTable({
         language: {
           "sProcessing":   "Подождите...",

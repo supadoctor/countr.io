@@ -180,9 +180,9 @@ class Indication
   include DataMapper::Resource
   property :id, Serial
   property :period, Date
-  property :value, Float, :format => /^\d+(.\d+)?$/,
+  property :value, Integer, :format => /^\d+$/,
     :messages => {
-      :format  => "Неверный формат значения счетчика. Введите число"
+      :format  => "Неверный формат значения счетчика. Введите целое число"
     }
   property :submited, Boolean, :default  => false
 

@@ -8,7 +8,7 @@
         %span.editable-click подчеркиванием
         , доступны для редактирования. Для изменения значение кликните на поле, введите новое значение и нажмите кнопку
         %code ОК
-        . Также на этой странице вы можете добавить или удалить помещения, счетчики, каналы передачи показаний счетчиков.
+        =". Также на этой странице вы можете добавить или удалить помещения, счетчики, каналы передачи показаний счетчиков."
   %dl.uk-description-list-horizontal
     %dt.uk-margin-bottom Имя пользователя
     %dd.uk-margin-bottom
@@ -47,78 +47,82 @@
           Установить
                 
   -@environment.each_with_index do |(h,v), i|
-    .uk-placeholder
-      %h2
-        Помещение #{i+1}
+    .uk-placeholder{:style=>"background: rgba(250, 250, 250, 0.90);"}
+      %h2.uk-margin-bottom-remove
+        %mark
+          Помещение #{i+1}
         %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
           %i.uk-icon-minus-circle.delhome{"data-myhref"=>"/home/#{i+1}/delete"}
         %a{:href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
           %i.uk-icon-plus-circle
-      %dl.uk-description-list-horizontal
-        %dt.uk-margin-bottom Наименование
-        %dd.uk-margin-bottom
-          %text.hometitle{"data-pk"=>i+1} #{h.title}
-        %dt.uk-margin-bottom Адрес
-        %dd
-          %text.homeaddress{"data-pk"=>i+1} #{h.address}
-      .uk-panel.uk-panel-box
-        .uk-panel-title
-          Счетчики
-          %a{:href=>"/home/#{i+1}/counter/new", "data-uk-tooltip"=>"", :title=>"Добавить новый счетчик"}
-            %i.uk-icon-plus-circle
-        -if @environment[h][:counters].size > 0
-          %table.uk-table
-            %thead
-              %tr
-                %th{:width=>"34%"} Наименование
-                %th{:width=>"33%"} Тип счетчика
-                %th{:width=>"33%"} Лицевой счет
-            -@environment[h][:counters].each_with_index do |c, ci|
-              %tr
-                %td
-                  %text.countertitle{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/countertitleupdate"} #{c.title}
-                  %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
-                    %i.uk-icon-minus-circle.delcounter{"data-myhref"=>"/home/#{i+1}/counter/#{ci+1}/delete"}
-                %td
-                  %text.countertype{"data-pk"=>ci+1, "data-value"=>c.type, "data-url"=>"/home/#{i+1}/countertypeupdate"}
-                    //%option{:value=>c.type} #{c.typestr}
-                %td
-                  %text.counteraccount{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counteraccountupdate"} #{c.account}
-        -else
-          .uk-alert.uk-alert-warning Счетчики не определены
-      .uk-panel.uk-panel-box.uk-margin-top
-        .uk-panel-title
-          Каналы передачи значений счетчиков
-          %a{:href=>"/home/#{i+1}/channel/new", "data-uk-tooltip"=>"", :title=>"Добавить новый канал передачи"}
-            %i.uk-icon-plus-circle
-        -if @environment[h][:channels].size > 0
-          %table.uk-table
-            %thead
-              %tr
-                %th{:width=>"25%"} Наименование
-                %th{:width=>"17%"} Способ передачи
-                %th{:width=>"25%"} Получатель
-                %th{:width=>"33%"} Шаблон передаваемого сообщения
-            -@environment[h][:channels].each_with_index do |ch, chi|
-              %tr
-                %td
-                  %text.channeltitle{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channeltitleupdate"} #{ch.title}
-                  %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить канал передачи"}
-                    %i.uk-icon-minus-circle.delchannel{"data-myhref"=>"/home/#{i+1}/channel/#{chi+1}/delete"}
-                %td
-                  %span
-                    #{ch.type}
-                    -if ch.type == 'sms' && @account.type != 1
-                      .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Канал неактивен до покупки полного функционала"} !
-                %td
-                  %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
-                %td
-                  %pre
-                    %code
-                      #{ch.pattern}
-                  %a{:href=>"/home/#{i+1}/channel/#{chi+1}/updatepattern"} Изменить
-        -else
-          .uk-alert.uk-alert-warning Каналы передачи не определены
+      %a.uk-text-small{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
+        скрыть/отобразить помещение
+      %div.uk-margin-top{:id=>"home#{i+1}"}
+        %dl.uk-description-list-horizontal
+          %dt.uk-margin-bottom Наименование
+          %dd.uk-margin-bottom
+            %text.hometitle{"data-pk"=>i+1} #{h.title}
+          %dt.uk-margin-bottom Адрес
+          %dd
+            %text.homeaddress{"data-pk"=>i+1} #{h.address}
+        .uk-panel.uk-panel-box
+          .uk-panel-title
+            Счетчики
+            %a{:href=>"/home/#{i+1}/counter/new", "data-uk-tooltip"=>"", :title=>"Добавить новый счетчик"}
+              %i.uk-icon-plus-circle
+          -if @environment[h][:counters].size > 0
+            %table.uk-table
+              %thead
+                %tr
+                  %th{:width=>"34%"} Наименование
+                  %th{:width=>"33%"} Тип счетчика
+                  %th{:width=>"33%"} Лицевой счет
+              -@environment[h][:counters].each_with_index do |c, ci|
+                %tr
+                  %td
+                    %text.countertitle{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/countertitleupdate"} #{c.title}
+                    %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
+                      %i.uk-icon-minus-circle.delcounter{"data-myhref"=>"/home/#{i+1}/counter/#{ci+1}/delete"}
+                  %td
+                    %text.countertype{"data-pk"=>ci+1, "data-value"=>c.type, "data-url"=>"/home/#{i+1}/countertypeupdate"}
+                      //%option{:value=>c.type} #{c.typestr}
+                  %td
+                    %text.counteraccount{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counteraccountupdate"} #{c.account}
+          -else
+            .uk-alert.uk-alert-warning Счетчики не определены
+        .uk-panel.uk-panel-box.uk-margin-top
+          .uk-panel-title
+            Каналы передачи значений счетчиков
+            %a{:href=>"/home/#{i+1}/channel/new", "data-uk-tooltip"=>"", :title=>"Добавить новый канал передачи"}
+              %i.uk-icon-plus-circle
+          -if @environment[h][:channels].size > 0
+            %table.uk-table
+              %thead
+                %tr
+                  %th{:width=>"25%"} Наименование
+                  %th{:width=>"17%"} Способ передачи
+                  %th{:width=>"25%"} Получатель
+                  %th{:width=>"33%"} Шаблон передаваемого сообщения
+              -@environment[h][:channels].each_with_index do |ch, chi|
+                %tr
+                  %td
+                    %text.channeltitle{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channeltitleupdate"} #{ch.title}
+                    %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить канал передачи"}
+                      %i.uk-icon-minus-circle.delchannel{"data-myhref"=>"/home/#{i+1}/channel/#{chi+1}/delete"}
+                  %td
+                    %span
+                      #{ch.type}
+                      -if ch.type == 'sms' && @account.type != 1
+                        .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Канал неактивен до покупки полного функционала"} !
+                  %td
+                    %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
+                  %td
+                    %pre
+                      %code
+                        #{ch.pattern}
+                    %a{:href=>"/home/#{i+1}/channel/#{chi+1}/updatepattern"} Изменить
+          -else
+            .uk-alert.uk-alert-warning Каналы передачи не определены
 
 
 :javascript

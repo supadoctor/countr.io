@@ -12,7 +12,8 @@ require 'json'
 require 'warden'
 #require 'sinatra/r18n'
 require 'russian'
-require 'yandex_money/api'
+#require 'yandex_money/api'
+require 'twilio-ruby'
 
 require './models.rb'
 
@@ -26,6 +27,8 @@ class CountrIOApp < Sinatra::Application
     I18n.enforce_available_locales = false
     MonthlyPrice = 20
     YearlyPrice = 200
+    Twilio_account_sid = "AC16d24652412db0a0d84d2d0b3fd67db7"
+    Twilio_auth_token = "2d5fb2e3ce6e95f8b1c3ca98529afdd3"
   end
 
   Pony.options = {
@@ -356,6 +359,21 @@ class CountrIOApp < Sinatra::Application
               end
               haml_tag :tr, :class=>"uk-table-middle" do
                 haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "История и статистика переданных показаний"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :h2 do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+              end
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
                   haml_concat "Отправка показаний по email"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
@@ -439,13 +457,13 @@ class CountrIOApp < Sinatra::Application
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :h2, :class=>"uk-text-bold" do
                     haml_concat MonthlyPrice.to_s + " руб. в месяц"
                   end
                   haml_tag :span do
                     haml_concat "или"
                   end
-                  haml_tag :h2, :class=>"uk-margin-top" do
+                  haml_tag :h2, :class=>"uk-margin-top uk-text-bold" do
                     haml_concat YearlyPrice.to_s + " руб. в год"
                   end
                 end
@@ -541,6 +559,15 @@ class CountrIOApp < Sinatra::Application
                  val = "##"
                else
                  val = indications[-1].value
+                 if mode == "send"
+                   indications[-1].attributes = {:submited => true}
+                   begin
+                     indications[-1].save
+                   rescue
+                     session[:messagetodisplay] = indications[-1].errors.values.join("; ")
+                     redirect '/setup'
+                   end
+                 end
                end
                pattern.gsub!(t, val.to_s)
              end
@@ -836,15 +863,36 @@ class CountrIOApp < Sinatra::Application
     sum = params[:withdraw_amount].to_i
     if sum == MonthlyPrice
       pu = Date.today >> 1
-      @account.update(:paiduntil => pu)
-      haml :paymentok
+      @account.attributes = {:paiduntil => pu, :type => 1}
+      begin
+        @account.save
+      rescue
+        msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id.to_s + "\nwithdraw_ammount = " + sum.to_s
+        Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
+        session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+        haml :paymenterror
+      else
+        session[:messagetodisplay] = @@text["notifications"]["paymentok"]
+        haml :paymentok
+      end
     elsif sum == YearlyPrice
       pu = Date.today >> 12
-      @account.update(:paiduntil => pu)
-      haml :paymentok
+      @account.attributes = {:paiduntil => pu, :type => 1}
+      begin
+        @account.save
+      rescue
+        msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id.to_s + "\nwithdraw_ammount = " + sum.to_s
+        Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
+        session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+        haml :paymenterror
+      else
+        session[:messagetodisplay] = @@text["notifications"]["paymentok"]
+        haml :paymentok
+      end
     else
-      msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id_to_s + "\nwithdraw_ammount = " + sum.to_s
-      Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА', :body => msg)
+      msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id.to_s + "\nwithdraw_ammount = " + sum.to_s
+      Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
+      session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
       haml :paymenterror
     end
   end
@@ -1437,7 +1485,7 @@ class CountrIOApp < Sinatra::Application
         :email => auth[:info][:email],
         :name => auth[:info][:first_name] + " " + auth[:info][:last_name],
         :profile => Profile.new(),
-        :account => Account.new(:type=>0)) # 0 - free, 1 - full
+        :account => Account.new(:type=>1)) # 0 - free, 1 - full
       begin
         user.save
       rescue
@@ -1607,13 +1655,43 @@ class CountrIOApp < Sinatra::Application
     content_type :json
     account = current_user.account
     channel = Channel.get(params[:channelid].to_i)
-    msg = decodepattern(channel.pattern, "real")
-    if channel.type == "email"
-      msg += "\n--\nОтправлено через сервис www.countr.io"
-      Pony.mail(:to => channel.to, :subject => 'Показания счетчиков', :body => msg)
-      #Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Показания счетчиков', :body => msg)
-      f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+    if account.type == 0 && account.homes.all.count > 1
+      puts "CAN'T SEND INDICATIONS FOR > 1 HOME WITH FREE ACCOUNT TYPE"
+      f={:success=>false, :msg=>"Тип Вашей учетной записи не позволяет передавать показания счетчиков при наличии нескольких помещений. Необходимо оплатить доступ ко всем функциям сайта или удалить лишние помещения"}
       f.to_json
+    else
+      msg = decodepattern(channel.pattern, "send")
+      if channel.type == "email"
+        msg += "\n--\nОтправлено через сервис www.countr.io"
+        Pony.mail(:to => channel.to, :subject => 'Показания счетчиков', :body => msg)
+        #Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Показания счетчиков', :body => msg)
+        f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+        f.to_json
+      elsif channel.type == "sms"
+        if account.type == 1
+          begin
+            cto = channel.to
+            if cto[0] == '8'
+              cto[0] = '+7'
+            end
+            @client = Twilio::REST::Client.new Twilio_account_sid, Twilio_auth_token
+            @client.account.messages.create({
+              :from => '+15005550006',
+              :to => '+18053563979',
+              :body => msg
+            })
+          rescue Twilio::REST::RequestError => e
+            f={:success=>false, :msg=>"Ошибка отправки SMS: " + e.message}
+            f.to_json
+          else
+            f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+            f.to_json
+          end
+        else
+          f={:success=>false, :msg=>"Тип Вашей учетной записи не позволяет передавать показания счетчиков по SMS. Необходимо оплатить доступ ко всем функциям сайта"}
+          f.to_json
+        end
+      end
     end
   end
 
@@ -1622,7 +1700,7 @@ class CountrIOApp < Sinatra::Application
     period2 = DateTime.new(DateTime.now.year, DateTime.now.month, DateTime.now.day, DateTime.now.hour, 59, 59)
     users = Profile.all(:sendnotification => true, :notificationdate => period1..period2)
     msg4email1 = "Здравствуйте, "
-    msg4email2 = "!\nНапоминаем, что наступило время передавать показания счетчиков. Заходите не www.countr.io и сделайте это легко и быстро!\n\n--\nОтправлено через сервис www.countr.io"
+    msg4email2 = "!\nНапоминаем, что наступило время передавать показания счетчиков. Заходите на www.countr.io и сделайте это прямо сейчас!\n\n--\nОтправлено через сервис www.countr.io"
     msg4sms = "Время передавать показания счетчиков. www.countr.io"
     users.each do |u|
       if u.notificationtype = "email"
