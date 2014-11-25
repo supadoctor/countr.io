@@ -1715,5 +1715,9 @@ class CountrIOApp < Sinatra::Application
     @account = current_user.account
     haml :paymentok
   end
+
+  get '/terms' do
+    haml :terms
+  end
   
 end # END OF APP CLASS
