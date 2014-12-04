@@ -148,9 +148,9 @@ class Counter
     when 12
       return "ГВС"
     when 20
-      return "ГАЗ"
+      return "Газоснабжение"
     when 30
-      return "ЭЛЕКТРИЧЕСТВО"
+      return "Электроснабжение"
     when 31
       return "ЭЛЕКТРИЧЕСТВО (T1)"
     when 32
@@ -170,7 +170,7 @@ class Counter
       return indication[0].value
     end
   end
-  
+
   def allindications
     return self.indications.all
   end
@@ -204,8 +204,8 @@ class ResetPasswords
 end
 
 DataMapper.finalize
-DataMapper.auto_migrate! #recreate all table
-#DataMapper.auto_upgrade! #try to upgrade models
+#DataMapper.auto_migrate! #recreate all table
+DataMapper.auto_upgrade! #try to upgrade models
 
 if User.count == 0
   admin = User.new(

@@ -1,4 +1,22 @@
-.uk-container-center.uk-width-large-1-1.lane{:style => "background-color: #FFF;"}
+//.uk-grid{:style=>"padding: 20px;"}
+-if !paid_account?
+  .uk-grid{:style=>"padding: 20px; padding-bottom: 0px;"}
+    .uk-width-1-3.uk-text-center
+      %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+      %ins.adsbygoogle{:style=>"display:inline-block;width:320px;height:100px", "data-ad-client"=>"ca-pub-9670514616561256", "data-ad-slot"=>"4043846520"}
+      :javascript
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    .uk-width-1-3.uk-text-center
+      %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+      %ins.adsbygoogle{:style=>"display:inline-block;width:320px;height:100px", "data-ad-client"=>"ca-pub-9670514616561256", "data-ad-slot"=>"5520579721"}
+      :javascript
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    .uk-width-1-3.uk-text-center
+      %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+      %ins.adsbygoogle{:style=>"display:inline-block;width:320px;height:100px", "data-ad-client"=>"ca-pub-9670514616561256", "data-ad-slot"=>"6997312923"}
+      :javascript
+        (adsbygoogle = window.adsbygoogle || []).push({});
+.uk-width-1-1{:style=>"padding: 20px;"}
   %h1 Профиль пользователя
   .uk-alert{"data-uk-alert"=>""}
     %a.uk-alert-close.uk-close
@@ -17,7 +35,7 @@
     %dd.uk-margin-bottom #{@profile.created_at.strftime("%d.%m.%Y")}
     %dt.uk-margin-bottom Тип доступа
     -if @account.type == 1
-      %dd.uk-margin-bottom Полный
+      %dd.uk-margin-bottom Полный (до #{@account.paiduntil.strftime("%d.%m.%Y")})
     -else 
       %dd.uk-margin-bottom
         Базовый
@@ -42,10 +60,8 @@
             .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Оповещения не отправляются до покупки полного функционала"} !
     -else
       %dd.uk-margin-bottom
-        не отправляются
         %a{:href=>"/setnotification"}
-          Установить
-                
+          не отправляются
   -@environment.each_with_index do |(h,v), i|
     .uk-placeholder{:style=>"background: rgba(250, 250, 250, 0.90);"}
       %h2.uk-margin-bottom-remove
@@ -118,12 +134,12 @@
                     %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
                   %td
                     %pre
-                      %code
-                        #{ch.pattern}
+                      %p= find_and_preserve "<code>#{ch.pattern}</code>"
                     %a{:href=>"/home/#{i+1}/channel/#{chi+1}/updatepattern"} Изменить
           -else
             .uk-alert.uk-alert-warning Каналы передачи не определены
-
+  .uk-text-center
+    %a.uk-button.uk-button-primary{:href=>"/"} Передать показания счетчиков
 
 :javascript
   $(function() {
@@ -454,7 +470,7 @@
    });
 
    $('.delchannel').click(function() {
-     var isConfirmed = confirm("Пожалуйста, подтвердите или отмените операцию удаления.");
+     var isConfirmed = confirm("Удаляя канал передачи вы удалите и все показания счетчиков, отправленные по этому каналу. Пожалуйста, подтвердите или отмените операцию удаления.");
      if(isConfirmed) {
        $.ajax({
          url: $(this).data("myhref"),

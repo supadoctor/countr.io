@@ -14,6 +14,7 @@ require 'warden'
 require 'russian'
 #require 'yandex_money/api'
 require 'twilio-ruby'
+require 'digest/sha1'
 
 require './models.rb'
 
@@ -27,8 +28,9 @@ class CountrIOApp < Sinatra::Application
     I18n.enforce_available_locales = false
     MonthlyPrice = 20
     YearlyPrice = 200
-    Twilio_account_sid = "AC16d24652412db0a0d84d2d0b3fd67db7"
-    Twilio_auth_token = "2d5fb2e3ce6e95f8b1c3ca98529afdd3"
+    Twilio_account_sid = "AC923008f80a9cb5b05bf154de08ef6551"
+    Twilio_auth_token = "71713e0d196d7c2d7acb8fd528c37832"
+    Admin_email = "countr.io@yandex.ru"
   end
 
   Pony.options = {
@@ -132,13 +134,13 @@ class CountrIOApp < Sinatra::Application
         haml_tag :div, :class=>"uk-container uk-container-center" do
           haml_tag :div, :class=>"uk-navbar-flip" do
             haml_tag :ul, :class=>"uk-navbar-nav" do
-              haml_tag :li do
-                haml_tag :a, :href=>"/" do
-                  haml_tag :i, :class=>"uk-icon-home"
-                  haml_concat "Главная"
-                end
-              end
               if !logged_in?
+                haml_tag :li do
+                  haml_tag :a, :href=>"/" do
+                    haml_tag :i, :class=>"uk-icon-home"
+                    haml_concat "Главная"
+                  end
+                end
                 haml_tag :li do
                   haml_tag :a, :href=>"/#wtf" do
                     haml_tag :i, :class=>"uk-icon-question-circle"
@@ -164,6 +166,12 @@ class CountrIOApp < Sinatra::Application
                   end
                 end
               else
+                haml_tag :li do
+                  haml_tag :a, :href=>"/" do
+                    haml_tag :i, :class=>"uk-icon-home"
+                    haml_concat "Передать показания"
+                  end
+                end
                 haml_tag :li do
                   haml_tag :a, :href=>"/profile" do
                     haml_tag :i, :class=>"uk-icon-user"
@@ -347,12 +355,12 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "Неограниченное количество счетчиков"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
@@ -362,12 +370,12 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "История и статистика переданных показаний"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
@@ -377,12 +385,12 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "Отправка показаний по email"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
@@ -392,13 +400,28 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "Получение напоминаний на email"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+              end
+              haml_tag :tr, :class=>"uk-table-middle" do
+                haml_tag :td, :class=>"uk-width-1-2" do
+                  haml_concat "Показ рекламных объявлений"
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
+                  haml_tag :span, :class=>"uk-h2" do
+                    haml_tag :i, :class=>"uk-icon-check-square-o"
+                  end
+                end
+                haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
+                  haml_tag :span, :class=>"uk-h2" do
+                    haml_tag :i, :class=>"uk-icon-square-o"
                   end
                 end
               end
@@ -407,12 +430,12 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "Отправка показаний по SMS"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-square-o"
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
@@ -422,12 +445,12 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "Получение напоминаний по SMS"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-square-o"
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
@@ -437,12 +460,12 @@ class CountrIOApp < Sinatra::Application
                   haml_concat "Поддержка нескольких помещений"
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-square-o"
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2 do
+                  haml_tag :span, :class=>"uk-h2" do
                     haml_tag :i, :class=>"uk-icon-check-square-o"
                   end
                 end
@@ -457,13 +480,13 @@ class CountrIOApp < Sinatra::Application
                   end
                 end
                 haml_tag :td, :class=>"uk-width-1-4 uk-text-center uk-badge-success" do
-                  haml_tag :h2, :class=>"uk-text-bold" do
+                  haml_tag :span, :class=>"uk-h2", :class=>"uk-text-bold" do
                     haml_concat MonthlyPrice.to_s + " руб. в месяц"
                   end
                   haml_tag :span do
                     haml_concat "или"
                   end
-                  haml_tag :h2, :class=>"uk-margin-top uk-text-bold" do
+                  haml_tag :span, :class=>"uk-h2", :class=>"uk-margin-top uk-text-bold" do
                     haml_concat YearlyPrice.to_s + " руб. в год"
                   end
                 end
@@ -486,11 +509,7 @@ class CountrIOApp < Sinatra::Application
     end
 
     def current_account
-      if env['warden'].authenticated?
-        @current_user = env['warden'].user
-        @current_account = Account.get(@current_user.account_id)
-        return @current_account
-      end
+      current_user.account
     end
 
     def logged_in?
@@ -505,43 +524,44 @@ class CountrIOApp < Sinatra::Application
       end
     end
 
-    def decodepattern(pattern, mode)
+    def decodepattern(pat, mode)
+      @pattern = pat
       patterns = ["{ИМЯ_ПОЛЬЗОВАТЕЛЯ}", "{ИМЯ_ПОМЕЩЕНИЯ}", "{АДРЕС_ПОМЕЩЕНИЯ}", "{НАЗВАНИЕ_СЧЕТЧИКА}", "{ТИП_СЧЕТЧИКА}", "{ПОКАЗАНИЕ_СЧЕТЧИКА}", "{ЛИЦЕВОЙ_СЧЕТ_СЧЕТЧИКА}", "{ТЕКУЩАЯ_ДАТА}", "{ТЕКУЩИЙ_МЕСЯЦ}", "{ПРОШЛЫЙ_МЕСЯЦ}"]
       patterns.each do |p|
         case p
         when "{ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
-          pattern.gsub!("{ИМЯ_ПОЛЬЗОВАТЕЛЯ}", current_user.name)
+          @pattern.gsub!("{ИМЯ_ПОЛЬЗОВАТЕЛЯ}", current_user.name)
         when "{ИМЯ_ПОМЕЩЕНИЯ}"
-         pattern.scan(/{ИМЯ_ПОМЕЩЕНИЯ_\d+}/).each do |t|
+         @pattern.scan(/{ИМЯ_ПОМЕЩЕНИЯ_\d+}/).each do |t|
            n = t.scan(/\d+/)[0].to_i
            h = current_user.account.homes.all
-           pattern.gsub!(t, h[n-1].title)
+           @pattern.gsub!(t, h[n-1].title)
          end
         when "{АДРЕС_ПОМЕЩЕНИЯ}"
-         pattern.scan(/{АДРЕС_ПОМЕЩЕНИЯ_\d+}/).each do |t|
+         @pattern.scan(/{АДРЕС_ПОМЕЩЕНИЯ_\d+}/).each do |t|
            n = t.scan(/\d+/)[0].to_i
            h = current_user.account.homes.all
-           pattern.gsub!(t, h[n-1].address)
+           @pattern.gsub!(t, h[n-1].address)
          end
         when "{НАЗВАНИЕ_СЧЕТЧИКА}"
-         pattern.scan(/{НАЗВАНИЕ_СЧЕТЧИКА_\d+_\d+}/).each do |t|
+         @pattern.scan(/{НАЗВАНИЕ_СЧЕТЧИКА_\d+_\d+}/).each do |t|
            nh = t.scan(/\d+/)[0].to_i
            nc = t.scan(/\d+/)[1].to_i
            h = (current_user.account.homes.all)[nh-1]
            c = (h.counters.all)[nc-1]
-           pattern.gsub!(t, c.title)
+           @pattern.gsub!(t, c.title)
          end
         when "{ТИП_СЧЕТЧИКА}"
-         pattern.scan(/{ТИП_СЧЕТЧИКА_\d+_\d+}/).each do |t|
+         @pattern.scan(/{ТИП_СЧЕТЧИКА_\d+_\d+}/).each do |t|
            nh = t.scan(/\d+/)[0].to_i
            nc = t.scan(/\d+/)[1].to_i
            h = (current_user.account.homes.all)[nh-1]
            c = (h.counters.all)[nc-1]
-           pattern.gsub!(t, c.typestr)
+           @pattern.gsub!(t, c.typestr)
          end
         when "{ПОКАЗАНИЕ_СЧЕТЧИКА}"
          error = 1
-         meters = pattern.scan(/{ПОКАЗАНИЕ_СЧЕТЧИКА_\d+_\d+}|{ПОКАЗАНИЕ_СЧЕТЧИКА_\d+_\d+_\(ТАРИФ\d+\)}/)
+         meters = @pattern.scan(/{ПОКАЗАНИЕ_СЧЕТЧИКА_\d+_\d+}|{ПОКАЗАНИЕ_СЧЕТЧИКА_\d+_\d+_\(ТАРИФ\d+\)}/)
          if meters.size != 0
            error = 0
            meters.each do |t|
@@ -552,24 +572,25 @@ class CountrIOApp < Sinatra::Application
              h = (current_user.account.homes.all)[nh-1]
              c = (h.counters.all)[nc-1]
              if mode == "test"
-               pattern.gsub!(t, "##")
+               @pattern.gsub!(t, "##")
              else
                indications = c.indications.all(:submited => false)
                if indications.count == 0
                  val = "##"
                else
-                 val = indications[-1].value
+                 indication = indications[-1]
+                 val = indication.value
                  if mode == "send"
-                   indications[-1].attributes = {:submited => true}
+                   indication.attributes = {:submited => true}
                    begin
-                     indications[-1].save
+                     indication.save
                    rescue
-                     session[:messagetodisplay] = indications[-1].errors.values.join("; ")
+                     session[:messagetodisplay] = indication.errors.values.join("; ")
                      redirect '/setup'
                    end
                  end
                end
-               pattern.gsub!(t, val.to_s)
+               @pattern.gsub!(t, val.to_s)
              end
            end
          end
@@ -591,25 +612,25 @@ class CountrIOApp < Sinatra::Application
          #   end
          # end
          if error == 1
-           pattern = "СООБЩЕНИЕ НЕ СОДЕРЖИТ ПОКАЗАНИЯ СЧЕТЧИКОВ! ПРОВЕРЬТЕ ФОРМАТ ШАБЛОНА!\n\n" + pattern
+           @pattern = "СООБЩЕНИЕ НЕ СОДЕРЖИТ ПОКАЗАНИЯ СЧЕТЧИКОВ! ПРОВЕРЬТЕ ФОРМАТ ШАБЛОНА!\n\n" + @pattern
          end
         when "{ЛИЦЕВОЙ_СЧЕТ_СЧЕТЧИКА}"
-         pattern.scan(/{ЛИЦЕВОЙ_СЧЕТ_СЧЕТЧИКА_\d+_\d+}/).each do |t|
+         @pattern.scan(/{ЛИЦЕВОЙ_СЧЕТ_СЧЕТЧИКА_\d+_\d+}/).each do |t|
            nh = t.scan(/\d+/)[0].to_i
            nc = t.scan(/\d+/)[1].to_i
            h = (current_user.account.homes.all)[nh-1]
            c = (h.counters.all)[nc-1]
-           pattern.gsub!(t, c.account)
+           @pattern.gsub!(t, c.account)
          end
         when "{ТЕКУЩАЯ_ДАТА}"
-          pattern.gsub!("{ТЕКУЩАЯ_ДАТА}", DateTime.now.strftime("%d.%m.%Y"))
+          @pattern.gsub!("{ТЕКУЩАЯ_ДАТА}", DateTime.now.strftime("%d.%m.%Y"))
         when "{ТЕКУЩИЙ_МЕСЯЦ}"
-          pattern.gsub!("{ТЕКУЩИЙ_МЕСЯЦ}", Russian::strftime(DateTime.now, "%B"))
+          @pattern.gsub!("{ТЕКУЩИЙ_МЕСЯЦ}", Russian::strftime(DateTime.now, "%B"))
         when "{ПРОШЛЫЙ_МЕСЯЦ}"
-          pattern.gsub!("{ПРОШЛЫЙ_МЕСЯЦ}", Russian::strftime(DateTime.now.prev_month, "%B"))
+          @pattern.gsub!("{ПРОШЛЫЙ_МЕСЯЦ}", Russian::strftime(DateTime.now.prev_month, "%B"))
         end
       end
-      return pattern
+      return @pattern
     end
 
     def h(text)
@@ -681,7 +702,7 @@ class CountrIOApp < Sinatra::Application
       redirect '/'
     end
   end
-  
+
   post '/setup' do
     ##puts params.keys
     @user = current_user
@@ -716,7 +737,7 @@ class CountrIOApp < Sinatra::Application
       end
     end
   end
-  
+
   post '/configure' do
     z = 1
     params.keys.map do |p|
@@ -735,13 +756,16 @@ class CountrIOApp < Sinatra::Application
             n = "channelname" + z.to_s
             e = "channelemail" + z.to_s
             s = "channelsms" + z.to_s
+            pat = params[p.to_sym]
+            securpat = h(pat)
+            newlinepat = securpat.encode(securpat.encoding, :universal_newline => true)
             case params[t.to_sym]
             when "sms"
               #puts ">SMS>", params[n.to_sym], params[t.to_sym], params[s.to_sym], params[p.to_sym], "<SMS<"
-              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"sms", :phone=>params[s.to_sym], :pattern=>h(params[p.to_sym]))
+              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"sms", :phone=>params[s.to_sym], :pattern=>newlinepat)
             when "email"
               #puts ">EMAIL>", params[n.to_sym], params[t.to_sym], params[e.to_sym], params[p.to_sym], "<EMAIL<"
-              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"email", :email=>params[e.to_sym], :pattern=>h(params[p.to_sym]))
+              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"email", :email=>params[e.to_sym], :pattern=>newlinepat)
             end
             begin
               #puts "TRYING TO ADD COUNTER", c, "TO", channel
@@ -787,9 +811,9 @@ class CountrIOApp < Sinatra::Application
       #puts "NOTIFICATION WAS SAVED"
       session[:messagetodisplay] = @@text["notifications"]["setupfinished"]
       #puts "BEFORE CALLING /PROFILE"
-      redirect '/profile'
+      redirect '/'
     end
-  end  
+  end
 
   get '/profile' do
     if logged_in?
@@ -859,42 +883,81 @@ class CountrIOApp < Sinatra::Application
   end
 
   post '/paymentresult' do
+    mysha1params=["card-incoming", params[:operation_id], params[:amount], "643", params[:datetime], params[:sender], "false&x3hY6wGSDtAsfx2RG5kieHLp", params[:label]]
+    mysha1str=mysha1params.join("&")
+    mysha1 = Digest::SHA1.hexdigest mysha1str
     @account = Account.first(:id=>params[:label].to_i)
-    sum = params[:withdraw_amount].to_i
-    if sum == MonthlyPrice
-      pu = Date.today >> 1
-      @account.attributes = {:paiduntil => pu, :type => 1}
-      begin
-        @account.save
-      rescue
-        msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id.to_s + "\nwithdraw_ammount = " + sum.to_s
-        Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
-        session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
-        haml :paymenterror
+    puts mysha1, params[:sha1_hash]
+    account_id = @account.id.to_s
+    if @account && mysha1 == params[:sha1_hash]
+      sum = params[:withdraw_amount].to_i
+      puts "STARTING PAYMENT PROCESSING"
+      puts "ACCOUNT_ID =", account_id
+      puts "SUM =", sum
+      if sum == MonthlyPrice
+        puts "SUM IS FOR MONTH"
+        pu = Date.today >> 1
+        @account.attributes = {:paiduntil => pu, :type => 1}
+        begin
+          @account.save
+          #puts "ACCOUNT IS SAVING"
+        rescue
+          msg = "Внимание! Ошибка при обновлении эккаунта при оплате на месяц!\naccount.id = " + account_id + "\nwithdraw_ammount = " + sum.to_s
+          Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
+          #session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+          puts "ERROR IN ACCOUNT UPDATING"
+          status 500
+          #haml :paymenterror
+        #else
+          #session[:messagetodisplay] = @@text["notifications"]["paymentok"]
+          #puts "MONTHLY PAYMENT IS OK AND ACCOUNT WAS UPDATED"
+          #haml :paymentok
+          #puts "AFTER PAYMENTOK PAGE"
+        end
+      elsif sum == YearlyPrice
+        puts "SUM IS FOR YEAR"
+        pu = Date.today >> 12
+        @account.attributes = {:paiduntil => pu, :type => 1}
+        begin
+          @account.save
+        rescue
+          msg = "Внимание! Ошибка при обновлении эккаунта при оплате на год!\naccount.id = " + account_id + "\nwithdraw_ammount = " + sum.to_s
+          Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
+          #session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+          puts "ERROR IN ACCOUNT UPDATING"
+          status 500
+          #haml :paymenterror
+        #else
+          #session[:messagetodisplay] = @@text["notifications"]["paymentok"]
+          #haml :paymentok
+        end
       else
-        session[:messagetodisplay] = @@text["notifications"]["paymentok"]
-        haml :paymentok
-      end
-    elsif sum == YearlyPrice
-      pu = Date.today >> 12
-      @account.attributes = {:paiduntil => pu, :type => 1}
-      begin
-        @account.save
-      rescue
-        msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id.to_s + "\nwithdraw_ammount = " + sum.to_s
+        puts "ERROR: SUM IS NOT FOR MONTH AND NOT FOR YEAR"
+        msg = "Внимание! Ошибка при обработке суммы платежа!\naccount.id = " + account_id + "\nwithdraw_ammount = " + sum.to_s
         Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
-        session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
-        haml :paymenterror
-      else
-        session[:messagetodisplay] = @@text["notifications"]["paymentok"]
-        haml :paymentok
+        #session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+        status 400
+        #haml :paymenterror
       end
     else
-      msg = "Внимание! Ошибка при обработке платежа!\nuser.id = " + current_user.id.to_s + "\naccount.id = " + @account.id.to_s + "\nwithdraw_ammount = " + sum.to_s
+      msg = "Внимание! Ошибка при обработке платежа! Ошибочный эккаунт!"
       Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
       session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
-      haml :paymenterror
+      status 400
     end
+  end
+
+  get '/paymentok' do
+    if logged_in?
+      @account = current_account
+      haml :paymentok
+    else
+      redirect '/'
+    end
+  end
+
+  get '/paymenterror' do
+    haml :paymenterror
   end
 
   post '/home/new' do
@@ -973,7 +1036,7 @@ class CountrIOApp < Sinatra::Application
         a = "counteraccount" + z.to_s
         counter = @home.counters.new(:title => params[c.to_sym], :type => params[t.to_sym], :account => params[a.to_sym])
         @home.counters << counter
-        puts "***", counter
+        #puts "***", counter
         z+=1
       end
     end
@@ -1053,13 +1116,16 @@ class CountrIOApp < Sinatra::Application
             n = "channelname" + z.to_s
             e = "channelemail" + z.to_s
             s = "channelsms" + z.to_s
+            pat = params[p.to_sym]
+            securpat = h(pat)
+            newlinepat = securpat.encode(securpat.encoding, :universal_newline => true)
             case params[t.to_sym]
             when "sms"
               #puts ">SMS>", params[n.to_sym], params[t.to_sym], params[s.to_sym], params[p.to_sym], "<SMS<"
-              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"sms", :phone=>params[s.to_sym], :pattern=>h(params[p.to_sym]))
+              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"sms", :phone=>params[s.to_sym], :pattern=>newlinepat)
             when "email"
               #puts ">EMAIL>", params[n.to_sym], params[t.to_sym], params[e.to_sym], params[p.to_sym], "<EMAIL<"
-              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"email", :email=>params[e.to_sym], :pattern=>h(params[p.to_sym]))
+              channel = h.channels.first_or_new(:title=>params[n.to_sym], :type=>"email", :email=>params[e.to_sym], :pattern=>newlinepat)
             end
             begin
               #puts "TRYING TO ADD COUNTER", c, "TO", channel
@@ -1085,10 +1151,11 @@ class CountrIOApp < Sinatra::Application
     account = user.account
     home = account.homes.all[params[:home].to_i-1]
     channel = home.channels.all[params[:channel].to_i-1]
-    counters = home.counters.all(:channel => channel)
+    counters = channel.counters.all
     counters.each do |c|
       link = ChannelCounter.get(channel.id, c.id)
       link.destroy
+      c.indications.all.destroy
     end
     if channel.destroy
       session[:messagetodisplay] = @@text["notifications"]["channelwasdeleted"]
@@ -1347,7 +1414,6 @@ class CountrIOApp < Sinatra::Application
     end
   end
 
-  
   post '/home/:home/counter/:counter/setvalue' do
     content_type :json
     account = current_user.account
@@ -1421,6 +1487,7 @@ class CountrIOApp < Sinatra::Application
       home = account.homes.all[params[:home].to_i-1]
       channel = home.channels.all[params[:channel].to_i-1]
       @channelpattern = channel.pattern
+      #puts "WAS IN BASE", @channelpattern.inspect
       @home_index = params[:home]
       @channel_index = params[:channel]
       haml :updatechannelpattern
@@ -1434,7 +1501,16 @@ class CountrIOApp < Sinatra::Application
     account = current_user.account
     home = account.homes.all[params[:home].to_i-1]
     channel = home.channels.all[params[:channel].to_i-1]
-    channel.attributes = {:pattern=>h(params[:channelpattern])}
+    pat = params[:channelpattern]
+    securpat = h(pat)
+    newlinepat = securpat.encode(securpat.encoding, :universal_newline => true)
+    #puts "pat"
+    #puts pat.inspect
+    #puts "securpat"
+    #puts securpat.inspect
+    #puts "newlinepat"
+    #puts newlinepat.inspect
+    channel.attributes = {:pattern=>newlinepat}
     begin
       channel.save
     rescue
@@ -1485,7 +1561,7 @@ class CountrIOApp < Sinatra::Application
         :email => auth[:info][:email],
         :name => auth[:info][:first_name] + " " + auth[:info][:last_name],
         :profile => Profile.new(),
-        :account => Account.new(:type=>1)) # 0 - free, 1 - full
+        :account => Account.new(:type=>0)) # 0 - free, 1 - full
       begin
         user.save
       rescue
@@ -1602,7 +1678,7 @@ class CountrIOApp < Sinatra::Application
       "true"
     end
   end
-  
+
   post '/ajax/checkname' do
     if params[:name].nil?
       '"Введите полное имя"'
@@ -1660,13 +1736,29 @@ class CountrIOApp < Sinatra::Application
       f={:success=>false, :msg=>"Тип Вашей учетной записи не позволяет передавать показания счетчиков при наличии нескольких помещений. Необходимо оплатить доступ ко всем функциям сайта или удалить лишние помещения"}
       f.to_json
     else
-      msg = decodepattern(channel.pattern, "send")
+      msg = decodepattern(channel.pattern, "real")
       if channel.type == "email"
         msg += "\n--\nОтправлено через сервис www.countr.io"
         Pony.mail(:to => channel.to, :subject => 'Показания счетчиков', :body => msg)
         #Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Показания счетчиков', :body => msg)
-        f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
-        f.to_json
+        meters = channel.counters.all
+        if meters.size != 0
+          meters.each do |t|
+            indications = t.indications.all(:submited => false)
+            if indications.count != 0
+              indication = indications[-1]
+              indication.attributes = {:submited => true}
+              begin
+                indication.save
+              rescue
+                session[:messagetodisplay] = indication.errors.values.join("; ")
+                redirect '/'
+              end
+            end
+          end
+          f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+          f.to_json
+        end
       elsif channel.type == "sms"
         if account.type == 1
           begin
@@ -1676,16 +1768,32 @@ class CountrIOApp < Sinatra::Application
             end
             @client = Twilio::REST::Client.new Twilio_account_sid, Twilio_auth_token
             @client.account.messages.create({
-              :from => '+15005550006',
-              :to => '+18053563979',
+              :from => '+18053563979',
+              :to => cto,
               :body => msg
             })
           rescue Twilio::REST::RequestError => e
             f={:success=>false, :msg=>"Ошибка отправки SMS: " + e.message}
             f.to_json
           else
-            f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
-            f.to_json
+            meters = channel.counters.all
+            if meters.size != 0
+              meters.each do |t|
+                indications = t.indications.all(:submited => false)
+                if indications.count != 0
+                  indication = indications[-1]
+                  indication.attributes = {:submited => true}
+                  begin
+                    indication.save
+                  rescue
+                    session[:messagetodisplay] = indication.errors.values.join("; ")
+                    redirect '/'
+                  end
+                end
+              end
+              f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+              f.to_json
+            end
           end
         else
           f={:success=>false, :msg=>"Тип Вашей учетной записи не позволяет передавать показания счетчиков по SMS. Необходимо оплатить доступ ко всем функциям сайта"}
@@ -1711,13 +1819,28 @@ class CountrIOApp < Sinatra::Application
     end
   end
 
+  get '/cron/checkaccounts' do
+    Account.all.each do |a|
+      if a.type == 1 && a.paiduntil < Date.today
+        a.update(:type => 0)
+      end
+    end
+  end
+
   get '/test' do
-    @account = current_user.account
-    haml :paymentok
+    if logged_in?
+      @account = current_account
+      haml :paymentok
+    else
+      redirect '/'
+    end
   end
 
   get '/terms' do
     haml :terms
   end
-  
+
+  get '/faq' do
+    haml :faq
+  end
 end # END OF APP CLASS

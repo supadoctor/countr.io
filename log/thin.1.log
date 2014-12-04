@@ -1,0 +1,424 @@
+46.254.20.57 - - [04/Dec/2014 03:00:02] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0353
+218.59.238.93 - - [04/Dec/2014 03:01:08] "GET /az.php HTTP/1.0" 404 18 0.0018
+37.9.118.24 - - [04/Dec/2014 03:22:54] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0033
+37.9.118.24 - - [04/Dec/2014 03:22:54] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0028
+37.9.118.24 - - [04/Dec/2014 03:22:54] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0030
+37.9.118.24 - - [04/Dec/2014 03:22:54] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0019
+218.59.238.93 - - [04/Dec/2014 04:23:32] "GET /world.php HTTP/1.0" 404 18 0.0017
+46.254.20.57 - - [04/Dec/2014 05:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0184
+46.254.20.57 - - [04/Dec/2014 06:00:02] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0187
+178.154.224.114 - - [04/Dec/2014 07:12:08] "GET / HTTP/1.0" 200 30259 0.0164
+218.59.238.93 - - [04/Dec/2014 07:16:50] "GET /az.php HTTP/1.0" 404 18 0.0018
+95.79.1.145 - - [04/Dec/2014 07:32:15] "GET / HTTP/1.0" 200 30259 0.0153
+95.79.1.145 - - [04/Dec/2014 07:32:15] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0020
+95.79.1.145 - - [04/Dec/2014 07:32:17] "GET /favicon.ico HTTP/1.0" 404 18 0.0022
+213.180.206.205 - - [04/Dec/2014 07:37:53] "GET / HTTP/1.0" 200 30259 0.0205
+46.254.20.57 - - [04/Dec/2014 08:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0780
+66.249.78.42 - - [04/Dec/2014 08:01:33] "GET / HTTP/1.0" 200 30259 0.0151
+66.249.78.49 - - [04/Dec/2014 08:01:34] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0033
+66.249.78.56 - - [04/Dec/2014 08:01:35] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0281
+66.249.78.49 - - [04/Dec/2014 08:01:36] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0021
+66.249.78.49 - - [04/Dec/2014 08:01:37] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
+66.249.78.56 - - [04/Dec/2014 08:01:38] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0020
+66.249.69.235 - - [04/Dec/2014 08:01:40] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0020
+218.59.238.93 - - [04/Dec/2014 08:56:46] "GET /azenv.php HTTP/1.0" 404 18 0.0029
+46.254.20.57 - - [04/Dec/2014 09:00:06] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0145
+117.27.254.25 - - [04/Dec/2014 09:27:58] "GET /index.do HTTP/1.0" 404 18 0.0020
+117.27.254.25 - - [04/Dec/2014 09:28:00] "GET /login.do HTTP/1.0" 404 18 0.0019
+218.59.238.93 - - [04/Dec/2014 09:41:33] "GET /azz.php HTTP/1.0" 404 18 0.0018
+66.249.78.49 - - [04/Dec/2014 10:23:47] "GET / HTTP/1.0" 200 30259 0.0221
+46.254.20.57 - - [04/Dec/2014 11:00:02] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0323
+218.59.238.93 - - [04/Dec/2014 11:13:31] "GET /azenv.php HTTP/1.0" 404 18 0.0018
+218.59.238.93 - - [04/Dec/2014 11:14:16] "GET /world.php HTTP/1.0" 404 18 0.0017
+46.254.20.57 - - [04/Dec/2014 12:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0234
+217.112.35.44 - - [04/Dec/2014 12:04:58] "GET / HTTP/1.0" 200 30259 0.0231
+178.63.76.197 - - [04/Dec/2014 12:05:26] "GET / HTTP/1.0" 200 30259 0.0167
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1669: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 12:19:42] "GET / HTTP/1.0" 200 30825 0.1299
+195.122.233.50 - - [04/Dec/2014 12:19:42] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0025
+195.122.233.50 - - [04/Dec/2014 12:19:42] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0020
+195.122.233.50 - - [04/Dec/2014 12:19:42] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0016
+195.122.233.50 - - [04/Dec/2014 12:19:42] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0020
+195.122.233.50 - - [04/Dec/2014 12:19:42] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0029
+195.122.233.50 - - [04/Dec/2014 12:19:43] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0034
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1669: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 12:24:35] "GET / HTTP/1.0" 200 30888 0.1431
+195.122.233.50 - - [04/Dec/2014 12:24:36] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 304 - 0.0022
+195.122.233.50 - - [04/Dec/2014 12:24:36] "GET /css/custom.css HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 12:24:36] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [04/Dec/2014 12:24:36] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0022
+195.122.233.50 - - [04/Dec/2014 12:24:36] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0219
+195.122.233.50 - - [04/Dec/2014 12:24:36] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 12:24:39] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0021
+195.122.233.50 - - [04/Dec/2014 12:24:39] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0017
+195.122.233.50 - - [04/Dec/2014 12:24:39] "GET /css/custom.css HTTP/1.0" 200 3281 0.0016
+195.122.233.50 - - [04/Dec/2014 12:24:39] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
+195.122.233.50 - - [04/Dec/2014 12:24:39] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0018
+195.122.233.50 - - [04/Dec/2014 12:24:39] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0020
+195.122.233.50 - - [04/Dec/2014 12:24:40] "GET /favicon.ico HTTP/1.0" 404 18 0.0022
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1669: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+I, [2014-12-04T12:27:51.545246 #25983]  INFO -- omniauth: (gplus) Callback phase initiated.
+WARDEN SOCIAIL STRATEGY BEGINS
+WARDEN SOCIAIL STRATEGY WAS SUCCESSFULL :)
+195.122.233.50 - - [04/Dec/2014 12:27:51] "GET /auth/gplus/callback?state=d439248aed9cf84dceedb7a7005ed81deb5cfb38b94597c8&code=4/aAj-OGqd2cD9MVIiLhodUykoeaTLtPPQbHr9E2DaWu0.Ar9VMlUZygQQrjMoGjtSfTogsUQplAI HTTP/1.0" 302 - 0.4250
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1669: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 12:29:50] "GET / HTTP/1.0" 200 23887 0.3089
+195.122.233.50 - - [04/Dec/2014 12:29:50] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0024
+195.122.233.50 - - [04/Dec/2014 12:29:50] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0022
+195.122.233.50 - - [04/Dec/2014 12:29:50] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0023
+195.122.233.50 - - [04/Dec/2014 12:29:50] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0021
+195.122.233.50 - - [04/Dec/2014 12:29:50] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0028
+195.122.233.50 - - [04/Dec/2014 12:29:51] "GET /favicon.ico HTTP/1.0" 404 18 0.0024
+218.59.238.93 - - [04/Dec/2014 12:41:02] "GET /azenv.php HTTP/1.0" 404 18 0.0019
+5.255.253.37 - - [04/Dec/2014 12:49:18] "GET /robots.txt HTTP/1.0" 200 75 0.0019
+195.122.233.50 - - [04/Dec/2014 13:03:17] "GET / HTTP/1.0" 200 23887 0.0436
+195.122.233.50 - - [04/Dec/2014 13:03:24] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25050 0.0796
+195.122.233.50 - - [04/Dec/2014 13:04:13] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0205
+195.122.233.50 - - [04/Dec/2014 13:04:25] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25050 0.0345
+5.255.253.37 - - [04/Dec/2014 13:05:40] "GET /order/29 HTTP/1.0" 404 18 0.0020
+195.122.233.50 - - [04/Dec/2014 13:05:51] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0505
+195.122.233.50 - - [04/Dec/2014 13:17:48] "GET /profile HTTP/1.0" 200 34406 0.1431
+195.122.233.50 - - [04/Dec/2014 13:17:48] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 304 - 0.0022
+195.122.233.50 - - [04/Dec/2014 13:17:48] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0017
+195.122.233.50 - - [04/Dec/2014 13:17:49] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [04/Dec/2014 13:17:49] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0017
+195.122.233.50 - - [04/Dec/2014 13:17:49] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [04/Dec/2014 13:17:51] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25338 0.1039
+195.122.233.50 - - [04/Dec/2014 13:18:15] "GET /profile HTTP/1.0" 200 34821 0.0238
+195.122.233.50 - - [04/Dec/2014 13:18:51] "POST /ajax/testpattern HTTP/1.0" 200 676 0.1081
+195.122.233.50 - - [04/Dec/2014 13:18:54] "GET /profile HTTP/1.0" 200 34461 0.0533
+195.122.233.50 - - [04/Dec/2014 13:19:03] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0305
+195.122.233.50 - - [04/Dec/2014 13:19:10] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25554 0.0376
+195.122.233.50 - - [04/Dec/2014 13:19:12] "GET /profile HTTP/1.0" 200 35037 0.0236
+195.122.233.50 - - [04/Dec/2014 13:19:19] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0177
+195.122.233.50 - - [04/Dec/2014 13:19:21] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 26130 0.0384
+195.122.233.50 - - [04/Dec/2014 13:20:53] "GET /profile HTTP/1.0" 200 35198 0.0300
+195.122.233.50 - - [04/Dec/2014 13:21:24] "POST /ajax/testpattern HTTP/1.0" 200 1060 0.1257
+195.122.233.50 - - [04/Dec/2014 13:21:27] "GET /profile HTTP/1.0" 200 34845 0.0562
+5.255.253.37 - - [04/Dec/2014 13:22:41] "GET /?page=8 HTTP/1.0" 200 30924 0.1053
+178.154.224.114 - - [04/Dec/2014 13:24:36] "GET / HTTP/1.0" 200 30924 0.0168
+213.180.206.197 - - [04/Dec/2014 13:44:58] "GET / HTTP/1.0" 200 30924 0.0170
+213.180.206.205 - - [04/Dec/2014 13:55:57] "GET / HTTP/1.0" 200 30924 0.0169
+195.122.233.50 - - [04/Dec/2014 14:05:58] "GET / HTTP/1.0" 200 23887 0.0751
+195.122.233.50 - - [04/Dec/2014 14:06:03] "GET /profile HTTP/1.0" 200 34718 0.0294
+195.122.233.50 - - [04/Dec/2014 14:06:07] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25650 0.0374
+195.122.233.50 - - [04/Dec/2014 14:06:52] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0821
+195.122.233.50 - - [04/Dec/2014 14:06:52] "GET /profile HTTP/1.0" 200 34437 0.0512
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1679: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 14:10:42] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0082
+195.122.233.50 - - [04/Dec/2014 14:10:42] "GET /css/custom.css HTTP/1.0" 304 - 0.0018
+195.122.233.50 - - [04/Dec/2014 14:10:42] "GET /js/jquery.validate.min.js HTTP/1.0" 304 - 0.0018
+195.122.233.50 - - [04/Dec/2014 14:10:42] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0069
+195.122.233.50 - - [04/Dec/2014 14:10:42] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 14:10:43] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0026
+pat
+securpat
+newlinepat
+195.122.233.50 - - [04/Dec/2014 14:10:52] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0362
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1679: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 14:12:17] "GET /profile HTTP/1.0" 200 34526 0.2396
+195.122.233.50 - - [04/Dec/2014 14:12:21] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0036
+195.122.233.50 - - [04/Dec/2014 14:12:21] "GET /css/custom.css HTTP/1.0" 200 3281 0.0017
+195.122.233.50 - - [04/Dec/2014 14:12:21] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0033
+195.122.233.50 - - [04/Dec/2014 14:12:21] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0019
+195.122.233.50 - - [04/Dec/2014 14:12:21] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0031
+195.122.233.50 - - [04/Dec/2014 14:12:21] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
+195.122.233.50 - - [04/Dec/2014 14:12:23] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25459 0.0778
+195.122.233.50 - - [04/Dec/2014 14:12:44] "GET /profile HTTP/1.0" 200 34677 0.0544
+195.122.233.50 - - [04/Dec/2014 14:19:53] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0024
+195.122.233.50 - - [04/Dec/2014 14:19:53] "GET /css/custom.css HTTP/1.0" 200 3281 0.0018
+195.122.233.50 - - [04/Dec/2014 14:19:53] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0018
+195.122.233.50 - - [04/Dec/2014 14:19:53] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0022
+195.122.233.50 - - [04/Dec/2014 14:19:53] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0018
+195.122.233.50 - - [04/Dec/2014 14:19:54] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0024
+195.122.233.50 - - [04/Dec/2014 14:19:56] "GET / HTTP/1.0" 200 23887 0.0746
+195.122.233.50 - - [04/Dec/2014 14:20:00] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25483 0.0360
+pat
+"Здравствуйте!Передаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\r\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\r\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\r\n\r\nСпасибо!\r\n\r\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+securpat
+"Здравствуйте!Передаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\r\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\r\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\r\n\r\nСпасибо!\r\n\r\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+newlinepat
+"Здравствуйте!Передаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\n\nСпасибо!\n\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+195.122.233.50 - - [04/Dec/2014 14:21:35] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0170
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1679: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 14:25:04] "GET /profile HTTP/1.0" 200 34070 0.7313
+195.122.233.50 - - [04/Dec/2014 14:25:04] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0036
+195.122.233.50 - - [04/Dec/2014 14:25:04] "GET /css/custom.css HTTP/1.0" 200 3281 0.0027
+195.122.233.50 - - [04/Dec/2014 14:25:04] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0023
+195.122.233.50 - - [04/Dec/2014 14:25:04] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0022
+195.122.233.50 - - [04/Dec/2014 14:25:04] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0032
+195.122.233.50 - - [04/Dec/2014 14:25:05] "GET /favicon.ico HTTP/1.0" 404 18 0.0024
+pat
+"Здравствуйте!\r\n\r\nПередаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\r\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\r\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\r\n\r\nСпасибо!\r\n\r\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+securpat
+"Здравствуйте!\r\n\r\nПередаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\r\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\r\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\r\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\r\n\r\nСпасибо!\r\n\r\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+newlinepat
+"Здравствуйте!\n\nПередаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\n\nСпасибо!\n\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+195.122.233.50 - - [04/Dec/2014 14:25:45] "POST /home/1/channel/1/updatepattern HTTP/1.0" 302 - 0.0164
+195.122.233.50 - - [04/Dec/2014 14:27:06] "GET /profile HTTP/1.0" 200 34106 0.0248
+195.122.233.50 - - [04/Dec/2014 14:27:06] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0022
+195.122.233.50 - - [04/Dec/2014 14:27:06] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0018
+195.122.233.50 - - [04/Dec/2014 14:27:06] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0018
+195.122.233.50 - - [04/Dec/2014 14:27:06] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0019
+195.122.233.50 - - [04/Dec/2014 14:27:07] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0019
+195.122.233.50 - - [04/Dec/2014 14:27:07] "GET /favicon.ico HTTP/1.0" 404 18 0.0020
+195.122.233.50 - - [04/Dec/2014 14:27:08] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0044
+195.122.233.50 - - [04/Dec/2014 14:27:08] "GET /css/custom.css HTTP/1.0" 200 3281 0.0022
+195.122.233.50 - - [04/Dec/2014 14:27:08] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0018
+195.122.233.50 - - [04/Dec/2014 14:27:08] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
+195.122.233.50 - - [04/Dec/2014 14:27:08] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0023
+195.122.233.50 - - [04/Dec/2014 14:27:09] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
+195.122.233.50 - - [04/Dec/2014 14:27:09] "GET /profile HTTP/1.0" 200 34106 0.0239
+195.122.233.50 - - [04/Dec/2014 14:27:09] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0021
+195.122.233.50 - - [04/Dec/2014 14:27:09] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0018
+195.122.233.50 - - [04/Dec/2014 14:27:09] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0016
+195.122.233.50 - - [04/Dec/2014 14:27:09] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0019
+195.122.233.50 - - [04/Dec/2014 14:27:10] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0027
+195.122.233.50 - - [04/Dec/2014 14:27:10] "GET /favicon.ico HTTP/1.0" 404 18 0.0021
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 14:40:34] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0117
+195.122.233.50 - - [04/Dec/2014 14:40:34] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 14:40:34] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 14:40:34] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0017
+195.122.233.50 - - [04/Dec/2014 14:40:34] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 14:40:34] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0032
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+218.59.238.93 - - [04/Dec/2014 14:53:21] "GET / HTTP/1.0" 200 30924 0.1443
+195.122.233.50 - - [04/Dec/2014 14:56:48] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0027
+195.122.233.50 - - [04/Dec/2014 14:56:48] "GET /css/custom.css HTTP/1.0" 200 3281 0.0020
+195.122.233.50 - - [04/Dec/2014 14:56:48] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0021
+195.122.233.50 - - [04/Dec/2014 14:56:48] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0023
+195.122.233.50 - - [04/Dec/2014 14:56:48] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0023
+195.122.233.50 - - [04/Dec/2014 14:56:48] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0023
+195.122.233.50 - - [04/Dec/2014 14:56:55] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0021
+195.122.233.50 - - [04/Dec/2014 14:56:55] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 14:56:55] "GET /js/jquery.validate.min.js HTTP/1.0" 304 - 0.0018
+195.122.233.50 - - [04/Dec/2014 14:56:55] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0018
+195.122.233.50 - - [04/Dec/2014 14:56:55] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0021
+195.122.233.50 - - [04/Dec/2014 14:56:56] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0021
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 14:58:07] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0074
+195.122.233.50 - - [04/Dec/2014 14:58:07] "GET /css/custom.css HTTP/1.0" 200 3281 0.0020
+195.122.233.50 - - [04/Dec/2014 14:58:07] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0018
+195.122.233.50 - - [04/Dec/2014 14:58:07] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0021
+195.122.233.50 - - [04/Dec/2014 14:58:07] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0027
+195.122.233.50 - - [04/Dec/2014 14:58:08] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0024
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+WAS IN BASE
+"Здравствуйте!\n\nПередаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\n\nСпасибо!\n\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+195.122.233.50 - - [04/Dec/2014 15:05:56] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 25039 0.1917
+195.122.233.50 - - [04/Dec/2014 15:05:57] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0028
+195.122.233.50 - - [04/Dec/2014 15:05:57] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0022
+195.122.233.50 - - [04/Dec/2014 15:05:57] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0021
+195.122.233.50 - - [04/Dec/2014 15:05:57] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
+195.122.233.50 - - [04/Dec/2014 15:05:57] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0024
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 15:14:21] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 304 - 0.0080
+195.122.233.50 - - [04/Dec/2014 15:14:21] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 15:14:21] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0017
+195.122.233.50 - - [04/Dec/2014 15:14:21] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0041
+195.122.233.50 - - [04/Dec/2014 15:14:21] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0017
+WAS IN BASE
+"Здравствуйте!\n\nПередаю показания за {ТЕКУЩИЙ_МЕСЯЦ} по адресу {АДРЕС_ПОМЕЩЕНИЯ_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_1} ({ТИП_СЧЕТЧИКА_1_1}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_1}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_2} ({ТИП_СЧЕТЧИКА_1_2}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_2}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_3} ({ТИП_СЧЕТЧИКА_1_3}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_3}\n{НАЗВАНИЕ_СЧЕТЧИКА_1_4} ({ТИП_СЧЕТЧИКА_1_4}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_4}\n{ТИП_СЧЕТЧИКА_1_5} ({НАЗВАНИЕ_СЧЕТЧИКА_1_5}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_5}\n{ТИП_СЧЕТЧИКА_1_6} ({НАЗВАНИЕ_СЧЕТЧИКА_1_6}) - {ПОКАЗАНИЕ_СЧЕТЧИКА_1_6}\n\nСпасибо!\n\nС уважением, {ИМЯ_ПОЛЬЗОВАТЕЛЯ}"
+195.122.233.50 - - [04/Dec/2014 15:15:03] "GET /home/1/channel/1/updatepattern HTTP/1.0" 200 24951 0.4483
+195.122.233.50 - - [04/Dec/2014 15:15:03] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 304 - 0.0043
+195.122.233.50 - - [04/Dec/2014 15:15:03] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0035
+195.122.233.50 - - [04/Dec/2014 15:15:03] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0085
+195.122.233.50 - - [04/Dec/2014 15:15:03] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0031
+195.122.233.50 - - [04/Dec/2014 15:15:03] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0031
+180.153.196.79 - - [04/Dec/2014 15:20:12] "GET / HTTP/1.0" 200 30924 0.1141
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1680: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+***
+#<Counter:0xc35913c>
+#<Home:0xc35bd60>
+195.122.233.50 - - [04/Dec/2014 15:25:26] "POST /home/1/counter/new HTTP/1.0" 302 - 0.1709
+195.122.233.50 - - [04/Dec/2014 15:25:29] "GET /home/1/channel/new HTTP/1.0" 200 33784 0.1626
+195.122.233.50 - - [04/Dec/2014 15:25:51] "POST /home/1/channel/new HTTP/1.0" 302 - 0.2510
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1685: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 15:37:33] "GET /profile HTTP/1.0" 200 35860 0.3765
+195.122.233.50 - - [04/Dec/2014 15:37:33] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0023
+195.122.233.50 - - [04/Dec/2014 15:37:33] "GET /css/custom.css HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 15:37:33] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0017
+195.122.233.50 - - [04/Dec/2014 15:37:34] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 15:37:34] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [04/Dec/2014 15:37:41] "GET / HTTP/1.0" 200 25515 0.2080
+NO INDICATION WAS BEFORE
+195.122.233.50 - - [04/Dec/2014 15:37:56] "POST /home/1/counter/7/setvalue HTTP/1.0" 200 109 0.0290
+195.122.233.50 - - [04/Dec/2014 15:38:02] "POST /sendpattern HTTP/1.0" 200 110 1.1662
+195.122.233.50 - - [04/Dec/2014 15:38:06] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0024
+195.122.233.50 - - [04/Dec/2014 15:38:06] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 15:38:06] "GET /js/jquery.validate.min.js HTTP/1.0" 304 - 0.0018
+195.122.233.50 - - [04/Dec/2014 15:38:06] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [04/Dec/2014 15:38:06] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 15:38:06] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0022
+195.122.233.50 - - [04/Dec/2014 15:38:11] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0031
+195.122.233.50 - - [04/Dec/2014 15:38:11] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 15:38:11] "GET /css/custom.css HTTP/1.0" 304 - 0.0017
+195.122.233.50 - - [04/Dec/2014 15:38:11] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0026
+195.122.233.50 - - [04/Dec/2014 15:38:11] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 15:38:11] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0019
+195.122.233.50 - - [04/Dec/2014 15:38:23] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0024
+195.122.233.50 - - [04/Dec/2014 15:38:23] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0018
+195.122.233.50 - - [04/Dec/2014 15:38:23] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0018
+195.122.233.50 - - [04/Dec/2014 15:38:23] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0022
+195.122.233.50 - - [04/Dec/2014 15:38:23] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0021
+195.122.233.50 - - [04/Dec/2014 15:38:23] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0024
+218.59.238.93 - - [04/Dec/2014 15:39:29] "GET /azz.php HTTP/1.0" 404 18 0.0033
+195.122.233.50 - - [04/Dec/2014 15:39:54] "GET /profile HTTP/1.0" 200 35860 0.0292
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1685: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [04/Dec/2014 15:46:06] "GET /profile HTTP/1.0" 200 35860 0.2158
+195.122.233.50 - - [04/Dec/2014 15:46:06] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0048
+195.122.233.50 - - [04/Dec/2014 15:46:06] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0017
+195.122.233.50 - - [04/Dec/2014 15:46:06] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0016
+195.122.233.50 - - [04/Dec/2014 15:46:06] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0020
+195.122.233.50 - - [04/Dec/2014 15:46:06] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0031
+195.122.233.50 - - [04/Dec/2014 15:46:08] "GET /favicon.ico HTTP/1.0" 404 18 0.0024
+195.122.233.50 - - [04/Dec/2014 15:46:18] "POST /ajax/testpattern2 HTTP/1.0" 200 21 0.0247
+THERE IS INDICATION
+AND IT WAS NOT SUBMITED
+195.122.233.50 - - [04/Dec/2014 15:46:26] "POST /home/1/counter/7/setvalue HTTP/1.0" 200 26 0.0156
+THERE IS INDICATION
+AND IT WAS NOT SUBMITED
+195.122.233.50 - - [04/Dec/2014 15:46:35] "POST /home/1/counter/7/setvalue HTTP/1.0" 200 111 0.0171
+195.122.233.50 - - [04/Dec/2014 15:46:42] "POST /sendpattern HTTP/1.0" 200 110 0.4432
+195.122.233.50 - - [04/Dec/2014 15:46:45] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0024
+195.122.233.50 - - [04/Dec/2014 15:46:45] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0029
+195.122.233.50 - - [04/Dec/2014 15:46:45] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0025
+195.122.233.50 - - [04/Dec/2014 15:46:45] "GET /js/jquery.validate.min.js HTTP/1.0" 304 - 0.0024
+195.122.233.50 - - [04/Dec/2014 15:46:46] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0028
+195.122.233.50 - - [04/Dec/2014 15:46:46] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0027
+195.122.233.50 - - [04/Dec/2014 15:46:56] "DELETE /home/1/counter/7/delete HTTP/1.0" 200 27 0.0292
+195.122.233.50 - - [04/Dec/2014 15:46:56] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0021
+195.122.233.50 - - [04/Dec/2014 15:46:56] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0020
+195.122.233.50 - - [04/Dec/2014 15:46:56] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [04/Dec/2014 15:46:56] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0018
+195.122.233.50 - - [04/Dec/2014 15:46:56] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0021
+195.122.233.50 - - [04/Dec/2014 15:46:57] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0033
+195.122.233.50 - - [04/Dec/2014 15:47:22] "GET /logout HTTP/1.0" 302 - 0.0023
+195.122.233.50 - - [04/Dec/2014 15:47:23] "GET /img/shadow1.png HTTP/1.0" 304 - 0.0028
+195.122.233.50 - - [04/Dec/2014 15:48:06] "GET /favicon.ico HTTP/1.0" 404 18 0.0021
+195.122.233.50 - - [04/Dec/2014 15:48:09] "GET / HTTP/1.0" 200 31023 0.0432
+61.160.247.7 - - [04/Dec/2014 15:48:52] "GET /manager/html HTTP/1.0" 404 18 0.0020
+61.160.247.7 - - [04/Dec/2014 15:49:07] "GET /manager/html HTTP/1.0" 404 18 0.0023
+61.160.247.7 - - [04/Dec/2014 15:49:19] "GET /manager/html HTTP/1.0" 404 18 0.0026

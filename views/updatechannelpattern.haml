@@ -8,13 +8,14 @@
             .uk-placeholder{:id=>"channel"}
               .uk-form-row{:style=>"margin-bottom: 20px;"}
                 %label{:for=>"channelpattern"} Шаблон:
-                %textarea.channelpattern.uk-width-1-1{:type=>"text", :name=>"channelpattern", :rows=>"6", :id=>"channelpattern"}
-                  #{@channelpattern}
+                %p= find_and_preserve "<textarea class='uk-width-1-1' id='channelpattern' name='channelpattern' rows='6' type='text'>#{@channelpattern}</textarea>"
+                //%textarea#channelpattern.uk-width-1-1{:type=>"text", :name=>"channelpattern", :rows=>"6"}
+                //#{@channelpattern}
                 %br
                 %label.error.uk-text-small.uk-text-danger{:for=>"channelpattern"}
                 .uk-text-center.uk-margin-top
                   %button.uk-button.uk-button{:type=>"reset"}
-                    Отменить
+                    Сбросить изменения
                   %a.checkpattern.uk-button{:href=>"#", :id=>"checkpattern"}
                     Тест
                   %button.uk-button.uk-button-primary#finish{:type=>"submit"}
@@ -39,7 +40,6 @@
 :javascript
   
   $(function() {
-
     initDroppable($("#channelpattern"));
     
     $.validator.addMethod("patternRequired", $.validator.methods.required, "Введите шаблон");
@@ -70,7 +70,7 @@
           var $this = $(this);
           var tempid = ui.draggable.text().trim();
           var dropText;
-          dropText = "{"+tempid+"}";
+          dropText = "{"+tempid+"} ";
           var droparea = document.getElementById($this.attr("id"));
           var range1 = droparea.selectionStart;
           var range2 = droparea.selectionEnd;

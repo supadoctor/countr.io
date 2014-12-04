@@ -59,7 +59,9 @@
           %code
             элементы данных
           , находящихся справа, в текстовое поле шаблона.
-          Для проверки корректности формирования сообщения по вашему шаблону, воспользуйетсь функцией "ТЕСТ".
+          Для проверки корректности формирования сообщения по вашему шаблону, воспользуйетсь кнопкой
+          %code
+            тест
           А при помощи кнопок
           %code +
           и
@@ -373,7 +375,7 @@
           var $this = $(this);
           var tempid = ui.draggable.text().trim();
           var dropText;
-          dropText = "{"+tempid+"}";
+          dropText = "{"+tempid+"} ";
           var droparea = document.getElementById($this.attr("id"));
           var range1 = droparea.selectionStart;
           var range2 = droparea.selectionEnd;

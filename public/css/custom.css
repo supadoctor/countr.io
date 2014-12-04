@@ -1,32 +1,41 @@
 body, h1, h2, h3, h4, h5 {
-  font-family: 'Roboto', sans-serif;
+  //font-family: 'Roboto', sans-serif;
+  font-family: 'PT Sans Narrow', sans-serif;
+  //font-family: 'Lobster', cursive;
+  /font-family: 'Poiret One', cursive;
   color: inherit;
 }
+/*h1, h2, h3 {
+  text-shadow: 4px 4px 2px rgba(0, 0, 0, 0.3);
+}*/
 
+.uk-text-small {
+    font-size: 14px;
+}
 a, .uk-link {
   color: #40E0D0;
   text-decoration: underline;
 }
 
 h1 {
-  font-weight: 500;
+  font-weight: 700;
 }
 
 h2 {
   font-weight: 400;
 }
 h3 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 body, h4, h5 {
-  font-weight: 300;
+  font-weight: 400;
 }
 
 body, html {
   margin: 0px;
   height: 100%;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .lane {
@@ -153,7 +162,7 @@ label.error {
 
 .editable-click, a.editable-click, a.editable-click:hover {
   text-decoration: none;
-  border-bottom: dashed 2px #40E0D0;
+  border-bottom: dashed 1px #40E0D0;
 }
 
 table.dataTable thead th,
@@ -167,4 +176,8 @@ table.dataTable tbody tr.group {
 
 mark {
     background: none repeat scroll 0 0 rgba(64, 224, 208, 0.15);
+}
+
+.uk-alert {
+  line-height: 25px;
 }

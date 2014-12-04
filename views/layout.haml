@@ -6,7 +6,9 @@
     %meta{:name=>"description", :content=>"Система передачи показаний коммунальных счетчиков. Передавайте показания счетчиков вовремя, быстро и просто."}
     %meta{:name=>"keywords", :content=>"показания, счетчик, на воду, на газ, на электричество, передать показания, сообщить показания, онлайн, коммунальные счетчики"}
 
-    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&subset=latin,cyrillic", :rel => "stylesheet", :type => "text/css"}
+    //%link{:href => "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&subset=latin,cyrillic", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=cyrillic,latin", :rel => "stylesheet", :type => "text/css"}
+    //%link{:href => "https://fonts.googleapis.com/css?family=Lobster|Poiret+One&subset=cyrillic,latin", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/uikit.almost-flat.min.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "/css/addons/uikit.almost-flat.addons.min.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css", :rel => "stylesheet"}
@@ -62,7 +64,7 @@
   %body
     -navbar
     %div{:style=>"min-height:100%; position: relative;"}
-      .content{:style=>"padding: 0px 0px 200px;"}
+      .content{:style=>"padding: 0px 0px 222px;"}
         =yield
         -if session[:messagetodisplay].to_s.size > 0
           -session[:messagetodisplay].split("; ").each do |m|
@@ -78,11 +80,14 @@
             .uk-grid
               .uk-width-medium-1-4
                 %h4.uk-text-center Помощь и поддержка
-
+                .uk-text-small
+                  %a{:href=>"/faq"} FAQ
+                  %br
+                  %a{:href=>"mailto:countr.io@yandex.ru"} Написать администратору
               .uk-width-medium-1-4
                 %h4.uk-text-center Жить стало проще
                 .uk-h3
-                  %div.uk-display-inline
+                  %div.uk-display-inline.uk-text-small
                     для
                     .uk-text-bold.uk-display-inline
                       -haml_concat numberofusers
@@ -93,9 +98,12 @@
                 %form.uk-form{:name=>"SR_form_4_97", :target=>"_blank", :action=>"https://smartresponder.ru/subscribe.html", :method=>"post"}
                   %input{:type=>"text", :placeholder=>"Ваш email-адрес", :name=>"field_email"}
                   .uk-text-center.uk-margin-top
-                    %button.uk-button.uk-button-mini{:type=>"submit"} Подписаться
+                    %button.uk-button.uk-button-mini.uk-button-primary{:type=>"submit"} Подписаться
                   %input{:type=>"hidden", :value=>"0", :name=>"tid"}
                   %input{:type=>"hidden", :value=>"ru", :name=>"lang"}
                   %input{:type=>"hidden", :value=>"751238", :name=>"did[]"}
               .uk-width-medium-1-4
-                %h4.uk-text-center Мы в сети
+                %h4.uk-text-center Ставим лайки
+                .uk-text-center
+                  %script{:type=>"text/javascript", :src=>"//yastatic.net/share/share.js", :charset=>"utf-8"}
+                  .yashare-auto-init{"data-yashareL10n"=>"ru", "data-yashareQuickServices"=>"vkontakte,facebook,twitter,odnoklassniki,moimir,gplus", "data-yashareTheme"=>"counter"}

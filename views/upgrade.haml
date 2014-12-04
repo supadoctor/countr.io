@@ -15,7 +15,7 @@
             -haml_concat getMonthlyPrice
             руб.
           %p
-            %iframe{:frameborder=>"0", :allowtransparency=>"true", :scrolling=>"no", :src=>"https://money.yandex.ru/embed/small.xml?label=#{@account.id}&account=4100195018468&quickpay=small&any-card-payment-type=on&button-text=01&button-size=s&button-color=white&targets=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0+Countr.IO&default-sum=#{getMonthlyPrice}&successURL=http%3A%2F%2Fwww.countr.io%2Fpaymentresult", :width=>"129", :height=>"31"}
+            %iframe{:frameborder=>"0", :allowtransparency=>"true", :scrolling=>"no", :src=>"https://money.yandex.ru/embed/small.xml?label=#{@account.id}&account=4100195018468&quickpay=small&any-card-payment-type=on&button-text=01&button-size=s&button-color=white&targets=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0+Countr.IO&default-sum=#{getMonthlyPrice}&successURL=http%3A%2F%2Fwww.countr.io%2Fpaymentok&failURL=http%3A%2F%2Fwww.countr.io%2Fpaymenterror", :width=>"129", :height=>"31"}
       .uk-width-large-1-2
         .uk-panel.uk-panel-box.uk-panel-box-primary.uk-text-center
           %h2 На один год
@@ -24,4 +24,4 @@
             -haml_concat getYearlyPrice
             руб.
           %p
-            %iframe{:frameborder=>"0", :allowtransparency=>"true", :scrolling=>"no", :src=>"https://money.yandex.ru/embed/small.xml?label=#{@account.id}&account=4100195018468&quickpay=small&any-card-payment-type=on&button-text=01&button-size=s&button-color=white&targets=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0+Countr.IO&default-sum=#{getYearlyPrice}&successURL=http%3A%2F%2Fwww.countr.io%2Fpaymentresult", :width=>"129", :height=>"31"}
+            %iframe{:frameborder=>"0", :allowtransparency=>"true", :scrolling=>"no", :src=>"https://money.yandex.ru/embed/small.xml?label=#{@account.id}&account=4100195018468&quickpay=small&any-card-payment-type=on&button-text=01&button-size=s&button-color=white&targets=%D0%9E%D0%BF%D0%BB%D0%B0%D1%82%D0%B0+%D1%81%D0%B5%D1%80%D0%B2%D0%B8%D1%81%D0%B0+Countr.IO&default-sum=#{getYearlyPrice}&successURL=http%3A%2F%2Fwww.countr.io%2Fpaymentok&failURL=http%3A%2F%2Fwww.countr.io%2Fpaymenterror", :width=>"129", :height=>"31"}
