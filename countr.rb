@@ -15,6 +15,7 @@ require 'russian'
 #require 'yandex_money/api'
 require 'twilio-ruby'
 require 'digest/sha1'
+#require 'mail'
 
 require './models.rb'
 
@@ -33,11 +34,38 @@ class CountrIOApp < Sinatra::Application
     Admin_email = "countr.io@yandex.ru"
   end
 
-  Pony.options = {
-    :from => 'Countr.IO <robot@countr.io>',
-    :charset => 'utf-8',
-    :via => :sendmail
-  }
+  #Pony.options = {
+  #      :from => 'Countr.IO <robot@countr.io>',
+  #      :charset => 'utf-8',
+  #      :via => :sendmail
+  #}
+    Pony.options = {
+        :from => 'Countr.IO <robot@countr.io>',
+        :charset => 'utf-8',
+        :via => :smtp,
+        :via_options => {
+          :address => 'smtp.yandex.ru',
+          :port  => '587',
+          #:enable_starttls_auto => true,
+          :user_name  => 'robot@countr.io',
+          :password  => 'Neverfoget1',
+          :authentication  => :plain, # :plain, :login, :cram_md5, no auth by default
+          :domain => 'countr.io' # the HELO domain provided by the client to the server
+        }
+      }
+
+#Mail.defaults do
+#    delivery_method :smtp, {
+#      :address => "smtp.yandex.ru",
+#      :port => 587,
+#      :domain => 'countr.io',
+#      :user_name => 'robot@countr.io',
+#      :password => 'Neverfoget1',
+#      :authentication => :plain
+#      #:enable_starttls_auto => true
+#      #:tls => true
+#    }
+#  end
 
   use OmniAuth::Builder do
     provider :gplus, '2030779216-coi7emsv6c5kir3msr7m35nj5sojm7kt.apps.googleusercontent.com', 'YlLCQTrsEexKFfciIfgQRZM7', :redirect_uri => '/auth/gplus/callback'
@@ -95,6 +123,7 @@ class CountrIOApp < Sinatra::Application
         rescue
           puts "ERROR DURING LOGON TIME UPDATING:", user.errors.values
         end
+        $customerio.track(user.id, "log on")
         success!(user)
         puts "WARDEN PASSWORD STRATEGY WAS SUCCESSFULL :)"
       else
@@ -120,6 +149,7 @@ class CountrIOApp < Sinatra::Application
         rescue
           puts "ERROR DURING LOGON TIME UPDATING:", user.errors.values
         end
+        $customerio.track(user.id, "log on")
         success!(user)
         puts "WARDEN SOCIAIL STRATEGY WAS SUCCESSFULL :)"
       end
@@ -127,6 +157,8 @@ class CountrIOApp < Sinatra::Application
   end
 
   @@text = YAML.load_file("public/texts.yml")
+
+  $customerio = Customerio::Client.new("e6c6505918f0576aa866", "fd17cfc984f93e178f4d")
  
   helpers do
     def navbar
@@ -173,9 +205,12 @@ class CountrIOApp < Sinatra::Application
                   end
                 end
                 haml_tag :li do
-                  haml_tag :a, :href=>"/profile" do
+                  haml_tag :a, :class=>"uk-navbar-nav-subtitle", :href=>"/profile" do
                     haml_tag :i, :class=>"uk-icon-user"
                     haml_concat current_user.name
+                    haml_tag :div, :class=>"uk-text-center uk-text-small", :style=>"color: white;" do
+                      haml_concat current_user.email
+                    end
                   end
                 end
                 if !paid_account?
@@ -730,6 +765,12 @@ class CountrIOApp < Sinatra::Application
       #session[:messagetodisplay] = @@text["notifications"]["homeandcountersweresaved"]
       #@homes = current_user.account.homes.all
       if logged_in?
+        $customerio.track(@user.id, "customized home")
+        $customerio.track(@user.id, "customized counter")
+        #$customerio.identify(
+        #  id: @user.id,
+        #  setup: "home and counters"
+        #)
         haml :configure
       else
         session[:messagetodisplay] = @@text["notifications"]["plslogin"]
@@ -777,6 +818,11 @@ class CountrIOApp < Sinatra::Application
               redirect '/setup'
             else
               #puts "CHANNEL WAS SAVED"
+              $customerio.track(current_user.id, "customized channel")
+              #$customerio.identify(
+              # id: current_user.id,
+              # setup: "channel"
+              #)
             end
           end
         end
@@ -791,7 +837,7 @@ class CountrIOApp < Sinatra::Application
       nhour = params[:notificationtime].to_i
       ntz = params[:notificationtimezone]
       ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
-      puts ndatetime
+      #puts ndatetime
       p.attributes = {:sendnotification=>true, :notificationsms=>params[:notificationsms], :notificationdate=>ndatetime.to_time, :notificationtype=>params[:notificationtype], :timezone=>ntz}
     elsif params[:notificationtype] == "email"
       nday = params[:notificationdate].to_i
@@ -801,7 +847,7 @@ class CountrIOApp < Sinatra::Application
       ntz = params[:notificationtimezone]
       ndatetime = DateTime.new(nyear, nmonth, nday, nhour, 0, 0, ntz)
       p.attributes = {:sendnotification=>true, :notificationemail=>params[:notificationemail], :notificationdate=>ndatetime.to_time, :notificationtype=>params[:notificationtype], :timezone=>ntz}
-      puts ndatetime
+      #puts ndatetime
     end
     begin
       p.save
@@ -811,6 +857,11 @@ class CountrIOApp < Sinatra::Application
       #puts "NOTIFICATION WAS SAVED"
       session[:messagetodisplay] = @@text["notifications"]["setupfinished"]
       #puts "BEFORE CALLING /PROFILE"
+      $customerio.track(current_user.id, "customized reminder")
+      #$customerio.identify(
+      #  id: current_user.id,
+      #  setup: "reminder"
+      #)
       redirect '/'
     end
   end
@@ -904,14 +955,22 @@ class CountrIOApp < Sinatra::Application
         rescue
           msg = "Внимание! Ошибка при обновлении эккаунта при оплате на месяц!\naccount.id = " + account_id + "\nwithdraw_ammount = " + sum.to_s
           Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
-          #session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+          session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
           puts "ERROR IN ACCOUNT UPDATING"
           status 500
-          #haml :paymenterror
-        #else
-          #session[:messagetodisplay] = @@text["notifications"]["paymentok"]
-          #puts "MONTHLY PAYMENT IS OK AND ACCOUNT WAS UPDATED"
-          #haml :paymentok
+          redirect '/paymenterror'
+        else
+          session[:messagetodisplay] = @@text["notifications"]["paymentok"]
+          puts "MONTHLY PAYMENT IS OK AND ACCOUNT WAS UPDATED"
+          @account.users.all.each do |u|
+            $customerio.track(u.id, "paid for month")
+            $customerio.identify(
+              id: u.id,
+              plan: "premium",
+              plan_type: "month"
+            )
+          end
+          redirect '/paymentok'
           #puts "AFTER PAYMENTOK PAGE"
         end
       elsif sum == YearlyPrice
@@ -923,27 +982,36 @@ class CountrIOApp < Sinatra::Application
         rescue
           msg = "Внимание! Ошибка при обновлении эккаунта при оплате на год!\naccount.id = " + account_id + "\nwithdraw_ammount = " + sum.to_s
           Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
-          #session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+          session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
           puts "ERROR IN ACCOUNT UPDATING"
           status 500
-          #haml :paymenterror
-        #else
-          #session[:messagetodisplay] = @@text["notifications"]["paymentok"]
-          #haml :paymentok
+          redirect '/paymenterror'
+        else
+          session[:messagetodisplay] = @@text["notifications"]["paymentok"]
+          @account.users.all.each do |u|
+            $customerio.track(u.id, "paid for year")
+            $customerio.identify(
+              id: u.id,
+              plan: "premium",
+              plan_type: "year"
+            )
+          end
+          redirect '/paymentok'
         end
       else
         puts "ERROR: SUM IS NOT FOR MONTH AND NOT FOR YEAR"
         msg = "Внимание! Ошибка при обработке суммы платежа!\naccount.id = " + account_id + "\nwithdraw_ammount = " + sum.to_s
         Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
-        #session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
+        session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
         status 400
-        #haml :paymenterror
+        redirect '/paymenterror'
       end
     else
       msg = "Внимание! Ошибка при обработке платежа! Ошибочный эккаунт!"
       Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'ОШИБКА ПРИ ЗАЧИСЛЕНИИ ПЛАТЕЖА НА COUNTR.IO', :body => msg)
       session[:messagetodisplay] = @@text["notifications"]["paymenterror"]
       status 400
+      redirect '/paymenterror'
     end
   end
 
@@ -969,6 +1037,7 @@ class CountrIOApp < Sinatra::Application
       redirect '/setup'
     else
       if logged_in?
+        $customerio.track(current_user.id, "customized home")
         redirect '/profile'
       else
         session[:messagetodisplay] = @@text["notifications"]["plslogin"]
@@ -1048,6 +1117,7 @@ class CountrIOApp < Sinatra::Application
       redirect '/profile'
     else
       if logged_in?
+        $customerio.track(@user.id, "customized counter")
         redirect '/profile'
       else
         session[:messagetodisplay] = @@text["notifications"]["plslogin"]
@@ -1137,6 +1207,7 @@ class CountrIOApp < Sinatra::Application
               redirect '/setup'
             else
               #puts "CHANNEL WAS SAVED"
+              $customerio.track(current_user.id, "customized channel")
             end
           end
         end
@@ -1410,6 +1481,7 @@ class CountrIOApp < Sinatra::Application
       session[:messagetodisplay] = p.errors.values.join("; ")
     else
       session[:messagetodisplay] = @@text["notifications"]["notificationwassaved"]
+      $customerio.track(current_user.id, "customized reminder")
       redirect '/profile'
     end
   end
@@ -1538,9 +1610,17 @@ class CountrIOApp < Sinatra::Application
       else
         puts "USER WAS CREATED"
         @msg = @@text["emails"]["registration"] + @@text["emails"]["regards"]
-        Pony.mail(:to => user.email, :subject => 'Регистрация на Countr.io', :body => @msg)
+        #Pony.mail(:to => user.email, :subject => 'Регистрация на Countr.io', :body => @msg)
         session[:messagetodisplay] = @@text["notifications"]["reguser"]
         env['warden'].authenticate! #(:password)
+        $customerio.identify(
+          id: user.id,
+          email: user.email,
+          created_at: Time.now.to_i,
+          name: user.name,
+          plan: "free",
+          setup: "none"
+        )
         redirect '/setup'
       end
     else
@@ -1572,6 +1652,14 @@ class CountrIOApp < Sinatra::Application
         #puts "USER WAS CREATED"
         session[:messagetodisplay] = @@text["notifications"]["reguser"]
         env['warden'].authenticate!(:social)
+        $customerio.identify(
+          id: user.id,
+          email: user.email,
+          created_at: Time.now.to_i,
+          name: user.name,
+          plan: "free",
+          setup: "none"
+        )
         redirect '/setup'
       end
     else
@@ -1828,12 +1916,15 @@ class CountrIOApp < Sinatra::Application
   end
 
   get '/test' do
-    if logged_in?
-      @account = current_account
-      haml :paymentok
-    else
-      redirect '/'
-    end
+    Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'testmail', :body => "TESTMAIL FROM robot@countr.io")
+    #mail = Mail.new do
+    #  from	'robot@countr.io'
+    #  to	'sergey.rodionov@gmail.com'
+    #  subject	'testmail'
+    #  body	'TEST FROM ROBOT@COUNTR.IO'
+    #end
+
+    #mail.deliver!
   end
 
   get '/terms' do

@@ -47,4 +47,11 @@
     });
     
     $('#home').validate();
+
+    $("#home").submit(function() {
+        $(this).submit(function() {
+            return false;
+        });
+        return true;
+    });
   });

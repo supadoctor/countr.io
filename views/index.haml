@@ -8,12 +8,12 @@
     %h1
       %div
         -brand
-        ="- система передачи показаний коммунальных счетчиков"
+        ="- передать показания счетчика одним нажатием!"
     .uk-h2 Специально для Вас мы сделали что-то особенное... Конечно, не так что-бы это перевернуло Вашу жизнь, но сделает проще - это уж точно! :)
 %div{:style=>"position: relative; left: 0; top: 0;"}
   %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
 .lane#wtf{:style=>"background-color: #FFFFFF;"}
-  .uk-container-center.uk-width-large-2-3
+  .uk-container-center.uk-text-justify.uk-width-large-2-3
     %h2.uk-text-center
       Что такое
       -brand
@@ -22,9 +22,9 @@
       -brand
       ="- это онлайн система передачи показаний коммунальных счетчиков вашей квартитры или дома."
     %p
-      Все мы пользуемся водой, электричеством, газом и все мы должны регулярно, из месяца в месяц, передавать значения счетчиков в соответствующие организации.
+      Все мы пользуемся водой, электричеством, газом и все мы должны регулярно, из месяца в месяц, передавать показания счетчиков в соответствующие организации.
       Казалось бы, что может быть проще? Посмотрели потребление, зашли на сайт расспределительной компании, заполнили форму, отправили, но...
-      Всегда ли мы помним, что уже пора передавать показания? Всегда ли мы помним что и куда мы уже передали?
+      Всегда ли мы помним, что уже пора передавать показания счетчика? Всегда ли мы помним что и куда мы уже передали?
     %p
       %div
         Специально для тех кто, хочет превратить передачу показаний коммунальных счетчиков (по сути несложное, но жутко занудное меропритие) в удобное и быстрое занятие мы и создали
@@ -41,7 +41,7 @@
         -brand
     %ul.uk-text-bold
       %li Поддержка нескольких помещений
-      %li Хранение неограниченного количества счетчиков
+      %li Хранение неограниченного количества счетчиков (за газ, за воду, за электроэнергию)
       %li Передача показаний счетчиков по email, SMS
       %li Напоминания о необходимости передачи показаний счетчиков по email, SMS
       %li Хранение истории и статистики потребления
@@ -66,14 +66,16 @@
         Весь функционал, необходимый для передачи показаний счетчиков, доступен
         .uk-text-bold.uk-display-inline
           бесплатно
-        после регистрации. Однако для доступа к дополнительным функциям системы необходмо приобретение платной подписки. Стоимость подписки невелика и составляет всего
+        после регистрации. Однако для доступа к дополнительным функциям системы необходмо приобретение платной подписки.
+        Стоимость подписки невелика и до конца года составляет всего
         -haml_concat getMonthlyPrice
-        руб. в месяц. А при приобретении подписики на год, вы получаете
+        руб. в месяц. А приобретая подписку на год, Вы получаете
         .uk-text-bold.uk-display-inline
           два месяца в подарок!
-        Сравнение функций бесплатной и платной версии приведено в таблице ниже.
+        Сравнение функций бесплатной и платной версии приведено ниже.
     .uk-panel.uk-panel-box
       -compare
+      %img{:src=>"./img/-50.png", :style=>"bottom: -60px; height: 100px; left: 90%; position: absolute; width: 100px; z-index: 1;"}
     %div{:style=>"position: relative; left: 0; top: 0;"}
       %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
 .lane.lane-borders#signin{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #804050;"}
@@ -124,9 +126,13 @@
                 %br
                 %label.error.uk-text-small.uk-text-danger{:for=>"name"}
               .uk-form-row{:style=>"margin-bottom: 20px;"}
-                %input.uk-width-1-1{:type=>"text", :required=>"", :placeholder=>"Адрес электронной почты", :name=>"email"}
+                %input#email.uk-width-1-1{:type=>"text", :required=>"", :placeholder=>"Адрес электронной почты", :name=>"email"}
                 %br
                 %label.error.uk-text-small.uk-text-danger{:for=>"email"}
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"text", :required=>"", :placeholder=>"Подтверждение адреса электронной почты", :name=>"email2"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"email2"}
               .uk-form-row{:style=>"margin-bottom: 20px;"}
                 %input#password.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Пароль", :name=>"password"}
                 %br
@@ -192,6 +198,9 @@
         password2: {
           equalTo: "#password"
         },
+        email2: {
+          equalTo: "#email"
+        },
         terms: {
           required: true
         }
@@ -201,6 +210,7 @@
         name: "Введите полное имя",
         password: "Введите пароль длиною не менее 6 символов",
         password2: "Ошибка при повторном вводе пароля",
+        email2: "Ошибка при повторном вводе адреса электронной почты",
         terms: " "
       },
       submitHandler: function(form) {

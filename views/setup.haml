@@ -33,7 +33,8 @@
   %form#account.uk-form{:action => "/setup", :method=>"post"}
     #step1
       .uk-alert
-        Шаг 1/4 - cоздание помещения
+        .uk-text-bold
+          Шаг 1/4 - cоздание помещения
       %p
         %div
           Для того что бы вы могли использовать
@@ -59,7 +60,8 @@
           %i.uk-icon-angle-double-right
     #step2{:style=>"display: none;"}
       .uk-alert
-        Шаг 2/4 - cоздание счетчиков
+        .uk-text-bold
+          Шаг 2/4 - cоздание счетчиков
       %p
         %div
           Теперь давайте настроим счетчики, имеющиеся в помещении. Для этого укажите его название, например,
@@ -125,7 +127,7 @@
 
     function addRow() {
 
-      $("#counters").append(template(i));
+    $("#counters").append(template(i));
       i++;
       if (i>2) {
         $('#btnDel').prop('disabled', false)
@@ -181,5 +183,21 @@
         accountMaxlength: 65535
       }
     });
-    
+
+    $("#account").validate({
+        debug: true,
+        onsubmit: true,
+        submitHandler: function(form) {
+            if($("#tostep3").is(':visible')){
+              form.submit();
+            }
+        }
+    });
+
+    $("#account").submit(function() {
+        $(this).submit(function() {
+            return false;
+        });
+        return true;
+    });
   });

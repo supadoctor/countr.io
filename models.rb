@@ -204,8 +204,8 @@ class ResetPasswords
 end
 
 DataMapper.finalize
-#DataMapper.auto_migrate! #recreate all table
-DataMapper.auto_upgrade! #try to upgrade models
+#DataMapper.auto_migrate! #recreate all table COUNTR.IO
+DataMapper.auto_upgrade! #try to upgrade models COUNTR.IO
 
 if User.count == 0
   admin = User.new(

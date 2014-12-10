@@ -2,9 +2,9 @@
 %html
   %head
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
-    %title countr.io::система передачи показаний коммунальных счетчиков
+    %title countr.io :: передать показания счетчика одним нажатием
     %meta{:name=>"description", :content=>"Система передачи показаний коммунальных счетчиков. Передавайте показания счетчиков вовремя, быстро и просто."}
-    %meta{:name=>"keywords", :content=>"показания, счетчик, на воду, на газ, на электричество, передать показания, сообщить показания, онлайн, коммунальные счетчики"}
+    %meta{:name=>"keywords", :content=>"показания, счетчик, за воду, за газ, на электричество, передать показания счетчика, сообщить показания, онлайн, коммунальные счетчики"}
 
     //%link{:href => "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&subset=latin,cyrillic", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=cyrillic,latin", :rel => "stylesheet", :type => "text/css"}
@@ -14,7 +14,7 @@
     %link{:href => "//cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/jquery-editable/css/jquery-editable.css", :rel => "stylesheet"}
     %link{:href => "//cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css", :rel => "stylesheet"}
     %link{:href => "/css/custom.css", :rel => "stylesheet", :type => "text/css"}
-    
+
     %script{:src => "http://yastatic.net/jquery/2.1.1/jquery.min.js", :type=>"text/javascript"}
     %script{:src => "http://yastatic.net/jquery-ui/1.11.1/jquery-ui.min.js", :type=>"text/javascript"}
     %script{:src => "/js/uikit.min.js", :type=>"text/javascript"}
@@ -27,6 +27,7 @@
     %script{:src => "//cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js", :type=>"text/javascript"}
     %script{:src => "/js/countUp.min.js", :type=>"text/javascript"}
     %script{:src => "//cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js", :type=>"text/javascript"}
+    %script{:src => "/js/advertisement.js", :type=>"text/javascript"}
 
     :javascript
       function displaynotify(txt) {
@@ -83,7 +84,7 @@
                 .uk-text-small
                   %a{:href=>"/faq"} FAQ
                   %br
-                  %a{:href=>"mailto:countr.io@yandex.ru"} Написать администратору
+                  %a{:href=>"mailto:admin@countr.io"} Написать администратору
               .uk-width-medium-1-4
                 %h4.uk-text-center Жить стало проще
                 .uk-h3
@@ -106,4 +107,4 @@
                 %h4.uk-text-center Ставим лайки
                 .uk-text-center
                   %script{:type=>"text/javascript", :src=>"//yastatic.net/share/share.js", :charset=>"utf-8"}
-                  .yashare-auto-init{"data-yashareL10n"=>"ru", "data-yashareQuickServices"=>"vkontakte,facebook,twitter,odnoklassniki,moimir,gplus", "data-yashareTheme"=>"counter"}
+                  .yashare-auto-init{"data-yashareL10n"=>"ru", "data-yashareQuickServices"=>"vkontakte,facebook,odnoklassniki,gplus", "data-yashareTheme"=>"counter"}

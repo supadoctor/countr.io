@@ -117,4 +117,10 @@
 
     $('#counter').validate();
     
+    $("#counter").submit(function() {
+        $(this).submit(function() {
+            return false;
+        });
+        return true;
+    });
   });

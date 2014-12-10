@@ -1,28 +1,22 @@
 //.uk-grid{:style=>"padding: 20px;"}
 -if !paid_account?
-  .uk-grid{:style=>"padding: 20px; padding-bottom: 0px;"}
-    .uk-width-1-3.uk-text-center
+  .uk-container.uk-container-center{:style=>"padding-top: 20px;"}
+    .uk-text-center
       %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-      %ins.adsbygoogle{:style=>"display:inline-block;width:320px;height:100px", "data-ad-client"=>"ca-pub-9670514616561256", "data-ad-slot"=>"7136913727"}
+      %ins.adsbygoogle{:style=>"display:inline-block;width:728px;height:90px", "data-ad-client"=>"ca-pub-9670514616561256", "data-ad-slot"=>"3377378528"}
       :javascript
         (adsbygoogle = window.adsbygoogle || []).push({});
-    .uk-width-1-3.uk-text-center
-      %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-      %ins.adsbygoogle{:style=>"display:inline-block;width:320px;height:100px", "data-ad-client"=>"ca-pub-9670514616561256", "data-ad-slot"=>"8613646929"}
-      :javascript
-        (adsbygoogle = window.adsbygoogle || []).push({});
-    .uk-width-1-3.uk-text-center
-      %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
-      %ins.adsbygoogle{:style=>"display:inline-block;width:320px;height:100px", "data-ad-client"=>"ca-pub-9670514616561256", "data-ad-slot"=>"1090380129"}
-      :javascript
-        (adsbygoogle = window.adsbygoogle || []).push({});
+  :javascript
+    if (document.getElementById("tester") == undefined) {
+      document.write('<p class="uk-alert uk-alert-danger" style="margin: 20px;">Похоже, что Вы используете <strong>AdBlock Plus</strong> или аналогичное ПО для блокировки рекламы. Это дейсвительно замечательное средство против мусора в Интернете, но на нашем сайте всего несколько рекламных блоков от <strong>Google</strong>, которе могут быть Вам даже интересны. Поэтму просим Вас отключить блокировщик рекламы на нашем сайте и кликнуть на паре объявлений для поддержки нашего проекта. </br>Спасибо!</p>');
+    }
 .uk-width-1-1{:style=>"padding: 20px;"}
   %h1 Передача показаний счетчиков
   .uk-alert{"data-uk-alert"=>""}
     %a.uk-alert-close.uk-close
     %p
       %div
-        На этой странице вы можете ввести показания счетчиков и передать их по ранее определенным каналам передачи.
+        На этой странице вы можете ввести показания счетчиков и передать их ранее определенным получателям.
         Для этого:
         %ul
           %li Введите показания в форме, расположенной рядом с названием счетчика
@@ -30,7 +24,7 @@
             %div
               Протестируйте, отправляемое сообщение, с помошью кнопки
               %code тест
-          %li Отправьте показания счетчиков в необходимый
+          %li Отправьте показания счетчиков
   -@environment.each_with_index do |(h,v), i|
     .uk-placeholder{:style=>"background: rgba(250, 250, 250, 0.90);"}
       #homes
@@ -78,14 +72,13 @@
                 %table.uk-width-1-1
                   %thead
                     %tr
-                      %th.uk-text-center{:width=>"50%"} Канал передачи
+                      %th.uk-text-center{:width=>"50%"} Получатель
                       %th.uk-text-center{:width=>"50%"} Действие
                     -@environment[h][:channels].each_with_index do |ch, chi|
                       %tr
                         %td{:style=>"padding: 5px;"}
-                          .uk-badge.uk-badge-success #{ch.title}
-                          по
-                          #{ch.type}
+                          #{ch.title}
+                          .uk-badge.uk-badge-success по #{ch.type}
                         %td{:style=>"padding: 5px;"}
                           .uk-text-center
                             %a.checkpattern.uk-button.uk-button.uk-button-small{:id=>"checkpattern#{ch.id}"}

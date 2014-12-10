@@ -181,3 +181,23 @@ mark {
 .uk-alert {
   line-height: 25px;
 }
+
+.step {
+    background-color: rgba(64, 224, 208, 0.15);
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 10px;
+    padding: 1px 6px 1px 2px;
+    position: relative;
+    top: -1px;
+}
+
+.step_to_corner {
+  display: block;
+  width: 0;
+  height: 0;
+  border: 9px solid;
+  border-color: transparent transparent transparent rgba(64, 224, 208, 0.15);
+  display: block;
+}

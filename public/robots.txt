@@ -1,5 +1,11 @@
 User-agent: *
 Disallow: /ajax
 Disallow: /profile
-Disallow: /system
+Disallow: /setup
+Disallow: /cron
+Disallow: /payment
+Disallow: /home
+Disallow: /auth
+Disallow: /reset
+Disallow: /setnotification
 Allow: /
