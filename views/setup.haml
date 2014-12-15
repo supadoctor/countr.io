@@ -103,7 +103,6 @@
           
       //%button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
 
-
 :javascript
   $(function() {
 
@@ -149,18 +148,18 @@
     addRow();
 
     $.validator.addMethod("homenameRequired", $.validator.methods.required, "Введите название");
-    $.validator.addMethod("homenameMaxlength", $.validator.methods.maxlength, $.format("Название должно быть мнее {0} символов"));
+    $.validator.addMethod("homenameMaxlength", $.validator.methods.maxlength, $.format("Название должно быть менее {0} символов"));
     
     $.validator.addMethod("homeaddressRequired", $.validator.methods.required, "Введите адрес");
-    $.validator.addMethod("homeaddressMaxlength", $.validator.methods.maxlength, $.format("Адрес должен быть мнее {0} символов"));
+    $.validator.addMethod("homeaddressMaxlength", $.validator.methods.maxlength, $.format("Адрес должен быть менее {0} символов"));
 
     $.validator.addMethod("nameRequired", $.validator.methods.required, "Введите название");
-    $.validator.addMethod("nameMaxlength", $.validator.methods.maxlength, $.format("Название должно быть мнее {0} символов"));
+    $.validator.addMethod("nameMaxlength", $.validator.methods.maxlength, $.format("Название должно быть менее {0} символов"));
 
     $.validator.addMethod("countertypeRequired", $.validator.methods.required, "Выберите тип счетчика");
     
     $.validator.addMethod("accountDigits", $.validator.methods.digits, "Лицевой счет может содержать только цифры");
-    $.validator.addMethod("accountMaxlength", $.validator.methods.maxlength, $.format("Лицевой счет должен быть мнее {0} символов"));
+    $.validator.addMethod("accountMaxlength", $.validator.methods.maxlength, $.format("Лицевой счет должен быть менее {0} символов"));
 
     $.validator.addClassRules({
       homename: {

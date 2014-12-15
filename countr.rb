@@ -208,7 +208,7 @@ class CountrIOApp < Sinatra::Application
                   haml_tag :a, :class=>"uk-navbar-nav-subtitle", :href=>"/profile" do
                     haml_tag :i, :class=>"uk-icon-user"
                     haml_concat current_user.name
-                    haml_tag :div, :class=>"uk-text-center uk-text-small", :style=>"color: white;" do
+                    haml_tag :div, :class=>"uk-text-center uk-text-small uk-text-muted", :style=>"color: white;" do
                       haml_concat current_user.email
                     end
                   end
@@ -1845,6 +1845,7 @@ class CountrIOApp < Sinatra::Application
             end
           end
           f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+          $customerio.track(current_user.id, "sent indication")
           f.to_json
         end
       elsif channel.type == "sms"
@@ -1880,6 +1881,7 @@ class CountrIOApp < Sinatra::Application
                 end
               end
               f={:success=>true, :msg=>"Показания успешно отправлены на " + channel.to}
+              $customerio.track(current_user.id, "sent indication")
               f.to_json
             end
           end
@@ -1899,10 +1901,26 @@ class CountrIOApp < Sinatra::Application
     msg4email2 = "!\nНапоминаем, что наступило время передавать показания счетчиков. Заходите на www.countr.io и сделайте это прямо сейчас!\n\n--\nОтправлено через сервис www.countr.io"
     msg4sms = "Время передавать показания счетчиков. www.countr.io"
     users.each do |u|
-      if u.notificationtype = "email"
+      if u.notificationtype == "email"
         Pony.mail(:to => u.notificationemail, :subject => 'Напоминание о счетчиках', :body => msg4email)
         #Pony.mail(:to => "sergey.rodionov@gmail.com", :subject => 'Напоминание о счетчиках', :body => msg4email1 + u.user.name + msg4email2)
-      elsif u.notificationtype = "sms"
+      elsif u.notificationtype == "sms"
+        if u.user.account.type == 1
+          begin
+            cto = u.notificationsms
+            if cto[0] == '8'
+              cto[0] = '+7'
+            end
+            @client = Twilio::REST::Client.new Twilio_account_sid, Twilio_auth_token
+            @client.account.messages.create({
+              :from => '+18053563979',
+              :to => cto,
+              :body => msg4sms
+            })
+          rescue Twilio::REST::RequestError => e
+            puts "Ошибка отправки оповещения по SMS"
+          end
+        end
       end
     end
   end

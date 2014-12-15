@@ -1,253 +1,53 @@
-218.59.238.93 - - [10/Dec/2014 02:17:13] "GET / HTTP/1.0" 200 31839 0.0164
-5.255.253.37 - - [10/Dec/2014 02:39:46] "GET / HTTP/1.0" 200 31839 0.0161
-5.255.253.37 - - [10/Dec/2014 02:56:35] "GET / HTTP/1.0" 200 31839 0.0220
-66.249.69.219 - - [10/Dec/2014 02:58:21] "GET /faq HTTP/1.0" 200 13665 0.0086
-213.180.206.197 - - [10/Dec/2014 03:11:01] "GET / HTTP/1.0" 200 31839 0.0168
-95.108.129.207 - - [10/Dec/2014 03:21:21] "GET / HTTP/1.0" 200 31839 0.0153
-218.59.238.93 - - [10/Dec/2014 03:26:09] "GET / HTTP/1.0" 200 31839 0.0242
-5.255.253.37 - - [10/Dec/2014 03:47:42] "GET / HTTP/1.0" 200 31839 0.0256
-46.254.20.57 - - [10/Dec/2014 04:00:07] "GET /cron/sendnotification HTTP/1.0" 200 - 1.5169
-66.249.69.203 - - [10/Dec/2014 04:16:48] "GET /faq HTTP/1.0" 200 13665 0.0151
-66.249.69.219 - - [10/Dec/2014 04:34:22] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0018
-66.249.69.219 - - [10/Dec/2014 04:34:23] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0017
-66.249.69.219 - - [10/Dec/2014 04:34:24] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0017
-66.249.69.235 - - [10/Dec/2014 04:34:25] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0023
-66.249.69.235 - - [10/Dec/2014 04:34:26] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0016
-66.249.69.219 - - [10/Dec/2014 04:34:27] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 304 - 0.0068
-5.255.253.37 - - [10/Dec/2014 04:55:22] "GET / HTTP/1.0" 200 31839 0.0160
-46.254.20.57 - - [10/Dec/2014 05:00:04] "GET /cron/sendnotification HTTP/1.0" 200 - 0.5301
-5.255.253.37 - - [10/Dec/2014 05:11:33] "GET / HTTP/1.0" 200 31839 0.0196
-218.59.238.93 - - [10/Dec/2014 05:12:00] "GET /azenv2.php HTTP/1.0" 404 18 0.0021
-218.59.238.93 - - [10/Dec/2014 05:38:06] "GET / HTTP/1.0" 200 31839 0.0175
-5.255.253.37 - - [10/Dec/2014 05:59:07] "GET / HTTP/1.0" 200 31839 0.0179
-37.9.118.17 - - [10/Dec/2014 06:02:09] "GET / HTTP/1.0" 200 31839 0.0184
-218.59.238.93 - - [10/Dec/2014 06:04:21] "GET / HTTP/1.0" 200 31839 0.0170
-5.255.253.37 - - [10/Dec/2014 06:15:07] "GET / HTTP/1.0" 200 31839 0.0281
-95.108.129.207 - - [10/Dec/2014 06:29:24] "GET / HTTP/1.0" 200 31839 0.0166
-182.254.208.254 - - [10/Dec/2014 06:32:22] "GET / HTTP/1.0" 200 31839 0.0165
-218.59.238.93 - - [10/Dec/2014 06:33:54] "GET / HTTP/1.0" 200 31839 0.0178
-218.59.238.93 - - [10/Dec/2014 06:58:21] "GET / HTTP/1.0" 200 31839 0.0170
-46.254.20.57 - - [10/Dec/2014 07:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0244
-92.126.72.165 - - [10/Dec/2014 07:07:49] "GET / HTTP/1.0" 200 31839 0.0193
-92.126.72.165 - - [10/Dec/2014 07:07:49] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0073
-92.126.72.165 - - [10/Dec/2014 07:07:49] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0026
-92.126.72.165 - - [10/Dec/2014 07:07:49] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0682
-92.126.72.165 - - [10/Dec/2014 07:07:49] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0278
-92.126.72.165 - - [10/Dec/2014 07:07:49] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0062
-92.126.72.165 - - [10/Dec/2014 07:07:51] "GET /img/-50.png HTTP/1.0" 200 39764 0.0032
-92.126.72.165 - - [10/Dec/2014 07:07:52] "GET /favicon.ico HTTP/1.0" 200 1150 0.0026
-5.255.253.37 - - [10/Dec/2014 07:51:02] "GET /robots.txt HTTP/1.0" 200 185 0.0173
-218.59.238.93 - - [10/Dec/2014 07:56:26] "GET /azenv2.php HTTP/1.0" 404 18 0.0030
-5.255.253.37 - - [10/Dec/2014 08:06:57] "GET / HTTP/1.0" 200 31839 0.0160
-5.255.253.37 - - [10/Dec/2014 08:37:57] "GET / HTTP/1.0" 200 31839 0.0170
-178.64.33.134 - - [10/Dec/2014 08:50:13] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0053
-178.64.33.134 - - [10/Dec/2014 08:50:13] "GET /css/custom.css HTTP/1.0" 200 3684 0.0025
-178.64.33.134 - - [10/Dec/2014 08:50:14] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0070
-178.64.33.134 - - [10/Dec/2014 08:50:14] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0059
-178.64.33.134 - - [10/Dec/2014 08:50:14] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0203
-178.64.33.134 - - [10/Dec/2014 08:50:15] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0146
-178.64.33.134 - - [10/Dec/2014 08:50:15] "GET /img/-50.png HTTP/1.0" 200 39764 0.0040
-178.64.33.134 - - [10/Dec/2014 08:50:19] "GET /favicon.ico HTTP/1.0" 200 1150 0.0028
-218.59.238.93 - - [10/Dec/2014 08:57:44] "GET / HTTP/1.0" 200 31839 0.0162
-46.254.20.57 - - [10/Dec/2014 09:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0173
-31.192.175.195 - - [10/Dec/2014 09:10:55] "GET / HTTP/1.0" 200 31839 0.0176
-31.192.175.195 - - [10/Dec/2014 09:10:55] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0022
-31.192.175.195 - - [10/Dec/2014 09:10:55] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0079
-31.192.175.195 - - [10/Dec/2014 09:10:55] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0029
-31.192.175.195 - - [10/Dec/2014 09:10:55] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0018
-31.192.175.195 - - [10/Dec/2014 09:10:55] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0035
-31.192.175.195 - - [10/Dec/2014 09:10:55] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0020
-31.192.175.195 - - [10/Dec/2014 09:10:56] "GET /fonts/fontawesome-webfont.eot HTTP/1.0" 200 72449 0.0496
-66.249.88.133 - - [10/Dec/2014 09:13:24] "GET / HTTP/1.0" 200 31839 0.0158
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:22] "GET /css/uikit.almost-flat.min.css HTTP/1.1" 200 81463 0.0028
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:22] "GET /js/addons/datepicker.min.js HTTP/1.1" 200 30534 0.0020
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:22] "GET /js/jquery-editable-poshytip.min.js HTTP/1.1" 200 50761 0.0019
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:22] "GET /js/jquery.validate.min.js HTTP/1.1" 200 21068 0.0019
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:22] "GET /js/addons/notify.min.js HTTP/1.1" 200 2595 0.0017
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:22] "GET /js/advertisement.js HTTP/1.1" 200 81 0.0017
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:23] "GET /img/-50.png HTTP/1.1" 200 39764 0.0023
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:15:40] "GET /favicon.ico HTTP/1.1" 200 1150 0.0022
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:20] "GET /css/uikit.almost-flat.min.css HTTP/1.1" 304 - 0.0021
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:20] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.1" 304 - 0.0016
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:20] "GET /js/jquery.validate.min.js HTTP/1.1" 304 - 0.0019
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:20] "GET /js/addons/datepicker.min.js HTTP/1.1" 304 - 0.0018
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:20] "GET /js/jquery-editable-poshytip.min.js HTTP/1.1" 304 - 0.0017
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:20] "GET /js/advertisement.js HTTP/1.1" 304 - 0.0028
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:21] "GET /img/-50.png HTTP/1.1" 304 - 0.0021
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:28] "GET / HTTP/1.1" 200 31839 0.0164
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:28] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.1" 304 - 0.0020
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:28] "GET /js/uikit.min.js HTTP/1.1" 304 - 0.0051
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:28] "GET /js/addons/notify.min.js HTTP/1.1" 304 - 0.0017
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:28] "GET /js/addons/datepicker.min.js HTTP/1.1" 304 - 0.0015
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:28] "GET /js/countUp.min.js HTTP/1.1" 304 - 0.0026
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:29] "GET /img/shadow1.png HTTP/1.1" 304 - 0.0020
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:29] "GET /fonts/fontawesome-webfont.woff HTTP/1.1" 304 - 0.0020
-90.150.123.99, 82.145.208.196 - - [10/Dec/2014 09:16:44] "GET / HTTP/1.1" 200 31839 0.0132
-91.193.240.226 - - [10/Dec/2014 09:17:36] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0021
-91.193.240.226 - - [10/Dec/2014 09:17:36] "GET /css/custom.css HTTP/1.0" 200 3684 0.0019
-91.193.240.226 - - [10/Dec/2014 09:17:36] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0021
-91.193.240.226 - - [10/Dec/2014 09:17:36] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0021
-91.193.240.226 - - [10/Dec/2014 09:17:36] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0022
-91.193.240.226 - - [10/Dec/2014 09:17:36] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0022
-91.193.240.226 - - [10/Dec/2014 09:17:36] "GET /img/-50.png HTTP/1.0" 200 39764 0.0034
-91.193.240.226 - - [10/Dec/2014 09:17:38] "GET /favicon.ico HTTP/1.0" 200 1150 0.0018
-89.208.140.2 - - [10/Dec/2014 09:18:02] "GET /robots.txt HTTP/1.0" 200 185 0.0017
-89.208.140.2 - - [10/Dec/2014 09:18:03] "GET /robots.txt HTTP/1.0" 200 185 0.0019
-213.248.32.214 - - [10/Dec/2014 09:18:04] "GET /robots.txt HTTP/1.0" 200 185 0.0021
-213.248.32.214 - - [10/Dec/2014 09:18:05] "GET /robots.txt HTTP/1.0" 200 185 0.0020
-89.208.140.2 - - [10/Dec/2014 09:18:10] "GET /robots.txt HTTP/1.0" 200 185 0.0018
-89.208.140.2 - - [10/Dec/2014 09:18:12] "GET /robots.txt HTTP/1.0" 200 185 0.0026
-89.208.140.2 - - [10/Dec/2014 09:18:16] "GET /robots.txt HTTP/1.0" 200 185 0.0019
-89.208.140.2 - - [10/Dec/2014 09:18:17] "GET /robots.txt HTTP/1.0" 200 185 0.0024
-195.122.233.50 - - [10/Dec/2014 09:23:32] "GET / HTTP/1.0" 200 31839 0.0170
-195.122.233.50 - - [10/Dec/2014 09:23:33] "GET /img/shadow1.png HTTP/1.0" 304 - 0.0032
-WARDEN PASSWORD STRATEGY BEGINS
-****
-admin@remzona24.ru
-****
-#<User:0x9eca668>
-WARDEN PASSWORD STRATEGY WAS SUCCESSFULL :)
-195.122.233.50 - - [10/Dec/2014 09:23:44] "POST /auth/login HTTP/1.0" 302 - 1.0625
-195.122.233.50 - - [10/Dec/2014 09:23:47] "GET /upgrade HTTP/1.0" 200 10488 0.0183
-Exiting!
-Writing PID to pid/thin.1.pid
-/home/sergey_rodionov/src/countr/countr.rb:1769: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
-/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
-[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
-Thin web server (v1.6.2 codename Doc Brown)
-Maximum connections set to 1024
-Listening on socket/thin.1.sock, CTRL+C to stop
-195.122.233.50 - - [10/Dec/2014 09:30:05] "GET /upgrade HTTP/1.0" 200 10488 0.1479
-195.122.233.50 - - [10/Dec/2014 09:30:05] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0025
-195.122.233.50 - - [10/Dec/2014 09:30:05] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0021
-195.122.233.50 - - [10/Dec/2014 09:30:05] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0021
-195.122.233.50 - - [10/Dec/2014 09:30:05] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0025
-195.122.233.50 - - [10/Dec/2014 09:30:05] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0017
-95.37.147.155 - - [10/Dec/2014 09:30:06] "GET / HTTP/1.0" 200 31839 0.1565
-95.37.147.155 - - [10/Dec/2014 09:30:06] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0022
-95.37.147.155 - - [10/Dec/2014 09:30:06] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0037
-95.37.147.155 - - [10/Dec/2014 09:30:06] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0031
-95.37.147.155 - - [10/Dec/2014 09:30:06] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0021
-95.37.147.155 - - [10/Dec/2014 09:30:06] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0020
-95.37.147.155 - - [10/Dec/2014 09:30:06] "GET /img/-50.png HTTP/1.0" 200 39764 0.0017
-95.37.147.155 - - [10/Dec/2014 09:30:08] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0031
-cb29e1fe29618a24d016fde6f28753e31eeaebeb
-cb29e1fe29618a24d016fde6f28753e31eeaebeb
-STARTING PAYMENT PROCESSING
-ACCOUNT_ID =
-14
-SUM =
-20
-SUM IS FOR MONTH
-MONTHLY PAYMENT IS OK AND ACCOUNT WAS UPDATED
-NoMethodError - undefined method `id' for nil:NilClass:
-	/home/sergey_rodionov/src/countr/countr.rb:965:in `block in <class:CountrIOApp>'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1603:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1603:in `block in compile!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:966:in `[]'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:966:in `block (3 levels) in route!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:985:in `route_eval'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:966:in `block (2 levels) in route!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1006:in `block in process_route'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1004:in `catch'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1004:in `process_route'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:964:in `block in route!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:963:in `each'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:963:in `route!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1076:in `block in dispatch!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1058:in `block in invoke'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1058:in `catch'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1058:in `invoke'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1073:in `dispatch!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:898:in `block in call!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1058:in `block in invoke'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1058:in `catch'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1058:in `invoke'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:898:in `call!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:886:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/warden-1.2.3/lib/warden/manager.rb:35:in `block in call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/warden-1.2.3/lib/warden/manager.rb:34:in `catch'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/warden-1.2.3/lib/warden/manager.rb:34:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/omniauth-1.2.2/lib/omniauth/strategy.rb:186:in `call!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/omniauth-1.2.2/lib/omniauth/strategy.rb:164:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/omniauth-1.2.2/lib/omniauth/strategy.rb:186:in `call!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/omniauth-1.2.2/lib/omniauth/strategy.rb:164:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/omniauth-1.2.2/lib/omniauth/strategy.rb:186:in `call!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/omniauth-1.2.2/lib/omniauth/strategy.rb:164:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/omniauth-1.2.2/lib/omniauth/builder.rb:59:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:225:in `context'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/session/abstract/id.rb:220:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-protection-1.5.3/lib/rack/protection/xss_header.rb:18:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-protection-1.5.3/lib/rack/protection/path_traversal.rb:16:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-protection-1.5.3/lib/rack/protection/json_csrf.rb:18:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-protection-1.5.3/lib/rack/protection/base.rb:49:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-protection-1.5.3/lib/rack/protection/frame_options.rb:31:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/logger.rb:15:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/commonlogger.rb:33:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:217:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:210:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/head.rb:11:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/rack-1.5.2/lib/rack/methodoverride.rb:21:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:180:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:2014:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1478:in `block in call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1788:in `synchronize'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/sinatra-1.4.5/lib/sinatra/base.rb:1478:in `call'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/connection.rb:86:in `block in pre_process'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/connection.rb:84:in `catch'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/connection.rb:84:in `pre_process'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/connection.rb:53:in `process'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/connection.rb:39:in `receive_data'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/eventmachine-1.0.3/lib/eventmachine.rb:187:in `run_machine'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/eventmachine-1.0.3/lib/eventmachine.rb:187:in `run'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/backends/base.rb:73:in `start'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/server.rb:162:in `start'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/controllers/controller.rb:87:in `start'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:199:in `run_command'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/lib/thin/runner.rb:155:in `run!'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/gems/thin-1.6.2/bin/thin:6:in `<top (required)>'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `load'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/thin:23:in `<main>'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
-	/home/sergey_rodionov/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
-93.158.136.221 - - [10/Dec/2014 09:30:47] "POST /paymentresult HTTP/1.0" 500 30 0.0065
-195.122.233.50 - - [10/Dec/2014 09:30:51] "GET / HTTP/1.0" 200 8491 0.0251
-195.122.233.50 - - [10/Dec/2014 09:31:22] "GET / HTTP/1.0" 200 31938 0.0125
-195.122.233.50 - - [10/Dec/2014 09:35:23] "GET / HTTP/1.0" 200 31957 0.0172
-195.122.233.50 - - [10/Dec/2014 09:35:23] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0052
-195.122.233.50 - - [10/Dec/2014 09:35:23] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0016
-195.122.233.50 - - [10/Dec/2014 09:35:23] "GET /js/addons/notify.min.js HTTP/1.0" 304 - 0.0017
-195.122.233.50 - - [10/Dec/2014 09:35:23] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0019
-195.122.233.50 - - [10/Dec/2014 09:35:23] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0029
-195.122.233.50 - - [10/Dec/2014 09:35:23] "GET /img/-50.png HTTP/1.0" 304 - 0.0032
-WARDEN PASSWORD STRATEGY BEGINS
-****
-admin@remzona24.ru
-****
-#<User:0xb6bfb24>
-WARDEN PASSWORD STRATEGY WAS SUCCESSFULL :)
-195.122.233.50 - - [10/Dec/2014 09:35:31] "POST /auth/login HTTP/1.0" 302 - 0.7851
-195.122.233.50 - - [10/Dec/2014 09:35:34] "GET /profile HTTP/1.0" 200 26953 0.1579
-195.122.233.50 - - [10/Dec/2014 09:35:49] "GET / HTTP/1.0" 200 31938 0.0132
-95.108.129.207 - - [10/Dec/2014 09:36:30] "GET / HTTP/1.0" 200 31839 0.0125
-128.74.225.47 - - [10/Dec/2014 09:36:44] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0022
-128.74.225.47 - - [10/Dec/2014 09:36:44] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0020
-128.74.225.47 - - [10/Dec/2014 09:36:44] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0018
-128.74.225.47 - - [10/Dec/2014 09:36:44] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
-128.74.225.47 - - [10/Dec/2014 09:36:44] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0035
-128.74.225.47 - - [10/Dec/2014 09:36:44] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0031
-128.74.225.47 - - [10/Dec/2014 09:36:44] "GET /img/-50.png HTTP/1.0" 200 39764 0.0021
-128.74.225.47 - - [10/Dec/2014 09:36:46] "GET /favicon.ico HTTP/1.0" 200 1150 0.0020
-81.4.253.86 - - [10/Dec/2014 09:43:51] "GET / HTTP/1.0" 200 31839 0.0158
-81.4.253.86 - - [10/Dec/2014 09:43:51] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0021
-81.4.253.86 - - [10/Dec/2014 09:43:51] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0017
-81.4.253.86 - - [10/Dec/2014 09:43:52] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
-81.4.253.86 - - [10/Dec/2014 09:43:52] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
-81.4.253.86 - - [10/Dec/2014 09:43:54] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0020
-81.4.253.86 - - [10/Dec/2014 09:43:55] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0020
-81.4.253.86 - - [10/Dec/2014 09:43:57] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
-81.4.253.86 - - [10/Dec/2014 09:44:28] "GET / HTTP/1.0" 200 31839 0.0122
+178.154.224.114 - - [15/Dec/2014 02:14:17] "GET / HTTP/1.0" 200 33192 0.0195
+218.59.238.93 - - [15/Dec/2014 02:26:50] "GET /az.php HTTP/1.0" 404 18 0.0026
+46.254.20.57 - - [15/Dec/2014 03:00:02] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0848
+218.59.238.93 - - [15/Dec/2014 03:12:12] "GET /world.php HTTP/1.0" 404 18 0.0017
+5.255.253.37 - - [15/Dec/2014 03:24:12] "GET / HTTP/1.0" 200 33192 0.0153
+5.255.253.37 - - [15/Dec/2014 03:42:05] "GET / HTTP/1.0" 200 33192 0.0166
+66.249.78.43 - - [15/Dec/2014 03:45:30] "GET / HTTP/1.0" 200 33192 0.0159
+5.255.253.37 - - [15/Dec/2014 03:58:28] "GET / HTTP/1.0" 200 33192 0.0209
+218.59.238.93 - - [15/Dec/2014 04:04:55] "GET /world.php HTTP/1.0" 404 18 0.0017
+37.9.118.17 - - [15/Dec/2014 04:20:10] "GET / HTTP/1.0" 200 33192 0.0186
+95.108.129.207 - - [15/Dec/2014 04:37:34] "GET / HTTP/1.0" 200 33192 0.0208
+46.254.20.57 - - [15/Dec/2014 05:00:02] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0215
+218.59.238.93 - - [15/Dec/2014 05:11:50] "GET / HTTP/1.0" 200 33192 0.0167
+66.249.78.43 - - [15/Dec/2014 05:13:25] "GET /terms HTTP/1.0" 200 15502 0.0180
+218.59.238.93 - - [15/Dec/2014 05:38:27] "GET /azz.php HTTP/1.0" 404 18 0.0019
+182.254.158.13 - - [15/Dec/2014 05:47:46] "GET / HTTP/1.0" 200 33192 0.0245
+218.59.238.93 - - [15/Dec/2014 05:58:23] "GET /azz.php HTTP/1.0" 404 18 0.0018
+46.254.20.57 - - [15/Dec/2014 06:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0199
+5.255.253.37 - - [15/Dec/2014 06:15:06] "GET /robots.txt HTTP/1.0" 200 185 0.0024
+5.255.253.37 - - [15/Dec/2014 06:15:08] "GET / HTTP/1.0" 200 33192 0.0233
+5.255.253.37 - - [15/Dec/2014 06:15:10] "GET / HTTP/1.0" 200 33192 0.0219
+218.59.238.93 - - [15/Dec/2014 06:16:01] "GET /azenv2.php HTTP/1.0" 404 18 0.0544
+61.160.247.7 - - [15/Dec/2014 06:19:04] "GET /manager/html HTTP/1.0" 404 18 0.0018
+61.160.247.7 - - [15/Dec/2014 06:19:19] "GET /manager/html HTTP/1.0" 404 18 0.0018
+61.160.247.7 - - [15/Dec/2014 06:19:38] "GET /manager/html HTTP/1.0" 404 18 0.0018
+61.160.247.7 - - [15/Dec/2014 06:19:53] "GET /manager/html HTTP/1.0" 404 18 0.0020
+61.160.247.7 - - [15/Dec/2014 06:20:06] "GET /manager/html HTTP/1.0" 404 18 0.0019
+61.160.247.7 - - [15/Dec/2014 06:20:21] "GET /manager/html HTTP/1.0" 404 18 0.0018
+61.160.247.7 - - [15/Dec/2014 06:20:36] "GET /manager/html HTTP/1.0" 404 18 0.0019
+61.160.247.7 - - [15/Dec/2014 06:20:59] "GET /manager/html HTTP/1.0" 404 18 0.0018
+61.160.247.7 - - [15/Dec/2014 06:21:14] "GET /manager/html HTTP/1.0" 404 18 0.0018
+5.255.253.37 - - [15/Dec/2014 06:39:04] "GET / HTTP/1.0" 200 33192 0.0162
+218.59.238.93 - - [15/Dec/2014 06:58:39] "GET / HTTP/1.0" 200 33192 0.0168
+46.254.20.57 - - [15/Dec/2014 07:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0757
+5.255.253.37 - - [15/Dec/2014 07:21:35] "GET / HTTP/1.0" 200 33192 0.0168
+218.59.238.93 - - [15/Dec/2014 07:28:16] "GET /azz.php HTTP/1.0" 404 18 0.0030
+5.255.253.37 - - [15/Dec/2014 07:38:25] "GET / HTTP/1.0" 200 33192 0.0177
+213.180.206.197 - - [15/Dec/2014 07:56:12] "GET / HTTP/1.0" 200 33192 0.0172
+218.59.238.93 - - [15/Dec/2014 07:57:12] "GET /az.php HTTP/1.0" 404 18 0.0018
+46.254.20.57 - - [15/Dec/2014 08:00:01] "GET /cron/sendnotification HTTP/1.0" 200 - 0.0276
+66.249.67.8 - - [15/Dec/2014 08:00:51] "GET / HTTP/1.0" 200 33192 0.0180
+5.255.253.37 - - [15/Dec/2014 08:19:29] "GET / HTTP/1.0" 200 33192 0.0165
+5.255.253.37 - - [15/Dec/2014 08:42:27] "GET / HTTP/1.0" 200 33192 0.0164
+125.64.35.67 - - [15/Dec/2014 08:59:22] "GET /r/www/cache/static/home/img/logos/nuomi_ade5465d.png HTTP/1.0" 404 18 0.0022
+66.249.81.154 - - [15/Dec/2014 09:00:57] "GET / HTTP/1.0" 200 33192 0.1098
+195.122.233.50 - - [15/Dec/2014 09:01:01] "GET / HTTP/1.0" 200 25342 0.2915
+195.122.233.50 - - [15/Dec/2014 09:01:06] "GET /profile HTTP/1.0" 200 35575 0.0261
+195.122.233.50 - - [15/Dec/2014 09:01:13] "POST /notificationdateupdate HTTP/1.0" 200 107 0.1089
+195.122.233.50 - - [15/Dec/2014 09:01:34] "GET / HTTP/1.0" 200 33291 0.0128
+195.122.233.50 - - [15/Dec/2014 09:01:34] "GET /img/-50.png HTTP/1.0" 304 - 0.0020
 Exiting!
 Writing PID to pid/thin.1.pid
 /home/sergey_rodionov/src/countr/countr.rb:1773: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
@@ -256,146 +56,171 @@ Writing PID to pid/thin.1.pid
 Thin web server (v1.6.2 codename Doc Brown)
 Maximum connections set to 1024
 Listening on socket/thin.1.sock, CTRL+C to stop
-195.122.233.50 - - [10/Dec/2014 09:45:11] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0092
-195.122.233.50 - - [10/Dec/2014 09:45:11] "GET /css/custom.css HTTP/1.0" 200 3684 0.0018
-195.122.233.50 - - [10/Dec/2014 09:45:11] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0019
-195.122.233.50 - - [10/Dec/2014 09:45:11] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0031
-195.122.233.50 - - [10/Dec/2014 09:45:11] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0027
-195.122.233.50 - - [10/Dec/2014 09:45:11] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0021
-195.122.233.50 - - [10/Dec/2014 09:45:12] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0039
-195.122.233.50 - - [10/Dec/2014 09:45:24] "GET / HTTP/1.0" 200 8927 0.0708
-67286b95dc4e8a4533b6f80f5459e713f020c070
-67286b95dc4e8a4533b6f80f5459e713f020c070
-STARTING PAYMENT PROCESSING
-ACCOUNT_ID =
-16
-SUM =
-20
-SUM IS FOR MONTH
-MONTHLY PAYMENT IS OK AND ACCOUNT WAS UPDATED
-93.158.136.221 - - [10/Dec/2014 09:46:06] "POST /paymentresult HTTP/1.0" 302 - 1.6019
-195.122.233.50 - - [10/Dec/2014 09:46:08] "GET / HTTP/1.0" 200 8707 0.0126
-195.122.233.50 - - [10/Dec/2014 09:47:14] "GET / HTTP/1.0" 200 31938 0.0853
-61.160.247.7 - - [10/Dec/2014 09:50:04] "GET /manager/html HTTP/1.0" 404 18 0.0021
-61.160.247.7 - - [10/Dec/2014 09:50:17] "GET /manager/html HTTP/1.0" 404 18 0.0029
-218.59.238.93 - - [10/Dec/2014 09:50:30] "GET /world.php HTTP/1.0" 404 18 0.0018
-61.160.247.7 - - [10/Dec/2014 09:50:38] "GET /manager/html HTTP/1.0" 404 18 0.0018
-61.160.247.7 - - [10/Dec/2014 09:50:52] "GET /manager/html HTTP/1.0" 404 18 0.0018
-61.160.247.7 - - [10/Dec/2014 09:51:05] "GET /manager/html HTTP/1.0" 404 18 0.0017
-61.160.247.7 - - [10/Dec/2014 09:51:17] "GET /manager/html HTTP/1.0" 404 18 0.0018
-194.60.238.123 - - [10/Dec/2014 09:51:22] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0023
-194.60.238.123 - - [10/Dec/2014 09:51:22] "GET /css/custom.css HTTP/1.0" 200 3684 0.0016
-194.60.238.123 - - [10/Dec/2014 09:51:22] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0017
-194.60.238.123 - - [10/Dec/2014 09:51:22] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0018
-194.60.238.123 - - [10/Dec/2014 09:51:22] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0019
-194.60.238.123 - - [10/Dec/2014 09:51:22] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
-194.60.238.123 - - [10/Dec/2014 09:51:22] "GET /img/-50.png HTTP/1.0" 200 39764 0.0021
-194.60.238.123 - - [10/Dec/2014 09:51:24] "GET /favicon.ico HTTP/1.0" 200 1150 0.0020
-61.160.247.7 - - [10/Dec/2014 09:51:34] "GET /manager/html HTTP/1.0" 404 18 0.0018
-61.160.247.7 - - [10/Dec/2014 09:51:48] "GET /manager/html HTTP/1.0" 404 18 0.0029
-194.135.8.99 - - [10/Dec/2014 09:53:11] "GET / HTTP/1.0" 200 31839 0.0160
-194.135.8.99 - - [10/Dec/2014 09:53:11] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0021
-194.135.8.99 - - [10/Dec/2014 09:53:11] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0016
-194.135.8.99 - - [10/Dec/2014 09:53:11] "GET /css/custom.css HTTP/1.0" 200 3684 0.0016
-194.135.8.99 - - [10/Dec/2014 09:53:11] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0019
-194.135.8.99 - - [10/Dec/2014 09:53:11] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0018
-194.135.8.99 - - [10/Dec/2014 09:53:11] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0016
-194.135.8.99 - - [10/Dec/2014 09:53:12] "GET /fonts/fontawesome-webfont.eot HTTP/1.0" 200 72449 0.0034
-185.57.251.186 - - [10/Dec/2014 09:55:24] "GET / HTTP/1.0" 200 31839 0.0156
-185.57.251.186 - - [10/Dec/2014 09:55:24] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0021
-185.57.251.186 - - [10/Dec/2014 09:55:24] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0019
-185.57.251.186 - - [10/Dec/2014 09:55:24] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0020
-185.57.251.186 - - [10/Dec/2014 09:55:24] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0021
-185.57.251.186 - - [10/Dec/2014 09:55:24] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0019
-185.57.251.186 - - [10/Dec/2014 09:55:24] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0021
-185.57.251.186 - - [10/Dec/2014 09:55:25] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0023
-67286b95dc4e8a4533b6f80f5459e713f020c070
-67286b95dc4e8a4533b6f80f5459e713f020c070
-STARTING PAYMENT PROCESSING
-ACCOUNT_ID =
-16
-SUM =
-20
-SUM IS FOR MONTH
-MONTHLY PAYMENT IS OK AND ACCOUNT WAS UPDATED
-178.154.130.65 - - [10/Dec/2014 09:56:08] "POST /paymentresult HTTP/1.0" 302 - 1.4793
-5.141.192.129 - - [10/Dec/2014 09:57:51] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0022
-5.141.192.129 - - [10/Dec/2014 09:57:51] "GET /css/custom.css HTTP/1.0" 200 3684 0.0016
-5.141.192.129 - - [10/Dec/2014 09:57:51] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0017
-5.141.192.129 - - [10/Dec/2014 09:57:51] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0018
-5.141.192.129 - - [10/Dec/2014 09:57:52] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0023
-5.141.192.129 - - [10/Dec/2014 09:57:52] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
-5.141.192.129 - - [10/Dec/2014 09:57:52] "GET /img/-50.png HTTP/1.0" 200 39764 0.0020
-5.141.192.129 - - [10/Dec/2014 09:57:53] "GET /favicon.ico HTTP/1.0" 200 1150 0.0021
-89.109.4.133 - - [10/Dec/2014 10:01:56] "GET / HTTP/1.0" 200 31839 0.0159
-89.109.4.133 - - [10/Dec/2014 10:01:56] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0022
-89.109.4.133 - - [10/Dec/2014 10:01:56] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0021
-89.109.4.133 - - [10/Dec/2014 10:01:56] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0018
-89.109.4.133 - - [10/Dec/2014 10:01:56] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0019
-89.109.4.133 - - [10/Dec/2014 10:01:57] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0021
-89.109.4.133 - - [10/Dec/2014 10:01:57] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0020
-89.109.4.133 - - [10/Dec/2014 10:01:59] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
-109.127.137.43 - - [10/Dec/2014 10:10:12] "GET / HTTP/1.0" 200 31839 0.0220
-109.127.137.43 - - [10/Dec/2014 10:10:12] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0020
-109.127.137.43 - - [10/Dec/2014 10:10:12] "GET /css/custom.css HTTP/1.0" 200 3684 0.0020
-109.127.137.43 - - [10/Dec/2014 10:10:12] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0017
-109.127.137.43 - - [10/Dec/2014 10:10:12] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0020
-109.127.137.43 - - [10/Dec/2014 10:10:12] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0017
-109.127.137.43 - - [10/Dec/2014 10:10:12] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0030
-109.127.137.43 - - [10/Dec/2014 10:10:13] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0037
-148.251.11.76 - - [10/Dec/2014 10:14:50] "GET / HTTP/1.0" 200 31839 0.0156
-66.249.93.193 - - [10/Dec/2014 10:26:46] "GET / HTTP/1.0" 200 31839 0.0164
-66.249.84.231 - - [10/Dec/2014 10:26:47] "GET /css/custom.css HTTP/1.0" 200 3684 0.0020
-66.249.84.225 - - [10/Dec/2014 10:26:47] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0021
-66.249.84.231 - - [10/Dec/2014 10:26:47] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0019
-66.249.84.231 - - [10/Dec/2014 10:26:47] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0020
-66.249.84.231 - - [10/Dec/2014 10:26:47] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
-66.249.84.225 - - [10/Dec/2014 10:26:48] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0021
-66.249.84.231 - - [10/Dec/2014 10:26:48] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0032
-91.237.203.74 - - [10/Dec/2014 10:36:32] "GET / HTTP/1.0" 200 31839 0.0157
-91.237.203.74 - - [10/Dec/2014 10:36:33] "GET /js/advertisement.js HTTP/1.0" 304 - 0.0029
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET / HTTP/1.0" 200 31839 0.0161
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0031
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0021
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0019
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0021
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET /img/-50.png HTTP/1.0" 200 39764 0.0020
-95.54.242.37 - - [10/Dec/2014 10:38:20] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0021
-95.54.242.37 - - [10/Dec/2014 10:38:21] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
-cb29e1fe29618a24d016fde6f28753e31eeaebeb
-cb29e1fe29618a24d016fde6f28753e31eeaebeb
-STARTING PAYMENT PROCESSING
-ACCOUNT_ID =
-14
-SUM =
-20
-SUM IS FOR MONTH
-MONTHLY PAYMENT IS OK AND ACCOUNT WAS UPDATED
-178.154.130.67 - - [10/Dec/2014 10:40:52] "POST /paymentresult HTTP/1.0" 302 - 1.5558
-109.184.67.28 - - [10/Dec/2014 10:47:47] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0022
-109.184.67.28 - - [10/Dec/2014 10:47:47] "GET /css/custom.css HTTP/1.0" 200 3684 0.0020
-109.184.67.28 - - [10/Dec/2014 10:47:47] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0019
-109.184.67.28 - - [10/Dec/2014 10:47:47] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
-109.184.67.28 - - [10/Dec/2014 10:47:47] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0020
-109.184.67.28 - - [10/Dec/2014 10:47:47] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0017
-109.184.67.28 - - [10/Dec/2014 10:47:52] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0019
-109.184.67.28 - - [10/Dec/2014 10:47:53] "GET /favicon.ico HTTP/1.0" 200 1150 0.0020
-37.144.137.11 - - [10/Dec/2014 10:48:17] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0034
-37.144.137.11 - - [10/Dec/2014 10:48:17] "GET /css/custom.css HTTP/1.0" 200 3684 0.0025
-37.144.137.11 - - [10/Dec/2014 10:48:17] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0017
-37.144.137.11 - - [10/Dec/2014 10:48:17] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0021
-37.144.137.11 - - [10/Dec/2014 10:48:17] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0017
-37.144.137.11 - - [10/Dec/2014 10:48:17] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
-37.144.137.11 - - [10/Dec/2014 10:48:17] "GET /img/-50.png HTTP/1.0" 200 39764 0.0017
-37.144.137.11 - - [10/Dec/2014 10:48:18] "GET /favicon.ico HTTP/1.0" 200 1150 0.0018
-218.59.238.93 - - [10/Dec/2014 10:53:21] "GET / HTTP/1.0" 200 31839 0.0167
-46.165.8.16 - - [10/Dec/2014 10:55:01] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0022
-46.165.8.16 - - [10/Dec/2014 10:55:01] "GET /css/custom.css HTTP/1.0" 200 3684 0.0039
-46.165.8.16 - - [10/Dec/2014 10:55:01] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0041
-46.165.8.16 - - [10/Dec/2014 10:55:01] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0017
-46.165.8.16 - - [10/Dec/2014 10:55:01] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0020
-46.165.8.16 - - [10/Dec/2014 10:55:01] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
-46.165.8.16 - - [10/Dec/2014 10:55:01] "GET /img/-50.png HTTP/1.0" 200 39764 0.0033
-46.165.8.16 - - [10/Dec/2014 10:55:03] "GET /favicon.ico HTTP/1.0" 200 1150 0.0020
-218.59.238.93 - - [10/Dec/2014 10:57:52] "GET /world.php HTTP/1.0" 404 18 0.0018
+195.122.233.50 - - [15/Dec/2014 09:03:45] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0277
+195.122.233.50 - - [15/Dec/2014 09:03:45] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0083
+195.122.233.50 - - [15/Dec/2014 09:03:45] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0106
+195.122.233.50 - - [15/Dec/2014 09:03:45] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0217
+195.122.233.50 - - [15/Dec/2014 09:03:45] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0198
+195.122.233.50 - - [15/Dec/2014 09:03:51] "GET /logout HTTP/1.0" 302 - 0.0027
+195.122.233.50 - - [15/Dec/2014 09:03:56] "GET / HTTP/1.0" 200 33192 0.1094
+195.122.233.50 - - [15/Dec/2014 09:03:57] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0023
+195.122.233.50 - - [15/Dec/2014 09:03:57] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0017
+195.122.233.50 - - [15/Dec/2014 09:03:57] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0018
+195.122.233.50 - - [15/Dec/2014 09:03:57] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0046
+195.122.233.50 - - [15/Dec/2014 09:03:57] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0021
+195.122.233.50 - - [15/Dec/2014 09:03:57] "GET /img/-50.png HTTP/1.0" 200 39764 0.0358
+I, [2014-12-15T09:03:59.324899 #18394]  INFO -- omniauth: (gplus) Request phase initiated.
+195.122.233.50 - - [15/Dec/2014 09:03:59] "GET /auth/gplus HTTP/1.0" 302 353 0.0062
+195.122.233.50 - - [15/Dec/2014 09:04:01] "GET /profile HTTP/1.0" 200 35618 0.1538
+Exiting!
+Writing PID to pid/thin.1.pid
+/home/sergey_rodionov/src/countr/countr.rb:1773: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+/home/sergey_rodionov/src/countr/models.rb:36: warning: character class has '-' without escape: /^[а-яА-ЯёЁa-zA-Z- ]+$/
+[deprecated] I18n.enforce_available_locales will default to true in the future. If you really want to skip validation of your locale you can set I18n.enforce_available_locales = false to avoid this message.
+Thin web server (v1.6.2 codename Doc Brown)
+Maximum connections set to 1024
+Listening on socket/thin.1.sock, CTRL+C to stop
+195.122.233.50 - - [15/Dec/2014 09:06:02] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 304 - 0.0123
+195.122.233.50 - - [15/Dec/2014 09:06:02] "GET /css/custom.css HTTP/1.0" 304 - 0.0021
+195.122.233.50 - - [15/Dec/2014 09:06:02] "GET /js/jquery.validate.min.js HTTP/1.0" 304 - 0.0017
+195.122.233.50 - - [15/Dec/2014 09:06:02] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0039
+195.122.233.50 - - [15/Dec/2014 09:06:02] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 304 - 0.0314
+195.122.233.50 - - [15/Dec/2014 09:06:02] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 304 - 0.0020
+5.141.231.16 - - [15/Dec/2014 09:09:10] "GET / HTTP/1.0" 200 33192 0.2237
+5.141.231.16 - - [15/Dec/2014 09:09:10] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0022
+5.141.231.16 - - [15/Dec/2014 09:09:10] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0031
+5.141.231.16 - - [15/Dec/2014 09:09:10] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0019
+5.141.231.16 - - [15/Dec/2014 09:09:10] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0024
+5.141.231.16 - - [15/Dec/2014 09:09:10] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0049
+5.141.231.16 - - [15/Dec/2014 09:09:13] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0020
+5.141.231.16 - - [15/Dec/2014 09:09:13] "GET /img/-50.png HTTP/1.0" 200 39764 0.0021
+95.79.38.84 - - [15/Dec/2014 09:10:41] "GET / HTTP/1.0" 200 33192 0.0130
+95.79.38.84 - - [15/Dec/2014 09:10:41] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0020
+188.127.243.140 - - [15/Dec/2014 09:10:42] "GET / HTTP/1.0" 200 33192 0.0183
+95.79.38.84 - - [15/Dec/2014 09:10:42] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0019
+95.79.38.84 - - [15/Dec/2014 09:10:42] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
+95.79.38.84 - - [15/Dec/2014 09:10:42] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0020
+95.79.38.84 - - [15/Dec/2014 09:10:42] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
+95.79.38.84 - - [15/Dec/2014 09:10:43] "GET /img/-50.png HTTP/1.0" 200 39764 0.0022
+95.79.38.84 - - [15/Dec/2014 09:10:46] "GET /favicon.ico HTTP/1.0" 200 1150 0.0031
+195.122.233.50 - - [15/Dec/2014 09:12:35] "GET /profile HTTP/1.0" 200 35618 0.0931
+195.122.233.50 - - [15/Dec/2014 09:12:35] "GET /js/jquery.validate.min.js HTTP/1.0" 304 - 0.0021
+195.122.233.50 - - [15/Dec/2014 09:12:35] "GET /js/addons/datepicker.min.js HTTP/1.0" 304 - 0.0039
+195.122.233.50 - - [15/Dec/2014 09:12:35] "GET /js/uikit.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [15/Dec/2014 09:12:35] "GET /js/addons/sticky.min.js HTTP/1.0" 304 - 0.0016
+195.122.233.50 - - [15/Dec/2014 09:12:35] "GET /js/countUp.min.js HTTP/1.0" 304 - 0.0019
+78.25.122.99 - - [15/Dec/2014 09:16:58] "GET / HTTP/1.0" 200 33192 0.0165
+78.25.122.99 - - [15/Dec/2014 09:17:04] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0020
+78.25.122.99 - - [15/Dec/2014 09:17:08] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0024
+78.25.122.99 - - [15/Dec/2014 09:17:09] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0021
+78.25.122.99 - - [15/Dec/2014 09:17:17] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0020
+78.25.122.99 - - [15/Dec/2014 09:17:19] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0020
+78.25.122.99 - - [15/Dec/2014 09:17:36] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0030
+78.25.122.99 - - [15/Dec/2014 09:18:13] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
+78.25.122.99 - - [15/Dec/2014 09:21:02] "POST /ajax/checkemail HTTP/1.0" 200 4 0.0136
+78.25.122.99 - - [15/Dec/2014 09:22:47] "GET /setup HTTP/1.0" 200 20822 0.0843
+195.122.233.50 - - [15/Dec/2014 09:23:39] "GET / HTTP/1.0" 200 25342 0.0952
+188.17.192.138 - - [15/Dec/2014 09:31:12] "GET / HTTP/1.0" 200 33192 0.0160
+188.17.192.138 - - [15/Dec/2014 09:31:13] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0021
+188.17.192.138 - - [15/Dec/2014 09:31:13] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0023
+188.17.192.138 - - [15/Dec/2014 09:31:13] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0030
+188.17.192.138 - - [15/Dec/2014 09:31:13] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0023
+188.17.192.138 - - [15/Dec/2014 09:31:13] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0021
+188.17.192.138 - - [15/Dec/2014 09:31:13] "GET /css/custom.css HTTP/1.0" 200 3684 0.0025
+188.17.192.138 - - [15/Dec/2014 09:31:13] "GET /css/custom.css HTTP/1.0" 200 3684 0.0028
+188.17.192.138 - - [15/Dec/2014 09:31:16] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0020
+188.17.192.138 - - [15/Dec/2014 09:31:16] "GET /favicon.ico HTTP/1.0" 200 1150 0.0019
+78.25.122.99 - - [15/Dec/2014 09:36:19] "POST /ajax/testpattern HTTP/1.0" 200 458 0.0255
+195.122.233.50 - - [15/Dec/2014 09:39:29] "GET / HTTP/1.0" 200 25342 0.0395
+195.122.233.50 - - [15/Dec/2014 09:39:32] "GET / HTTP/1.0" 200 33291 0.0123
+195.122.233.50 - - [15/Dec/2014 09:39:32] "GET /img/-50.png HTTP/1.0" 200 39764 0.0019
+195.122.233.50 - - [15/Dec/2014 09:41:46] "GET /img/meter.png HTTP/1.0" 200 8471 0.0248
+5.164.244.39 - - [15/Dec/2014 09:42:57] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0035
+5.164.244.39 - - [15/Dec/2014 09:42:57] "GET /css/custom.css HTTP/1.0" 200 3684 0.0032
+5.164.244.39 - - [15/Dec/2014 09:42:57] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0018
+5.164.244.39 - - [15/Dec/2014 09:42:58] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0033
+5.164.244.39 - - [15/Dec/2014 09:42:58] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0029
+5.164.244.39 - - [15/Dec/2014 09:42:58] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0020
+5.164.244.39 - - [15/Dec/2014 09:42:58] "GET /img/-50.png HTTP/1.0" 200 39764 0.0022
+5.164.244.39 - - [15/Dec/2014 09:42:59] "GET /favicon.ico HTTP/1.0" 200 1150 0.0021
+5.255.253.37 - - [15/Dec/2014 09:43:09] "GET /sitemap.xml HTTP/1.0" 200 483 0.0220
+5.141.202.164 - - [15/Dec/2014 09:43:47] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0023
+5.141.202.164 - - [15/Dec/2014 09:43:47] "GET /css/custom.css HTTP/1.0" 200 3684 0.0019
+5.141.202.164 - - [15/Dec/2014 09:43:47] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0020
+5.141.202.164 - - [15/Dec/2014 09:43:47] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0019
+5.141.202.164 - - [15/Dec/2014 09:43:47] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0021
+5.141.202.164 - - [15/Dec/2014 09:43:47] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0020
+5.141.202.164 - - [15/Dec/2014 09:43:48] "GET /img/-50.png HTTP/1.0" 200 39764 0.0021
+5.141.202.164 - - [15/Dec/2014 09:43:50] "GET /favicon.ico HTTP/1.0" 200 1150 0.0032
+78.25.122.99 - - [15/Dec/2014 09:47:27] "GET /profile HTTP/1.0" 200 30242 0.0285
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET / HTTP/1.0" 200 33192 0.0186
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0058
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0044
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0018
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0033
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0027
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0022
+91.204.176.11 - - [15/Dec/2014 09:49:29] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
+78.25.122.99 - - [15/Dec/2014 09:54:14] "GET / HTTP/1.0" 200 10005 0.0329
+78.25.122.99 - - [15/Dec/2014 09:54:35] "GET / HTTP/1.0" 200 33291 0.0212
+91.143.162.70 - - [15/Dec/2014 10:01:19] "GET / HTTP/1.0" 200 33192 0.0186
+91.143.162.70 - - [15/Dec/2014 10:01:19] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0027
+91.143.162.70 - - [15/Dec/2014 10:01:19] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0062
+91.143.162.70 - - [15/Dec/2014 10:01:19] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0016
+91.143.162.70 - - [15/Dec/2014 10:01:19] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0073
+91.143.162.70 - - [15/Dec/2014 10:01:19] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0046
+91.143.162.70 - - [15/Dec/2014 10:01:20] "GET /img/-50.png HTTP/1.0" 200 39764 0.0021
+91.143.162.70 - - [15/Dec/2014 10:01:21] "GET /favicon.ico HTTP/1.0" 200 1150 0.0022
+93.90.99.110 - - [15/Dec/2014 10:03:25] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0022
+93.90.99.110 - - [15/Dec/2014 10:03:25] "GET /css/custom.css HTTP/1.0" 200 3684 0.0021
+93.90.99.110 - - [15/Dec/2014 10:03:25] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0024
+93.90.99.110 - - [15/Dec/2014 10:03:25] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0021
+93.90.99.110 - - [15/Dec/2014 10:03:26] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0022
+93.90.99.110 - - [15/Dec/2014 10:03:26] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0021
+93.90.99.110 - - [15/Dec/2014 10:03:27] "GET /img/-50.png HTTP/1.0" 200 39764 0.0021
+93.90.99.110 - - [15/Dec/2014 10:03:27] "GET /favicon.ico HTTP/1.0" 200 1150 0.0020
+91.143.162.70 - - [15/Dec/2014 10:03:40] "POST /ajax/checkemail HTTP/1.0" 200 4 0.0104
+91.143.162.70 - - [15/Dec/2014 10:04:34] "GET /setup HTTP/1.0" 200 20813 0.0140
+46.22.173.131 - - [15/Dec/2014 10:04:58] "GET /wiki/Special:Search?search=&go=Go HTTP/1.0" 404 18 0.0021
+212.74.198.184 - - [15/Dec/2014 10:05:06] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0022
+212.74.198.184 - - [15/Dec/2014 10:05:06] "GET /css/custom.css HTTP/1.0" 200 3684 0.0082
+212.74.198.184 - - [15/Dec/2014 10:05:06] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0022
+212.74.198.184 - - [15/Dec/2014 10:05:07] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0021
+212.74.198.184 - - [15/Dec/2014 10:05:07] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0022
+212.74.198.184 - - [15/Dec/2014 10:05:07] "GET /js/countUp.min.js HTTP/1.0" 200 2903 0.0034
+212.74.198.184 - - [15/Dec/2014 10:05:08] "GET /img/-50.png HTTP/1.0" 200 39764 0.0022
+212.74.198.184 - - [15/Dec/2014 10:05:10] "GET /favicon.ico HTTP/1.0" 200 1150 0.0031
+213.87.133.170 - - [15/Dec/2014 10:06:56] "GET / HTTP/1.0" 200 33192 0.0180
+213.87.133.170 - - [15/Dec/2014 10:06:56] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0021
+213.87.133.170 - - [15/Dec/2014 10:06:57] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0020
+213.87.133.170 - - [15/Dec/2014 10:06:57] "GET /img/-50.png HTTP/1.0" 200 39764 0.0021
+213.87.133.170 - - [15/Dec/2014 10:06:57] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0020
+213.87.133.170 - - [15/Dec/2014 10:06:57] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0022
+213.87.133.170 - - [15/Dec/2014 10:06:57] "GET /css/custom.css HTTP/1.0" 200 3684 0.0031
+213.87.133.170 - - [15/Dec/2014 10:06:57] "GET /css/custom.css HTTP/1.0" 200 3684 0.0020
+213.87.133.170 - - [15/Dec/2014 10:06:57] "GET /fonts/fontawesome-webfont.woff HTTP/1.0" 200 83760 0.0022
+213.180.206.205 - - [15/Dec/2014 10:07:12] "GET / HTTP/1.0" 200 33192 0.0130
+93.120.200.162 - - [15/Dec/2014 10:18:16] "GET /css/addons/uikit.almost-flat.addons.min.css HTTP/1.0" 200 14315 0.0023
+93.120.200.162 - - [15/Dec/2014 10:18:16] "GET /css/custom.css HTTP/1.0" 200 3684 0.0032
+93.120.200.162 - - [15/Dec/2014 10:18:16] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0029
+93.120.200.162 - - [15/Dec/2014 10:18:16] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0017
+93.120.200.162 - - [15/Dec/2014 10:18:16] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0022
+93.120.200.162 - - [15/Dec/2014 10:18:16] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0020
+93.120.200.162 - - [15/Dec/2014 10:18:16] "GET /img/shadow1.png HTTP/1.0" 200 7535 0.0023
+93.120.200.162 - - [15/Dec/2014 10:18:18] "GET /favicon.ico HTTP/1.0" 200 1150 0.0028
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:32] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0021
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:32] "GET /js/uikit.min.js HTTP/1.0" 200 37413 0.0021
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:32] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0032
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:33] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0034
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:33] "GET /js/addons/notify.min.js HTTP/1.0" 200 2595 0.0020
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:33] "GET /js/addons/datepicker.min.js HTTP/1.0" 200 30534 0.0033
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:34] "GET /img/-50.png HTTP/1.0" 200 39764 0.0033
+192.168.227.143, 178.64.174.142 - - [15/Dec/2014 10:22:46] "GET /favicon.ico HTTP/1.0" 200 1150 0.0029
+109.191.134.208 - - [15/Dec/2014 10:24:27] "GET /css/uikit.almost-flat.min.css HTTP/1.0" 200 81463 0.0021
+109.191.134.208 - - [15/Dec/2014 10:24:27] "GET /css/custom.css HTTP/1.0" 200 3684 0.0021
+109.191.134.208 - - [15/Dec/2014 10:24:27] "GET /js/jquery.validate.min.js HTTP/1.0" 200 21068 0.0024
+109.191.134.208 - - [15/Dec/2014 10:24:27] "GET /js/addons/sticky.min.js HTTP/1.0" 200 3254 0.0017
+109.191.134.208 - - [15/Dec/2014 10:24:27] "GET /js/jquery-editable-poshytip.min.js HTTP/1.0" 200 50761 0.0033
+109.191.134.208 - - [15/Dec/2014 10:24:27] "GET /js/advertisement.js HTTP/1.0" 200 81 0.0021
+109.191.134.208 - - [15/Dec/2014 10:24:27] "GET /img/-50.png HTTP/1.0" 200 39764 0.0033
+109.191.134.208 - - [15/Dec/2014 10:24:29] "GET /favicon.ico HTTP/1.0" 200 1150 0.0029

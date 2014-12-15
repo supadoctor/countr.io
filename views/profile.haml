@@ -29,7 +29,7 @@
     %dd.uk-margin-bottom #{@profile.created_at.strftime("%d.%m.%Y")}
     %dt.uk-margin-bottom Тип доступа
     -if @account.type == 1
-      %dd.uk-margin-bottom Полный (до #{@account.paiduntil.strftime("%d.%m.%Y")})
+      %dd.uk-margin-bottom Полный (по #{@account.paiduntil.strftime("%d.%m.%Y")})
     -else 
       %dd.uk-margin-bottom
         Базовый
@@ -58,14 +58,14 @@
           не отправляются
   -@environment.each_with_index do |(h,v), i|
     .uk-placeholder{:style=>"background: rgba(250, 250, 250, 0.90);"}
-      %h2.uk-margin-bottom-remove
+      %h2.uk-margin-bottom-remove.uk-display-inline
         %mark
           Помещение #{i+1}
-        %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
-          %i.uk-icon-minus-circle.delhome{"data-myhref"=>"/home/#{i+1}/delete"}
-        %a{:href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
+        %a.delhome.uk-small-margin-right{:style=>"text-decoration: none !important;", :href=>"#", "data-myhref"=>"/home/#{i+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
+          %i.uk-icon-minus-circle
+        %a.uk-margin-small-right{:style=>"text-decoration: none !important;", :href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
           %i.uk-icon-plus-circle
-      %a.uk-text-small{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
+      %a.uk-text-small.uk-display-inline{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
         скрыть/отобразить помещение
       %div.uk-margin-top{:id=>"home#{i+1}"}
         %dl.uk-description-list-horizontal
@@ -133,7 +133,7 @@
           -else
             .uk-alert.uk-alert-warning Получатели показаний счетчиков не определены
   .uk-text-center
-    %a.uk-button.uk-button-primary{:href=>"/"} Передать показания счетчиков
+    %a.uk-button.uk-button-primary.uk-margin-bottom{:href=>"/"} Передать показания счетчиков
 
 :javascript
   $(function() {
@@ -363,6 +363,7 @@
         {value: '16', text: '16'},
         {value: '17', text: '17'},
         {value: '19', text: '19'},
+        {value: '20', text: '20'},
         {value: '21', text: '21'},
         {value: '22', text: '22'},
         {value: '23', text: '23'}

@@ -3,8 +3,8 @@
   %head
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
     %title countr.io :: передать показания счетчика одним нажатием
-    %meta{:name=>"description", :content=>"Система передачи показаний коммунальных счетчиков. Передавайте показания счетчиков вовремя, быстро и просто."}
-    %meta{:name=>"keywords", :content=>"показания, счетчик, за воду, за газ, на электричество, передать показания счетчика, сообщить показания, онлайн, коммунальные счетчики"}
+    %meta{:name=>"description", :content=>"Система передачи показаний коммунальных счетчиков. Передавайте показания счетчика за воду, за газ, за электроэнергию вовремя, быстро и просто. Подать показания счетчика воды, счетчика электроэнергии, счетчика газа по SMS, по email, через интернет"}
+    %meta{:name=>"keywords", :content=>"показания, счетчик, за воду, за водоснабжение, за газ, за газоснабжение, за электричество, за электроэнергию, передать показания счетчика, сообщить показания, подать показания, онлайн, коммунальные счетчики"}
 
     //%link{:href => "https://fonts.googleapis.com/css?family=Roboto:100,300,400,500&subset=latin,cyrillic", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "https://fonts.googleapis.com/css?family=PT+Sans+Narrow&subset=cyrillic,latin", :rel => "stylesheet", :type => "text/css"}
@@ -65,7 +65,7 @@
   %body
     -navbar
     %div{:style=>"min-height:100%; position: relative;"}
-      .content{:style=>"padding: 0px 0px 222px;"}
+      .content{:style=>"padding: 0px 0px 270px;"}
         =yield
         -if session[:messagetodisplay].to_s.size > 0
           -session[:messagetodisplay].split("; ").each do |m|
@@ -78,6 +78,9 @@
             -brand
             ="- система передачи показаний коммунальных счетчиков"
           .uk-container-center.uk-width-large-2-3
+            %p
+              .uk-text-small.uk-text-justify.uk-text-muted
+                На нашем сайте вы можете подать показания счетчика, передать показания счетчика, сообщить показания счетчика воды, счетчика электроэнергии, счетчика газа, сохранять показания счетчика воды, газового счетчика, счетчика за электроэнергию в личном кабинете, передать показания счетчиков через интернет, передать показания счетчиков по email, передать показания счетчиков по SMS
             .uk-grid
               .uk-width-medium-1-4
                 %h4.uk-text-center Помощь и поддержка
@@ -96,13 +99,14 @@
                     -brand
               .uk-width-medium-1-4
                 %h4.uk-text-center Подписка на новости
-                %form.uk-form{:name=>"SR_form_4_97", :target=>"_blank", :action=>"https://smartresponder.ru/subscribe.html", :method=>"post"}
-                  %input{:type=>"text", :placeholder=>"Ваш email-адрес", :name=>"field_email"}
-                  .uk-text-center.uk-margin-top
-                    %button.uk-button.uk-button-mini.uk-button-primary{:type=>"submit"} Подписаться
-                  %input{:type=>"hidden", :value=>"0", :name=>"tid"}
-                  %input{:type=>"hidden", :value=>"ru", :name=>"lang"}
-                  %input{:type=>"hidden", :value=>"751238", :name=>"did[]"}
+                .uk-text-center
+                  %form.uk-form{:name=>"SR_form_4_97", :target=>"_blank", :action=>"https://smartresponder.ru/subscribe.html", :method=>"post"}
+                    %input{:type=>"text", :placeholder=>"Ваш email-адрес", :name=>"field_email"}
+                    .uk-margin-top
+                      %button.uk-button.uk-button-mini.uk-button-primary{:type=>"submit"} Подписаться
+                    %input{:type=>"hidden", :value=>"0", :name=>"tid"}
+                    %input{:type=>"hidden", :value=>"ru", :name=>"lang"}
+                    %input{:type=>"hidden", :value=>"751238", :name=>"did[]"}
               .uk-width-medium-1-4
                 %h4.uk-text-center Ставим лайки
                 .uk-text-center
