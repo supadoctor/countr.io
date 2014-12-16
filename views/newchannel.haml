@@ -1,34 +1,85 @@
-#template{:style=>"display: none;"}
-  .uk-placeholder{:id=>"channel{0}"}
-    .uk-badge.uk-badge-success.uk-margin-bottom
+#templatefirst{:style=>"display: none;"}
+  %div{:id=>"channel{0}"}
+    .uk-badge.uk-badge-success
       Получатель показаний №{0}
-    .uk-form-row{:style=>"margin-bottom: 20px;"}
-      %label{:for=>"channelname{0}"} Название:
-      %input.channelname.uk-width-1-1{:type=>"text", :placeholder=>"Название", :name=>"channelname{0}", :id=>"channelname{0}"}
-      %br
-      %label.error.uk-text-small.uk-text-danger{:for=>"channelname{0}"}
-    .uk-form-row{:style=>"margin-bottom: 20px;"}
-      %label{:for=>"channeltype{0}"} Способ передачи:
-      %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"email", :id=>"channeltype{0}"} по электронной почте
-      %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"sms", :id=>"channeltype{0}"} SMS
-      %br
-      %label.error.uk-text-small.uk-text-danger{:for=>"channeltype{0}"}
-    .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelemail{0}"}
-      %input.channelemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"channelemail{0}"}
-      %br
-      %label.error.uk-text-small.uk-text-danger{:for=>"channelemail{0}"}
-    .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelsms{0}"}
-      %input.channelsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"channelsms{0}"}
-      %br
-      %label.error.uk-text-small.uk-text-danger{:for=>"channelsms{0}"}
-    .uk-form-row{:style=>"margin-bottom: 20px;"}
-      %label{:for=>"channelpattern{0}"} Шаблон:
-      %textarea.channelpattern.uk-width-1-1{:type=>"text", :name=>"channelpattern{0}", :rows=>"6", :id=>"channelpattern{0}"}
-      %br
-      %label.error.uk-text-small.uk-text-danger{:for=>"channelpattern{0}"}
-    .uk-text-center
-      %a.checkpattern.uk-button{:href=>"#", :id=>"checkpattern{0}"}
-        Тест        
+    .uk-placeholder
+      %p
+        Введите название получателя, например,
+        %code ДУК
+      .uk-form-row{:style=>"margin-bottom: 20px;"}
+        //%label{:for=>"channelname{0}"} Название:
+        %input.channelname.uk-width-1-1{:type=>"text", :placeholder=>"Название", :name=>"channelname{0}", :id=>"channelname{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelname{0}"}
+    .uk-placeholder
+      %p
+        Выберите способ передачи показаний (по SMS или по электронной почте) и укажите адрес электронной почты или мобильный номер получателя
+      .uk-form-row{:style=>"margin-bottom: 20px;"}
+        //%label{:for=>"channeltype{0}"} Способ передачи:
+        %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"email", :id=>"channeltype{0}"} по электронной почте
+        %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"sms", :id=>"channeltype{0}"} по SMS
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channeltype{0}"}
+      .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelemail{0}"}
+        %input.channelemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"channelemail{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelemail{0}"}
+      .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelsms{0}"}
+        %input.channelsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"channelsms{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelsms{0}"}
+    .uk-placeholder
+      %p
+        Сформируйте шаблон сообшения, который ежемесячно будет отпралвяться получателю показаний. Для включения в шаблон
+        %code
+          элементов данных
+        , находящихся справа, перенесите их в текстовое поле или дважде кликните на них.
+        Вы также можете внести в шаблон любой текст, который тоже будет отправлен получателю:
+      .uk-form-row{:style=>"margin-bottom: 20px;"}
+        //%label{:for=>"channelpattern{0}"} Шаблон сообщения:
+        %textarea.channelpattern.uk-width-1-1{:type=>"text", :name=>"channelpattern{0}", :rows=>"6", :id=>"channelpattern{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelpattern{0}"}
+      %p
+        Для проверки корректности формирования сообщения по вашему шаблону, воспользуйетсь кнопкой
+        %code
+          тест
+      .uk-text-center
+        %a.checkpattern.uk-button{:href=>"#", :id=>"checkpattern{0}"}
+          Тест
+
+#template{:style=>"display: none;"}
+  %div{:id=>"channel{0}"}
+    .uk-badge.uk-badge-success
+      Получатель показаний №{0}
+    .uk-placeholder
+      .uk-form-row{:style=>"margin-bottom: 20px;"}
+        //%label{:for=>"channelname{0}"} Название:
+        %input.channelname.uk-width-1-1{:type=>"text", :placeholder=>"Название", :name=>"channelname{0}", :id=>"channelname{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelname{0}"}
+      .uk-form-row{:style=>"margin-bottom: 20px;"}
+        %label{:for=>"channeltype{0}"} Способ передачи:
+        %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"email", :id=>"channeltype{0}"} по электронной почте
+        %input.channeltype{:type=>"radio", :name=>"channeltype{0}", :value=>"sms", :id=>"channeltype{0}"} по SMS
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channeltype{0}"}
+      .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelemail{0}"}
+        %input.channelemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"channelemail{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelemail{0}"}
+      .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelsms{0}"}
+        %input.channelsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"channelsms{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelsms{0}"}
+      .uk-form-row{:style=>"margin-bottom: 20px;"}
+        %label{:for=>"channelpattern{0}"} Шаблон сообщения:
+        %textarea.channelpattern.uk-width-1-1{:type=>"text", :name=>"channelpattern{0}", :rows=>"6", :id=>"channelpattern{0}"}
+        %br
+        %label.error.uk-text-small.uk-text-danger{:for=>"channelpattern{0}"}
+      .uk-text-center
+        %a.checkpattern.uk-button{:href=>"#", :id=>"checkpattern{0}"}
+          Тест
 
 .lane{:style=>"background-color: #FFF"}
   %h1 Создание получателя показаний
@@ -49,17 +100,7 @@
         Эту информацию вы можете уточнить на сайтах, обслуживающих Ваш дом, компаний.
     %p
       %div
-        Сначала определите название получателя, например,
-        %code ДУК
-        , затем выберите способ передачи показаний (по SMS или по электронной почте), укажите адрес электронной почты или мобильный номер получателя и сформируйте шаблон сообщения, который будет отправлятья получателю.
-        Для формирования шаблона перенесите
-        %code
-          элементы данных
-        , находящихся справа, в текстовое поле шаблона. Вы также можете внести в шаблон любой текст, который тоже будет отправлен получателю.
-        Для проверки корректности формирования сообщения по вашему шаблону, воспользуйетсь кнопкой
-        %code
-          тест
-        А при помощи кнопок
+        При помощи кнопок
         %code +
         и
         %code -
@@ -69,11 +110,11 @@
         .uk-width-2-3
           .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
             #channels
-            .uk-text-center
-              %button.uk-button#btnDel{:disabled=>"", :style=>"margin-right: 20px;", :type=>"button"}
-                %i.uk-icon-minus
-              %button.uk-button#btnAdd{:type=>"button"}
-                %i.uk-icon-plus
+          .uk-text-center
+            %button.uk-button#btnDel{:disabled=>"", :style=>"margin-right: 20px;", :type=>"button"}
+              %i.uk-icon-minus
+            %button.uk-button#btnAdd{:type=>"button"}
+              %i.uk-icon-plus
         .uk-width-1-3
           .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
             //{"data-uk-sticky" => "{top:50, bottom:590}", :style=>"z-index: 1;"}
@@ -133,11 +174,16 @@
     $("#btnAdd").click(addRow);
     $("#btnDel").click(delRow);
 
+    var templatefirst = jQuery.validator.format($("#templatefirst").html());
     var template = jQuery.validator.format($("#template").html());
 
     function addRow() {
-
-      $("#channels").append(template(i));
+      if (i == 1 ) {
+        $("#channels").append(templatefirst(i));
+      }
+      else {
+        $("#channels").append(template(i));
+      }
       initDroppable($("#channelpattern"+i));
       i++;
       if (i>2) {
@@ -210,6 +256,21 @@
       helper: "clone",
       cursor: "move",
       revert: "invalid"
+    });
+
+    $(".draggable").dblclick(function(){
+          var $this = $(this);
+          var tempid = $this.text().trim();
+          var dropText;
+          dropText = "{"+tempid+"} ";
+          var droparea = document.getElementById($("textarea:last").attr('name'));
+          var range1 = droparea.selectionStart;
+          var range2 = droparea.selectionEnd;
+          var val = droparea.value;
+          var str1 = val.substring(0, range1);
+          var str3 = val.substring(range1, val.length);
+          droparea.value = str1 + dropText + str3;
+          SetCaretAtEnd(droparea);
     });
 
     //initDroppable($(".channelpattern"));
