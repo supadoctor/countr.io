@@ -124,6 +124,10 @@ class CountrIOApp < Sinatra::Application
           puts "ERROR DURING LOGON TIME UPDATING:", user.errors.values
         end
         $customerio.track(user.id, "log on")
+        $customerio.identify(
+          id: user.id,
+          _last_visit: Time.now.to_i
+        )
         success!(user)
         puts "WARDEN PASSWORD STRATEGY WAS SUCCESSFULL :)"
       else
@@ -150,6 +154,10 @@ class CountrIOApp < Sinatra::Application
           puts "ERROR DURING LOGON TIME UPDATING:", user.errors.values
         end
         $customerio.track(user.id, "log on")
+        $customerio.identify(
+          id: user.id,
+          _last_visit: Time.now.to_i
+        )
         success!(user)
         puts "WARDEN SOCIAIL STRATEGY WAS SUCCESSFULL :)"
       end
@@ -197,6 +205,37 @@ class CountrIOApp < Sinatra::Application
                     haml_concat "Войти или зарегистрироваться"
                   end
                 end
+                haml_tag :li, :class=>"uk-parent", "data-uk-dropdown"=>"" do
+                  haml_tag :a, :href=>"#" do
+                  haml_tag :i, :class=>"uk-icon-question"
+                    haml_concat "Справка"
+                    haml_tag :i, :class=>"uk-icon-caret-down"
+                  end
+                  haml_tag :div, :class=>"uk-dropdown uk-dropdown-navbar" do
+                    haml_tag :ul, :class=>"uk-nav uk-nav-navbar" do
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/newhome" do
+                          haml_concat "Создание нового помещения"
+                        end
+                      end
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/newcounter" do
+                          haml_concat "Создание нового счетчика"
+                        end
+                      end
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/newchannel" do
+                          haml_concat "Создание нового нового получателя показаний"
+                        end
+                      end
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/editdata" do
+                          haml_concat "Редактирование профиля"
+                        end
+                      end
+                    end
+                  end
+                end
               else
                 haml_tag :li do
                   haml_tag :a, :href=>"/" do
@@ -225,6 +264,37 @@ class CountrIOApp < Sinatra::Application
                   haml_tag :a, :href=>"/logout" do
                     haml_tag :i, :class=>"uk-icon-sign-out"
                     haml_concat "Выход"
+                  end
+                end
+                haml_tag :li, :class=>"uk-parent", "data-uk-dropdown"=>"" do
+                  haml_tag :a, :href=>"#" do
+                  haml_tag :i, :class=>"uk-icon-question"
+                    haml_concat "Справка"
+                    haml_tag :i, :class=>"uk-icon-caret-down"
+                  end
+                  haml_tag :div, :class=>"uk-dropdown uk-dropdown-navbar" do
+                    haml_tag :ul, :class=>"uk-nav uk-nav-navbar" do
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/newhome" do
+                          haml_concat "Создание нового помещения"
+                        end
+                      end
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/newcounter" do
+                          haml_concat "Создание нового счетчика"
+                        end
+                      end
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/newchannel" do
+                          haml_concat "Создание нового нового получателя показаний"
+                        end
+                      end
+                      haml_tag :li do
+                        haml_tag :a, :href=>"/help/editdata" do
+                          haml_concat "Редактирование профиля"
+                        end
+                      end
+                    end
                   end
                 end
               end
@@ -1812,7 +1882,8 @@ class CountrIOApp < Sinatra::Application
     decodepattern(channel.pattern, "real")
   end
 
-  post '/ajax/hist' do
+  post '/ajax/trackvideo' do
+    $customerio.track(current_user.id, "watched step3video")
   end
 
   post '/sendpattern' do
@@ -1947,6 +2018,22 @@ class CountrIOApp < Sinatra::Application
 
   get '/terms' do
     haml :terms
+  end
+
+  get '/help/newhome' do
+    haml :help_newhome
+  end
+
+  get '/help/newcounter' do
+    haml :help_newcounter
+  end
+
+  get '/help/newchannel' do
+    haml :help_newchannel
+  end
+
+  get '/help/editdata' do
+    haml :help_editdata
   end
 
   get '/faq' do

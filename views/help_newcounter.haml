@@ -1,0 +1,30 @@
+.lane{:style=>"background-color: #FFF;"}
+  %h1 Справка > Создание нового счетчика
+  %p
+    %div
+      Для создания счетчика перейдите на
+      %a{:href=>"/profile"} страницу своего профиля
+      и в секции “Счетчики” нажмите на значок
+      %h2.uk-display-inline
+        %i.uk-icon-plus-circle
+  %p
+    %img.helpimg{:src=>"/img/help/counteradd.png"}
+  %p
+    %div
+      На открывшейся странице заполните форму и укажите:
+      %ul
+        %li название коммунального счетчика (обязательный параметр);
+        %li тип коммунального счетчика (обязательный параметр);
+        %li лицевой счет или номер счетчика (необязательный параметр).
+  %p
+    %img.helpimg{:src=>"/img/help/counterform.png"}
+  %p
+    %div
+      Для создания нескольких счетчиков сразу - нажмите на кнопку
+      %button.uk-button.uk-button-small{:type=>"button"}
+        %i.uk-icon-plus
+      Для сохранения счетчика нажмите на кнопку
+      %button.uk-button.uk-button-small{:type=>"button"}
+        Сохранить
+        %i.uk-icon-angle-double-right
+

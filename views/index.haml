@@ -85,7 +85,7 @@
       .uk-width-medium-1-2
         %h2.uk-text-center{:style=>"color: #FFF"} Вход
         .uk-panel.uk-panel-box
-          %p Введите ваш адрес электронной почты и пароль, указанные при регистрации, или войдите используя вашу учетную запись в одной из популярных социальных сетей.
+          %p Введите ваш адрес электронной почты и пароль, указанные при регистрации:
           %form#login.uk-form{:action => "/auth/login", :method=>"post"}
             %fieldset
               .uk-form-row{:style=>"margin-bottom: 20px;"}
@@ -98,6 +98,7 @@
                 %label.error.uk-text-small.uk-text-danger{:for=>"password"}
               %button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
           %hr
+          %p Или войдите, используя вашу учетную запись в одной из популярных социальных сетей:
           %a.uk-button.vkbutton.uk-align-center{:href=>"/auth/vkontakte"}
             %i.uk-icon-vk.uk-icon-small
             Войти
@@ -228,7 +229,7 @@
         prefix : '',
         suffix : ''
       }
-      var userscounter = new countUp("grandnumberofusers", #{numberofusers-300}, #{numberofusers}, 0, 3.5, options);
+      var userscounter = new countUp("grandnumberofusers", 1, #{numberofusers}, 0, 2.5, options);
       if (direction=='down') userscounter.start();
     }, { offset: '100%' });
   });
