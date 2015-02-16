@@ -1,5 +1,10 @@
+%script{:type=>"text/javascript", :src=>"https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js"}
+%script{:type=>"text/javascript", :src=>"/js/nv.d3.min.js"}
+%link{:href => "/css/nv.d3.css", :rel => "stylesheet", :type => "text/css"}
+
 //.uk-grid{:style=>"padding: 20px;"}
--if !paid_account?
+-#
+  -if !paid_account?
   .uk-container.uk-container-center{:style=>"padding-top: 20px;"}
     .uk-text-center
       %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
@@ -10,7 +15,7 @@
     if (document.getElementById("tester") == undefined) {
       document.write('<p class="uk-alert uk-alert-danger" style="margin: 20px;">Похоже, что Вы используете <strong>AdBlock Plus</strong> или аналогичное ПО для блокировки рекламы. Это действительно замечательное средство против мусора в Интернете, но на нашем сайте всего несколько рекламных блоков от <strong>Google</strong>, которые могут быть Вам даже интересны. Поэтму просим Вас отключить блокировщик рекламы на нашем сайте и кликнуть на паре объявлений для поддержки нашего проекта. </br>Спасибо!</p>');
     }
-.uk-width-1-1{:style=>"padding: 20px;"}
+.lane2
   %h1 Передача показаний счетчиков
   .uk-alert{"data-uk-alert"=>""}
     %a.uk-alert-close.uk-close
@@ -30,13 +35,16 @@
       #homes
         //.uk-cover-background{:style=>"background-image: url('/img/house.png'); min-height: 200px; margin: 50px;"}
         //%img.uk-invisible{:src=>"", :width=>"", :height=>"", :alt=>""}
-        %h2.uk-margin-bottom-remove
-          %mark
-            Помещение
-            //#{i+1}
-            ("#{h.title}", #{h.address})
-        %a.uk-text-small{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
-          скрыть/отобразить помещение
+        .togglehome{"data-toggle-num"=>"#{i+1}", :style=>"cursor: pointer"}
+          %div
+            %i.uk-icon-caret-down{:id=>"caret-down#{i+1}"}
+            %i.uk-icon-caret-right{:id=>"caret-right#{i+1}", :style=>"display: none;"}
+            %mark.uk-h2
+              Помещение
+              //#{i+1}
+              ("#{h.title}", #{h.address})
+        //%a.uk-text-small{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
+        //  скрыть/отобразить помещение
         %div.uk-margin-top{:id=>"home#{i+1}"}
           -#
             %dl.uk-description-list-horizontal
@@ -65,8 +73,12 @@
                             #{c.title} (#{c.typestr})
                         //%img{:src=>'/img/meter.png', :width=>32, :hight=>32}
                       %td{:style=>"padding: 5px;"}
-                        %text.countervalue{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counter/#{ci+1}/setvalue"}
-                          #{c.currentindication}
+                        -if c.currentindication == nil
+                          %text.countervalue{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counter/#{ci+1}/setvalue"}
+                            =nil
+                        -else
+                          %text.countervalue{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counter/#{ci+1}/setvalue"}
+                            #{c.currentindication.value}
             .uk-width-large-1-2
               #channels
                 %table.uk-width-1-1
@@ -85,9 +97,17 @@
                               Тест
                             %a.sendpattern.uk-button.uk-button-primary.uk-button-small{:id=>"sendpattern#{ch.id}"}
                               Отправить
-          %h2 История показаний
-          .uk-grid
-            .uk-width-1-1
+          %div.uk-margin-left
+            .togglehist.uk-display-inline-block{"data-toggle-num"=>"#{i+1}", :style=>"cursor: pointer;"}
+              %div
+                %i.uk-icon-caret-down{:id=>"hist-caret-down#{i+1}", :style=>"display: none;"}
+                %i.uk-icon-caret-right{:id=>"hist-caret-right#{i+1}"}
+                %span.uk-h3 История показаний
+            -if @account.type == 1
+              .uk-display-inline
+                %a.chart{:href=>"#chart", "data-uk-modal"=>"", :id=>"#{i+1}"} График
+          .uk-grid.uk-margin-left{:id=>"hist#{i+1}", :style=>"display: none;"}
+            .uk-width-1-1.uk-margin-top{:style=>"padding-left: 0px"}
               %indication{:index=>"#{i}"}
                 %table.hist.uk-width-1-1
                   %thead
@@ -102,11 +122,11 @@
                     -c.allindications.each do |ind|
                       %tr
                         %td{:style=>"padding: 5px;"}
-                          .uk-badge
-                            -if c.type == 20
-                              #{c.typestr}
-                            -else
-                              #{c.title} (#{c.typestr})
+                          //.uk-badge
+                          -if c.type == 20
+                            #{c.typestr}
+                          -else
+                            #{c.title} (#{c.typestr})
                         %td{:style=>"padding: 5px;"}
                           #{Russian::strftime(ind.period, "%B %Y")}
                         %td{:style=>"padding: 5px;"}
@@ -124,6 +144,13 @@
                         .uk-alert.uk-alert-warning
                           Нет показаний
 
+#chart.uk-modal
+  .uk-modal-dialog.uk-modal-dialog-slide
+    %a.uk-modal-close.uk-close
+    %h2.uk-text-center График истории показаний
+    #chart
+      %svg{:style=>"height:490px;"}
+
 #patterntestmodal.uk-modal
   .uk-modal-dialog.uk-modal-dialog-slide
     %a.uk-modal-close.uk-close
@@ -137,6 +164,24 @@
         #patterntestresult
 
 :javascript
+
+  var myFormatters = d3.locale({
+  "decimal": ",",
+  "thousands": "\xa0",
+  "grouping": [3],
+  "currency": ["", " руб."],
+  "dateTime": "%A, %e %B %Y г. %X",
+  "date": "%d.%m.%Y",
+  "time": "%H:%M:%S",
+  "periods": ["AM", "PM"],
+  "days": ["воскресенье", "понедельник", "вторник", "среда", "четверг", "пятница", "суббота"],
+  "shortDays": ["вс", "пн", "вт", "ср", "чт", "пт", "сб"],
+  "months": ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"],
+  "shortMonths": ["янв", "фев", "мар", "апр", "май", "июн", "июл", "авг", "сен", "окт", "ноя", "дек"]
+  });
+
+  d3.time.format = myFormatters.timeFormat;
+
   $(function() {
 
     $.fn.editable.defaults.mode = 'inline';
@@ -193,13 +238,66 @@
       });
     });
 
+    $('.togglehome').click(function(){
+      var homediv = $("#home" + $(this).data("toggle-num"));
+      var caretdown = $("#caret-down" + $(this).data("toggle-num"));
+      var caretright = $("#caret-right" + $(this).data("toggle-num"));
+      caretdown.toggle();
+      caretright.toggle();
+      homediv.slideToggle("slow");
+    });
+
+    $('.togglehist').click(function(){
+      var histdiv = $("#hist" + $(this).data("toggle-num"));
+      var caretdown = $("#hist-caret-down" + $(this).data("toggle-num"));
+      var caretright = $("#hist-caret-right" + $(this).data("toggle-num"));
+      caretdown.toggle();
+      caretright.toggle();
+      histdiv.slideToggle("slow");
+    });
+
+    $('.chart').click(function() {
+
+      var url = '/json/home/' + ($(this).attr('id')) + '/data.json';
+      d3.json(url, function(data) {
+        t = data[0].values.length;
+        nv.addGraph(function() {
+          var chart = nv.models.lineChart()
+            .x(function(d) { return d[0] })
+            .y(function(d) { return d[1] })
+            .color(d3.scale.category10().range())
+            .useInteractiveGuideline(true)
+            ;
+
+          chart.yAxis
+            .tickFormat(d3.format('d'));
+
+          chart.xAxis
+            .tickValues(function(d) { return (new Date(d)) })
+            .tickFormat(function(d) { return d3.time.format('%b %Y')(new Date(d)) })
+            ;
+
+          chart.margin({right:30});
+
+          d3.select('#chart svg')
+            .datum(data)
+            .transition().duration(500)
+            .call(chart);
+
+          //TODO: Figure out a good way to do this automatically
+          nv.utils.windowResize(chart.update);
+
+          return chart;
+        });
+      });
+    });
 
   });
 
   $(document).ready(function() {
     //var hist = document.querySelector("table.hist");
     if (!document.querySelector("tr#nodatarow")) {
-      $('table.hist').DataTable({
+      var table = $('table.hist').DataTable({
         language: {
           "sProcessing":   "Подождите...",
           "sLengthMenu":   "Показать _MENU_ записей",
@@ -224,6 +322,7 @@
         "columnDefs": [
           { "visible": false, "targets": 1 }
         ],
+        "order": [[ 1, 'desc' ]],
         "drawCallback": function ( settings ) {
           var api = this.api();
           var rows = api.rows( {page:'current'} ).nodes();
@@ -240,39 +339,15 @@
           });
         }
       });
-    }
-    /*
-    $('#hist1').DataTable({
-      language: {
-        "sProcessing":   "Подождите...",
-        "sLengthMenu":   "Показать _MENU_ записей",
-        "sZeroRecords":  "Записи отсутствуют.",
-        "sInfo":         "Записи с _START_ до _END_ из _TOTAL_ записей",
-        "sInfoEmpty":    "Записи с 0 до 0 из 0 записей",
-        "sInfoFiltered": "(отфильтровано из _MAX_ записей)",
-        "sInfoPostFix":  "",
-        "sSearch":       "Поиск:",
-        "sUrl":          "",
-        "oPaginate": {
-            "sFirst": "Первая",
-            "sPrevious": "Предыдущая",
-            "sNext": "Следующая",
-            "sLast": "Последняя"
-        },
-        "oAria": {
-            "sSortAscending":  ": активировать для сортировки столбца по возрастанию",
-            "sSortDescending": ": активировать для сортировки столбцов по убыванию"
+      $('table.hist tbody').on( 'click', 'tr.group', function () {
+        var currentOrder = table.order()[0];
+        if ( currentOrder[0] === 1 && currentOrder[1] === 'asc' ) {
+            table.order( [ 1, 'desc' ] ).draw();
         }
-      },
-      ajax: {
-         url	: "/ajax/hist",
-         type	: "POST,
-         data	: function ( d ) {
-           d.counter = "myValue";
-           // d.custom = $('#myInput').val();
-           // etc
-         }
-      }
-    });
-    */      
+        else {
+            table.order( [ 1, 'asc' ] ).draw();
+        }
+      } );
+    }
+
   });

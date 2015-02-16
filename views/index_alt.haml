@@ -1,78 +1,53 @@
-//{:style=>"max-height: 60vh; min-height: 673px;"}
-%section#slide-1.homeSlide
-  .bcg{"data-center"=>"background-position: 0% 0px;", "data-top-bottom"=>"background-position: 0% -100px;", "data-anchor-target"=>"#slide-1"}
-    .hsContainer
-      .hsContent{"data-100-top"=>"opacity: 1", "data-top-bottom"=>"opacity: 0", "data-anchor-target"=>"#slide-1 .lane3"}
-        .lane3
-          .uk-h1.uk-text-center
-            %img{:src=>"/img/meter.png", :style=>"width: 75px; height: 75px;"}
-            -brand
-            %br
-            передать показания счетчика без лишних сложностей!
 .lane.lane-borders#home{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #40E0D0;"}
   .uk-container-center.uk-width-large-2-3
-    %h1
-      .uk-text-center
+    .uk-h2.uk-text-center.uk-text-bold{:style=>"color: white;"}
+      %div
         Добро пожаловать на
         -brand
         !
-    %p.uk-h2
-      Если ваша обслуживающая компания принимает показания по электронной почте или SMS, и Вы хотитие упростить и автоматизировать отправку показаний, то сервис
-      -brand
-      специально для Вас!
-      %a{:href=>"#signin", :style=>"color: white;"}
-        Регистрируйетсь
-      и отправляйте показания одним нажатием кнопки!
+    %h1
+      %div
+        %img{:src=>"/img/meter.png", :style=>"width: 75px; height: 75px;"}
+        -brand
+        ="- передать показания счетчика одним нажатием!"
+    .uk-h2 Специально для Вас мы сделали что-то особенное... Конечно, не так что-бы это перевернуло Вашу жизнь, но сделает проще - это уж точно! :)
 %div{:style=>"position: relative; left: 0; top: 0;"}
   %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
-.lane2#wtf
+.lane#wtf{:style=>"background-color: #FFFFFF;"}
   .uk-container-center.uk-text-justify.uk-width-large-2-3
-    %p.uk-h2.uk-text-center.uk-text-bold
+    %h2.uk-text-center
+      Что такое
       -brand
-      ="- это сервис передачи показаний коммунальных счетчиков."
-    %p.uk-h2.uk-text-center
-      Возможности
+      и зачем это?
+    %p
       -brand
-    %ul.uk-text-bold.uk-h3
+      ="- это онлайн система передачи показаний коммунальных счетчиков вашей квартитры или дома."
+    %p
+      Все мы пользуемся водой, электричеством, газом и все мы должны регулярно, из месяца в месяц, передавать показания счетчика воды, газа и электроэнергии в обслуживающие нас организации.
+      Казалось бы, что может быть проще? Посмотрели потребление, зашли на сайт расспределительной компании, заполнили форму, отправили, но...
+      Всегда ли мы помним, что уже пора подать показания счетчика? Всегда ли мы помним что и куда мы уже передали?
+    %p
+      %div
+        Специально для тех кто, хочет превратить передачу показаний коммунальных счетчиков (по сути несложное, но жутко занудное меропритие) в удобное и быстрое занятие мы и создали
+        -brand
+    %p
+      %div
+        Если ваша распределительная компания принимает показания по электронной почте и/или SMS, и Вы хотитие автоматизировать отправку показаний, то наш сервис специально для Вас!
+        %a{:href=>"#signin"}
+          Регистрируйетсь
+        и забудьте о проблемах с передачей показаний навсегда!
+    %p
+      %div
+        Возможности
+        -brand
+    %ul.uk-text-bold
       %li Поддержка нескольких помещений
       %li Хранение неограниченного количества счетчиков (за газ, за воду, за электроэнергию)
       %li Передача показаний счетчиков по email, SMS
       %li Отправка напоминаний о необходимости передачи показаний счетчиков на email, по SMS
-      %li Хранение истории показаний в личном кабинете
+      %li Хранение истории и статистики потребления в личном кабинете
       //%li Многопользовательский режим работы
-%section#slide-2.homeSlide{:style=>"max-height: 50vh;"}
-  .bcg{"data-center"=>"background-position: 0px 50%;", "data-bottom-top"=>"background-position: 0px 50%", "data-top-bottom"=>"background-position: -300px 50%", "data-anchor-target"=>"#slide-2"}
-    .hsContainer#happy
-      .hsContent
-        .lane3
-          .uk-h2
-            Сервисом
-            -brand
-            пользуются уже
-            .uk-h1#grandnumberofusers.uk-display-inline.uk-text-bold
-              -haml_concat numberofusers
-            человек.
-          .uk-h3
-            Все эти люди уже оценили простоту, удобство и доступность нашего сервиса.
-            Настала пора и Вам раз и навсегда решить вопрос с передачей показаний коммунальных счетчиков!
--#
-  .lane.lane-borders#happy{:style=>"color: white; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #E04050;"}
-  .uk-container-center.uk-width-large-2-3
-    //%h2.uk-text-center Жить стало проще!
-    %h2.uk-text-center
-      Сервисом
-      -brand
-      пользуются уже
-      .uk-h1#grandnumberofusers.uk-display-inline.uk-text-bold
-        -haml_concat numberofusers
-      человек.
-    %p
-      Все эти люди уже оценили простоту, удобство и доступность нашего сервиса.
-      Настала пора и Вам раз и навсегда решить вопрос с передачей показаний коммунальных счетчиков.
-%div{:style=>"position: relative; left: 0; top: 0;"}
-  %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
--#
-  .lane.lane-borders#slideshow{:style=>"color: white; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #E88742;"}
+.lane.lane-borders#slideshow{:style=>"color: white; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #E88742;"}
   .uk-container-center.uk-width-large-1-2
     %div{"data-uk-slideshow"=>"{animation: 'swipe'}"}
       %ul.uk-slideshow
@@ -95,36 +70,47 @@
           %a{:href=>"#"}
         %li{"data-uk-slideshow-item"=>"3"}
           %a{:href=>"#"}
-  %div{:style=>"position: relative; left: 0; top: 0;"}
+%div{:style=>"position: relative; left: 0; top: 0;"}
   %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
-.lane2#price
+.lane#price{:style=>"background-color: #FFFFFF"}
   .uk-container-center.uk-width-large-2-3
-    %h2.uk-text-bold.uk-text-center Стоимость
-    -#
-      %p
+    %h2.uk-text-center Стоимость
+    %p
       %div
-        Весь функционал, необходимый для передачи показаний счетчиков по электронной почте, доступен
+        Весь функционал, необходимый для передачи показаний счетчиков, доступен
         .uk-text-bold.uk-display-inline
           бесплатно
-        сразу после регистрации. Однако для доступа к дополнительным функциям системы необходмо приобретение платной подписки.
-        Стоимость подписки невелика и составляет всего
+        после регистрации. Однако для доступа к дополнительным функциям системы необходмо приобретение платной подписки.
+        Стоимость подписки невелика и до конца года составляет всего
         -haml_concat getMonthlyPrice
         руб. в месяц. А приобретая подписку на год, Вы получаете
         .uk-text-bold.uk-display-inline
           два месяца в подарок!
-        Сравнение функций бесплатной и платной версии приведено ниже:
-    .uk-panel.uk-panel-box{:style=>"background-color: rgba(230, 230, 230, 1); color: black;"}
+        Сравнение функций бесплатной и платной версии приведено ниже.
+    .uk-panel.uk-panel-box
       -compare
-      //%img#50off{:src=>"./img/-50.png", :style=>"bottom: -60px; height: 100px; left: 90%; position: absolute; width: 100px; z-index: 1;"}
+      %img{:src=>"./img/-50.png", :style=>"bottom: -60px; height: 100px; left: 90%; position: absolute; width: 100px; z-index: 1;"}
     %div{:style=>"position: relative; left: 0; top: 0;"}
       %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
+.lane.lane-borders#happy{:style=>"color: white; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #E04050;"}
+  .uk-container-center.uk-width-large-2-3
+    %h2.uk-text-center Жить стало лучше, жить стало веселей!
+    %h2.uk-text-center
+      Сервисом
+      -brand
+      пользуются уже
+      .uk-h1#grandnumberofusers.uk-display-inline.uk-text-bold
+        -haml_concat numberofusers
+      человек
+-#%div{:style=>"position: relative; left: 0; top: 0;"}
+  %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
 .lane.lane-borders#signin{:style=>"background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAMklEQVQYlWNgYGAwZkAFxjjEcApgSOKTIGgSVpOxKcKqmGiFRFuNUwCHGFaT8erCGuAAtV8HLQ/j6goAAAAASUVORK5CYII=) #804050;"}
   .uk-container-center.uk-width-large-2-3
     .uk-grid{"data-uk-grid-margin"=>"", "data-uk-grid-match"=>"{target:'.uk-panel'}"}
       .uk-width-medium-1-2
-        %h2.uk-text-bold.uk-text-center{:style=>"color: #FFF"} Вход
+        %h2.uk-text-center{:style=>"color: #FFF"} Вход
         .uk-panel.uk-panel-box
-          //%p Введите ваш адрес электронной почты и пароль, указанные при регистрации:
+          %p Введите ваш адрес электронной почты и пароль, указанные при регистрации:
           %form#login.uk-form{:action => "/auth/login", :method=>"post"}
             %fieldset
               .uk-form-row{:style=>"margin-bottom: 20px;"}
@@ -136,8 +122,8 @@
                 %br
                 %label.error.uk-text-small.uk-text-danger{:for=>"password"}
               %button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
-          %hr.uk-margin-top-remove
-          %p Или войдите, используя Вашу учетную запись в социальных сетях:
+          %hr
+          %p Или войдите, используя вашу учетную запись в одной из популярных социальных сетей:
           %a.uk-button.vkbutton.uk-align-center{:href=>"/auth/vkontakte"}
             %i.uk-icon-vk.uk-icon-small
             Войти
@@ -153,13 +139,12 @@
         %div{:style=>"position: relative; left: 0; top: 0;"}
           %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
       .uk-width-medium-1-2
-        %h2.uk-text-bold.uk-text-center{:style=>"color: #FFF"} Регистрация
+        %h2.uk-text-center{:style=>"color: #FFF"} Регистрация
         .uk-panel.uk-panel-box
-          -#
-            %p
+          %p
             %div
-              Для регистрации в
-              -brand
+              Для БЕСПЛАТНОЙ регистрации в
+              -brand 
               укажите ваше имя, адрес электронной почты и пароль.
           %form#registration.uk-form{:action => "/reguser", :method => "post"}
             %fieldset
@@ -192,20 +177,7 @@
                   %a{:href=>"/terms"}
                     cоглашение об использовании
                     -brand
-              %button.uk-button.uk-button-large.uk-button-primary.uk-align-center.uk-margin-top{:type=>"submit"} Зарегистрироваться
-          %hr.uk-margin-top-remove
-          %p Или зарегистрируйтесь, используя Вашу учетную запись в социальных сетях:
-          .uk-grid.uk-text-center
-            .uk-width-1-3
-              %a{:href=>"/auth/vkontakte"}
-                %i.uk-icon-vk.uk-icon-small.vkbuttonrnd
-            .uk-width-1-3
-              %a{:href=>"/auth/facebook"}
-                %i.uk-icon-facebook.uk-icon-small.facebookbuttonrnd
-            .uk-width-1-3
-              %a{:href=>"/auth/gplus"}
-                %i.uk-icon-google-plus.uk-icon-small.gplusbuttonrnd
-          %hr
+              %button.uk-button.uk-button-large.uk-button-primary.uk-align-center.uk-margin-top{:type=>"submit"} Начать передачу счетчиков
         %div{:style=>"position: relative; left: 0; top: 0;"}
           %img{:src=>"./img/shadow1.png", :style=>"bottom: -35px; height: 35px; left: 0; position: absolute; width: 100%; z-index: 1;"}
 :javascript
@@ -271,8 +243,8 @@
       submitHandler: function(form) {
         form.submit();
       }
-    })
-
+    });
+    
     $('#grandnumberofusers').waypoint(function(direction) {
       var options = {
         useEasing : true, 
@@ -284,27 +256,5 @@
       }
       var userscounter = new countUp("grandnumberofusers", 1, #{numberofusers}, 0, 2.5, options);
       if (direction=='down') userscounter.start();
-    }, { offset: '100%', triggerOnce: true });
-
-    $('#signin').waypoint(function(direction) {
-      if (direction=='down') {
-        $.UIkit.notify({
-          message : "<i class='uk-icon-info-circle'></i> Кстати, название нашего сайта произошло от сокращения английских слов:<br>COUNTR - счетчик и IO - ввод/вывод.",
-          status  : 'info',
-          timeout : 10000,
-          pos     : 'top-left'
-       });
-      }
-    }, { triggerOnce: true });
-
-    $('#price').waypoint(function(direction) {
-      if (direction=='down') {
-        $.UIkit.notify({
-          message : "<i class='uk-icon-info-circle'></i>1 рубль и 10 копеек в день - именно столько стоит решение проблем с передачей показаний счетчиков. Сущий пустяк! Не правда ли?",
-          status  : 'info',
-          timeout : 10000,
-          pos     : 'top-left'
-       });
-      }
-    }, { triggerOnce: true });
+    }, { offset: '100%' });
   });

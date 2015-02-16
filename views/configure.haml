@@ -24,6 +24,8 @@
         %input.channelemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"channelemail{0}"}
         %br
         %label.error.uk-text-small.uk-text-danger{:for=>"channelemail{0}"}
+        %br
+        %input.emailtomyself{:type=>"checkbox", :name=>"emailtomyself{0}", :value=>"yes", :id=>"emailtomyself{0}"} Отправлять копию на мой адрес электронной почты
       .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelsms{0}"}
         %input.channelsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"channelsms{0}"}
         %br
@@ -68,6 +70,8 @@
         %input.channelemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"channelemail{0}"}
         %br
         %label.error.uk-text-small.uk-text-danger{:for=>"channelemail{0}"}
+        %br
+        %input.emailtomyself{:type=>"checkbox", :name=>"emailtomyself{0}", :value=>"yes", :id=>"emailtomyself{0}"} Отправлять копию на мой адрес электронной почты
       .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"channelsms{0}"}
         %input.channelsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"channelsms{0}"}
         %br
@@ -81,150 +85,151 @@
         %a.checkpattern.uk-button{:href=>"#", :id=>"checkpattern{0}"}
           Тест
 
-.lane{:style=>"background-color: #FFF"}
+.lane2
   %h1 Настройка учетной записи
-  %form#account.uk-form{:action => "/configure", :method=>"post"}
-    #step3
-      .uk-alert
-        .uk-text-bold
-          Шаг 3/4 - настройка получателей показаний счетчиков
-      %p
-        %div
-          Теперь давайте решим куда будем передавать показания счетчиков и настроим параметры получателей показаний.
-      %p
-        %div
-          Для их настройки вы должны знать:
-          %ul
-            %li адрес электронной почты получателя (если показания будут передаваться по электронной почте)
-            %li мобильный номер получателя (если показания будут передаваться по SMS)
-            %li формат, отправляемого получателю сообщения (более актуально для передачи по SMS, т.к. как правило показания по электронной почте передаются в произвольной форме)
-          Эту информацию Вы можете уточнить на сайтах обслуживающих компаний.
-      %p
-        %div
-          При помощи кнопок
-          %code +
-          и
-          %code -
-          Вы можете создать необходимое количество получателей.
-      %p
-        %div
-          Если у Вас еще остались вопросы по настройке получаталей показаний, то
-          %a{:href=>"#", "data-uk-toggle"=>"{target:'#video'}"}
-            посмотрите небольшое видео
-          , которое по шагам описывает процедуру настройки.
-      .uk-text-center.uk-margin.uk-hidden#video
-        %video#step3video{:width=>"650", :height=>"374", :controls=>"controls"}
-          %source{:src=>"/step3.mp4", :type=>"video/mp4"}
-      .uk-container-center.uk-width-1-1
-        .uk-grid
-          .uk-width-2-3
-            .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
-              #channels
-              .uk-text-center
-                %button.uk-button#btnDel{:disabled=>"", :style=>"margin-right: 20px;", :type=>"button"}
-                  %i.uk-icon-minus
-                %button.uk-button#btnAdd{:type=>"button"}
-                  %i.uk-icon-plus
-          .uk-width-1-3
-            .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
-              //{"data-uk-sticky" => "{top:50, bottom:590}", :style=>"z-index: 1;"}
-              -patternpanel
-      .uk-text-center
-        %a.uk-button.uk-button-primary#tostep4{:href=>"#"}
-          Далее
-          %i.uk-icon-angle-double-right
-    #step4{:style=>"display: none;"}
-      .uk-alert
-        .uk-text-bold
-          Шаг 4/4 - создание напоминаний
-      %p
-        %div
-          Мы в единственном шаге от завершения настройки учетной записи. Осталось установить дату, когда
-          -brand
-          будет напоминать Вам о необходимости передачи показаний счетчиков.
-          -brand
-          подерживает отправку напоминаний по email и по SMS. Отправка напоминания по SMS возможна только после
-          %a{:href=>"/upgrade"} покупки полного функционала
-          -"."
-          Если вы хотите получать такие напоминания, то выберите выберите соответствующую опцию и укажите способ отправки, реквизиты получателя напоминания и дату.
-      .uk-container-center.uk-width-2-3
-        .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
-          .uk-form-row{:style=>"margin-bottom: 20px;"}
-            %label{:for=>"notificationtype"} Получать напоминания:
-            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"none", :id=>"notificationtype"} нет
-            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"email", :id=>"notificationtype"} по электронной почте
-            %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"sms", :id=>"notificationtype"} по SMS
-            %br
-            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtype"}
-          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationemail"}
-            %input.notificationemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"notificationemail"}
-            %br
-            %label.error.uk-text-small.uk-text-danger{:for=>"notificationemail"}
-          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationsms"}
-            %input.notificationsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"notificationsms"}
-            %br
-            %label.error.uk-text-small.uk-text-danger{:for=>"notificationsms"}
-          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationdate"}
-            %label{:for=>"notificationdate"} Выберите дату получения уведомлений (число каждого месяца):
-            %input.notificationdate{:name=>"notificationdate", :type=>"text", "data-uk-datepicker"=>"{weekstart: 1, format: 'DD', i18n: {months:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь', 'Декабрь'], weekdays:['Вс','Пн','Вт','Ср','Чт','Пт','Сб']}}"}
-            %br
-            %label.error.uk-text-small.uk-text-danger{:for=>"notificationdate"}
-          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtimezone"}
-            %label{:for=>"notificationtimezone"} Выберите часовой пояс, в котром вы находитесь:
-            %select.notificationtimezone{:name=>"notificationtimezone", :type=>"text"}
-              %option{:disabled=>"", :selected=>""} Выберите часовой пояс
-              %option{:value=>"+2"} Калининград... (МСК-1)
-              %option{:value=>"+3"} Москва, С.Петербург, Н.Новгород, Волгоград... (МСК)
-              %option{:value=>"+4"} Самара, Ижевск... (МСК+1)
-              %option{:value=>"+5"} Екатеринбург, Пермь, Уфа, Челябинск, Тюмень... (МСК+2)
-              %option{:value=>"+6"} Омск, Новосибирск, Барнаул, Кемерово, Томск... (МСК+3)
-              %option{:value=>"+7"} Красноярск, Нориоьск, Абакан... (МСК+4)
-              %option{:value=>"+8"} Чита, Иркутск, Улан-Удэ... (МСК+5)
-              %option{:value=>"+9"} Якутск, Благовещенск... (МСК+6)
-              %option{:value=>"+10"} Владивосток, Хабаровск, Магадан... (МСК+7)
-              %option{:value=>"+11"} Среднеколымск, Северо-Курильск... (МСК+8)
-              %option{:value=>"+12"} Петропавловск-Камчатский, Анадырь... (МСК+9)
-            %br
-            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtimezone"}
-          .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtime"}
-            %label{:for=>"notificationtime"} Выберите час отправки уведомлений:
-            %select.notificationtime{:name=>"notificationtime", :type=>"text"}
-              %option{:disabled=>"", :selected=>""} Выберите час
-              %option{:value=>"0"} 00
-              %option{:value=>"1"} 01
-              %option{:value=>"2"} 02
-              %option{:value=>"3"} 03
-              %option{:value=>"4"} 04
-              %option{:value=>"5"} 05
-              %option{:value=>"6"} 06
-              %option{:value=>"7"} 07
-              %option{:value=>"8"} 08
-              %option{:value=>"9"} 09
-              %option{:value=>"10"} 10
-              %option{:value=>"11"} 11
-              %option{:value=>"12"} 12
-              %option{:value=>"13"} 13
-              %option{:value=>"14"} 14
-              %option{:value=>"15"} 15
-              %option{:value=>"16"} 16
-              %option{:value=>"17"} 17
-              %option{:value=>"18"} 18
-              %option{:value=>"19"} 19
-              %option{:value=>"20"} 20
-              %option{:value=>"21"} 21
-              %option{:value=>"22"} 22
-              %option{:value=>"23"} 23
-            %br
-            %label.error.uk-text-small.uk-text-danger{:for=>"notificationtime"}
-      .uk-text-center
-        %a.uk-button#backtostep3{:href=>"#", :style=>"margin-right: 20px;"}
-          %i.uk-icon-angle-double-left
-          Назад
-        %button.uk-button.uk-button-primary#finish{:type=>"submit"}
-          Далее
-          %i.uk-icon-angle-double-right
-          
-      //%button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
+  .uk-panel.uk-panel-box
+    %form#account.uk-form{:action => "/configure", :method=>"post"}
+      #step3
+        .uk-alert
+          .uk-text-bold
+            Шаг 3/4 - настройка получателей показаний счетчиков
+        %p
+          %div
+            Теперь давайте решим куда будем передавать показания счетчиков и настроим параметры получателей показаний.
+        %p
+          %div
+            Для их настройки вы должны знать:
+            %ul
+              %li адрес электронной почты получателя (если показания будут передаваться по электронной почте)
+              %li мобильный номер получателя (если показания будут передаваться по SMS)
+              %li формат, отправляемого получателю сообщения (более актуально для передачи по SMS, т.к. как правило показания по электронной почте передаются в произвольной форме)
+            Эту информацию Вы можете уточнить на сайтах обслуживающих компаний.
+        %p
+          %div
+            При помощи кнопок
+            %code +
+            и
+            %code -
+            Вы можете создать необходимое количество получателей.
+        %p
+          %div
+            Если у Вас еще остались вопросы по настройке получаталей показаний, то
+            %a{:href=>"#", "data-uk-toggle"=>"{target:'#video'}"}
+              посмотрите небольшое видео
+            , которое по шагам описывает процедуру настройки.
+        .uk-text-center.uk-margin.uk-hidden#video
+          %video#step3video{:width=>"650", :height=>"374", :controls=>"controls"}
+            %source{:src=>"/step3.mp4", :type=>"video/mp4"}
+        .uk-container-center.uk-width-1-1
+          .uk-grid
+            .uk-width-2-3
+              .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+                #channels
+                .uk-text-center
+                  %button.uk-button#btnDel{:disabled=>"", :style=>"margin-right: 20px;", :type=>"button"}
+                    %i.uk-icon-minus
+                  %button.uk-button#btnAdd{:type=>"button"}
+                    %i.uk-icon-plus
+            .uk-width-1-3
+              .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+                //{"data-uk-sticky" => "{top:50, bottom:590}", :style=>"z-index: 1;"}
+                -patternpanel
+        .uk-text-center
+          %a.uk-button.uk-button-primary#tostep4{:href=>"#"}
+            Далее
+            %i.uk-icon-angle-double-right
+      #step4{:style=>"display: none;"}
+        .uk-alert
+          .uk-text-bold
+            Шаг 4/4 - создание напоминаний
+        %p
+          %div
+            Мы в единственном шаге от завершения настройки учетной записи. Осталось установить дату, когда
+            -brand
+            будет напоминать Вам о необходимости передачи показаний счетчиков.
+            -brand
+            поддерживает отправку напоминаний по email и по SMS. Отправка напоминания по SMS возможна только после
+            %a{:href=>"/upgrade"} покупки полного функционала
+            -"."
+            Если вы хотите получать такие напоминания, то выберите выберите соответствующую опцию и укажите способ отправки, реквизиты получателя напоминания и дату.
+        .uk-container-center.uk-width-2-3
+          .uk-panel.uk-panel-box.uk-panel-box-secondary.uk-margin-bottom
+            .uk-form-row{:style=>"margin-bottom: 20px;"}
+              %label{:for=>"notificationtype"} Получать напоминания:
+              %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"none", :id=>"notificationtype"} нет
+              %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"email", :id=>"notificationtype"} по электронной почте
+              %input.notificationtype{:type=>"radio", :name=>"notificationtype", :value=>"sms", :id=>"notificationtype"} по SMS
+              %br
+              %label.error.uk-text-small.uk-text-danger{:for=>"notificationtype"}
+            .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationemail"}
+              %input.notificationemail.uk-width-1-1{:type=>"text", :placeholder=>"Адрес электронной почты", :name=>"notificationemail"}
+              %br
+              %label.error.uk-text-small.uk-text-danger{:for=>"notificationemail"}
+            .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationsms"}
+              %input.notificationsms.uk-width-1-1{:type=>"text", :placeholder=>"Номер мобильного телефона", :name=>"notificationsms"}
+              %br
+              %label.error.uk-text-small.uk-text-danger{:for=>"notificationsms"}
+            .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationdate"}
+              %label{:for=>"notificationdate"} Выберите дату получения уведомлений (число каждого месяца):
+              %input.notificationdate{:name=>"notificationdate", :type=>"text", "data-uk-datepicker"=>"{weekstart: 1, format: 'DD', i18n: {months:['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь', 'Декабрь'], weekdays:['Вс','Пн','Вт','Ср','Чт','Пт','Сб']}}"}
+              %br
+              %label.error.uk-text-small.uk-text-danger{:for=>"notificationdate"}
+            .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtimezone"}
+              %label{:for=>"notificationtimezone"} Выберите часовой пояс, в котром вы находитесь:
+              %select.notificationtimezone{:name=>"notificationtimezone", :type=>"text"}
+                %option{:disabled=>"", :selected=>""} Выберите часовой пояс
+                %option{:value=>"+2"} Калининград... (МСК-1)
+                %option{:value=>"+3"} Москва, С.Петербург, Н.Новгород, Волгоград... (МСК)
+                %option{:value=>"+4"} Самара, Ижевск... (МСК+1)
+                %option{:value=>"+5"} Екатеринбург, Пермь, Уфа, Челябинск, Тюмень... (МСК+2)
+                %option{:value=>"+6"} Омск, Новосибирск, Барнаул, Кемерово, Томск... (МСК+3)
+                %option{:value=>"+7"} Красноярск, Нориоьск, Абакан... (МСК+4)
+                %option{:value=>"+8"} Чита, Иркутск, Улан-Удэ... (МСК+5)
+                %option{:value=>"+9"} Якутск, Благовещенск... (МСК+6)
+                %option{:value=>"+10"} Владивосток, Хабаровск, Магадан... (МСК+7)
+                %option{:value=>"+11"} Среднеколымск, Северо-Курильск... (МСК+8)
+                %option{:value=>"+12"} Петропавловск-Камчатский, Анадырь... (МСК+9)
+              %br
+              %label.error.uk-text-small.uk-text-danger{:for=>"notificationtimezone"}
+            .uk-form-row{:style=>"margin-bottom: 20px; display: none;", :id=>"notificationtime"}
+              %label{:for=>"notificationtime"} Выберите час отправки уведомлений:
+              %select.notificationtime{:name=>"notificationtime", :type=>"text"}
+                %option{:disabled=>"", :selected=>""} Выберите час
+                %option{:value=>"0"} 00
+                %option{:value=>"1"} 01
+                %option{:value=>"2"} 02
+                %option{:value=>"3"} 03
+                %option{:value=>"4"} 04
+                %option{:value=>"5"} 05
+                %option{:value=>"6"} 06
+                %option{:value=>"7"} 07
+                %option{:value=>"8"} 08
+                %option{:value=>"9"} 09
+                %option{:value=>"10"} 10
+                %option{:value=>"11"} 11
+                %option{:value=>"12"} 12
+                %option{:value=>"13"} 13
+                %option{:value=>"14"} 14
+                %option{:value=>"15"} 15
+                %option{:value=>"16"} 16
+                %option{:value=>"17"} 17
+                %option{:value=>"18"} 18
+                %option{:value=>"19"} 19
+                %option{:value=>"20"} 20
+                %option{:value=>"21"} 21
+                %option{:value=>"22"} 22
+                %option{:value=>"23"} 23
+              %br
+              %label.error.uk-text-small.uk-text-danger{:for=>"notificationtime"}
+        .uk-text-center
+          %a.uk-button#backtostep3{:href=>"#", :style=>"margin-right: 20px;"}
+            %i.uk-icon-angle-double-left
+            Назад
+          %button.uk-button.uk-button-primary#finish{:type=>"submit"}
+            Далее
+            %i.uk-icon-angle-double-right
+            
+        //%button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
     
 
 #patterntestmodal.uk-modal

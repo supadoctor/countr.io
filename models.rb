@@ -80,6 +80,8 @@ class Profile
       :format  => "Неверный формат мобильного номера. Номер должен начинатся с +7 или 8 и затем содержать 10 цифр"
     }
   property :timezone, String
+  property :editindication, Boolean, :default  => false
+  property :resendindication, Boolean, :default  => false
 
   belongs_to :user, :required => true
 
@@ -111,6 +113,8 @@ class Channel
       :format  => "Неверный формат мобильного номера. Номер должен начинатся с +7 или 8 и затем содержать 10 цифр"
     }
   property :pattern, Text
+  property :emailtomyself, Boolean, :default  => false
+  property :lastsenddate, DateTime
   
   def to
     case self.type
@@ -118,6 +122,18 @@ class Channel
       return self.phone
     when "email"
       return self.email
+    end
+  end
+
+  def sentinthismonth
+    startmonth = Date.new Date.today.year, Time.now.month, 1
+    endmonth = startmonth >> 1
+    if self.lastsenddate == nil
+      return false
+    elsif self.lastsenddate < startmonth
+      return false
+    else
+      return true
     end
   end
 
@@ -167,7 +183,7 @@ class Counter
     if indication.count == 0
       return nil
     else
-      return indication[0].value
+      return indication[0]
     end
   end
 

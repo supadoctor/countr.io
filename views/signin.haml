@@ -1,0 +1,53 @@
+.lane1.lane-borders#signin{:style=>"padding-top: 10px; padding-bottom: 10px;"}
+  .uk-container-center.uk-width-large-1-3
+    .uk-grid{"data-uk-grid-margin"=>"", "data-uk-grid-match"=>"{target:'.uk-panel'}"}
+      .uk-width-medium-1-1
+        %h2.uk-text-center Вход
+        .uk-panel.uk-panel-box
+          %p Введите ваш адрес электронной почты и пароль, указанные при регистрации:
+          %form#login.uk-form{:action => "/auth/login", :method=>"post"}
+            %fieldset
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"email", :required=>"", :placeholder=>"Адрес электронной почты", :name=>"email"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"email"}
+              .uk-form-row{:style=>"margin-bottom: 20px;"}
+                %input.uk-width-1-1{:type=>"password", :required=>"", :placeholder=>"Пароль", :name=>"password"}
+                %br
+                %label.error.uk-text-small.uk-text-danger{:for=>"password"}
+              %button.uk-button.uk-button-large.uk-button-primary.uk-align-center{:type=>"submit"} Войти
+          %hr.uk-margin-top-remove
+          %p Или войдите, используя Вашу учетную запись в одной из популярных социальных сетей:
+          %a.uk-button.vkbutton.uk-align-center{:href=>"/auth/vkontakte"}
+            %i.uk-icon-vk.uk-icon-small
+            Войти
+          %a.uk-button.facebookbutton.uk-align-center{:href=>"/auth/facebook"}
+            %i.uk-icon-facebook.uk-icon-small
+            Войти
+          %a.uk-button.gplusbutton.uk-align-center{:href=>"/auth/gplus"}
+            %i.uk-icon-google-plus.uk-icon-small
+            Войти
+          %hr
+          %a{:href=>"/resetpassword"}
+            .uk-text-small.uk-text-center Забыли пароль?
+:javascript
+  $(function() {
+    var loginvalidator = $("#login").validate({
+      debug: true,
+      rules: {
+        email: {
+          required: true
+        },
+        password: {
+          required: true
+        }
+      },
+      messages: {
+        email: "Введите адрес электронной почты",
+        password: "Введите пароль"
+      },
+      submitHandler: function(form) {
+        form.submit();
+      }
+    });
+  });

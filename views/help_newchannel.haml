@@ -64,4 +64,28 @@
     %img.helpimg{:src=>"/img/help/test.png"}
   %p
     %div
-      Если сформированное сообщение не устраивает, то внесите изменения в шаблон.
+      %p
+        Если сформированное сообщение не устраивает, то внесите изменения в шаблон.
+  %h2 Видеоролик
+  %p
+    %div
+      %p
+        Если у Вас еще остались вопросы по настройке получаталей показаний, то посмотрите небольшое видео, которое по шагам описывает процедуру настройки.
+    .uk-text-center.uk-margin
+      %video#step3video{:width=>"650", :height=>"374", :controls=>"controls"}
+        %source{:src=>"/step3.mp4", :type=>"video/mp4"}
+
+:javascript
+  
+  $(function() {
+ 
+
+    $("#step3video").bind("play", function() {
+      $.ajax({
+        type: "POST",
+        dataType: "text",
+        url: "/ajax/trackvideo"
+      });
+    });
+
+  });

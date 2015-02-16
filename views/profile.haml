@@ -1,5 +1,6 @@
 //.uk-grid{:style=>"padding: 20px;"}
--if !paid_account?
+-#
+  -if !paid_account?
   .uk-container.uk-container-center{:style=>"padding-top: 20px;"}
     .uk-text-center
       %script{:async=>"", :src=>"//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
@@ -10,130 +11,169 @@
     if (document.getElementById("tester") == undefined) {
       document.write('<p class="uk-alert uk-alert-danger" style="margin: 20px;">Похоже, что Вы используете <strong>AdBlock Plus</strong> или аналогичное ПО для блокировки рекламы. Это дейсвительно замечательное средство против мусора в Интернете, но на нашем сайте всего несколько рекламных блоков от <strong>Google</strong>, которе могут быть Вам даже интересны. Поэтму просим Вас отключить блокировщик рекламы на нашем сайте и кликнуть на паре объявлений для поддержки нашего проекта. </br>Спасибо!</p>');
     }
-.uk-width-1-1{:style=>"padding: 20px;"}
+.lane2
   %h1 Профиль пользователя
-  .uk-alert{"data-uk-alert"=>""}
-    %a.uk-alert-close.uk-close
-    %p
+  .uk-panel.uk-panel-box
+    .uk-alert{"data-uk-alert"=>""}
+      %a.uk-alert-close.uk-close
+      %p
+        %div
+          На этой странице вы можете просмотреть информацию о своей учетной записи и профиле. Поля, отмеченные 
+          %span.editable-click подчеркиванием
+          , доступны для редактирования. Для изменения значение кликните на поле, введите новое значение и нажмите кнопку
+          %code ОК
+          =". Также на этой странице вы можете добавить или удалить помещения, счетчики, получателей показаний счетчиков."
+    %dl.uk-description-list-horizontal.uk-margin-bottom-remove
+      %dt.uk-margin-bottom Имя пользователя
+      %dd.uk-margin-bottom
+        %text#name #{@user.name}
+      %dt.uk-margin-bottom На сайте с
+      %dd.uk-margin-bottom #{@profile.created_at.strftime("%d.%m.%Y")}
+      %dt.uk-margin-bottom Тип доступа
+      -if @account.type == 1
+        %dd.uk-margin-bottom Полный (по #{@account.paiduntil.strftime("%d.%m.%Y")})
+      -else 
+        %dd.uk-margin-bottom
+          Базовый
+          -#
+            %a{:href=>"/upgrade"}
+            Купить полный функционал
+      %dt.uk-margin-bottom Уведомления
+      -if @profile.sendnotification
+        %dd.uk-margin-bottom
+          %span
+            по
+            %text#notificationtype{"data-value"=>@profile.notificationtype} #{@profile.notificationtype}
+            на
+            %text#notificationto{"data-value"=>@profile.notificationto} #{@profile.notificationto}
+            каждого месяца
+            %text#notificationdate{"data-value"=>@profile.notificationdateinlocaltime.strftime("%d")} #{@profile.notificationdateinlocaltime.strftime("%d")}
+            ='-го числа'
+            в
+            %text#notificationtime{"data-value"=>@profile.notificationdateinlocaltime.strftime("%H")} #{@profile.notificationdateinlocaltime.strftime("%H")}
+            =':00'
+            -if @profile.notificationtype == "sms" && @account.type != 1
+              .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Оповещения не отправляются до покупки полного функционала"} !
+      -else
+        %dd.uk-margin-bottom
+          %a{:href=>"/setnotification"}
+            не отправляются
+    .togglesettings{:style=>"cursor: pointer;"}
       %div
-        На этой странице вы можете просмотреть информацию о своей учетной записи и профиле. Поля, отмеченные 
-        %span.editable-click подчеркиванием
-        , доступны для редактирования. Для изменения значение кликните на поле, введите новое значение и нажмите кнопку
-        %code ОК
-        =". Также на этой странице вы можете добавить или удалить помещения, счетчики, каналы передачи показаний счетчиков."
-  %dl.uk-description-list-horizontal
-    %dt.uk-margin-bottom Имя пользователя
-    %dd.uk-margin-bottom
-      %text#name #{@user.name}
-    %dt.uk-margin-bottom На сайте с
-    %dd.uk-margin-bottom #{@profile.created_at.strftime("%d.%m.%Y")}
-    %dt.uk-margin-bottom Тип доступа
-    -if @account.type == 1
-      %dd.uk-margin-bottom Полный (по #{@account.paiduntil.strftime("%d.%m.%Y")})
-    -else 
-      %dd.uk-margin-bottom
-        Базовый
-        -#
-          %a{:href=>"/upgrade"}
-          Купить полный функционал
-    %dt.uk-margin-bottom Уведомления
-    -if @profile.sendnotification
-      %dd.uk-margin-bottom
-        %span
-          по
-          %text#notificationtype{"data-value"=>@profile.notificationtype} #{@profile.notificationtype}
-          на
-          %text#notificationto{"data-value"=>@profile.notificationto} #{@profile.notificationto}
-          каждого месяца
-          %text#notificationdate{"data-value"=>@profile.notificationdateinlocaltime.strftime("%d")} #{@profile.notificationdateinlocaltime.strftime("%d")}
-          ='-го числа'
-          в
-          %text#notificationtime{"data-value"=>@profile.notificationdateinlocaltime.strftime("%H")} #{@profile.notificationdateinlocaltime.strftime("%H")}
-          =':00'
-          -if @profile.notificationtype == "sms" && @account.type != 1
-            .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Оповещения не отправляются до покупки полного функционала"} !
-    -else
-      %dd.uk-margin-bottom
-        %a{:href=>"/setnotification"}
-          не отправляются
-  -@environment.each_with_index do |(h,v), i|
-    .uk-placeholder{:style=>"background: rgba(250, 250, 250, 0.90);"}
-      %h2.uk-margin-bottom-remove.uk-display-inline
-        %mark
-          Помещение #{i+1}
-        %a.delhome.uk-small-margin-right{:style=>"text-decoration: none !important;", :href=>"#", "data-myhref"=>"/home/#{i+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
-          %i.uk-icon-minus-circle
-        %a.uk-margin-small-right{:style=>"text-decoration: none !important;", :href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
-          %i.uk-icon-plus-circle
-      %a.uk-text-small.uk-display-inline{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
-        скрыть/отобразить помещение
-      %div.uk-margin-top{:id=>"home#{i+1}"}
-        %dl.uk-description-list-horizontal
-          %dt.uk-margin-bottom Наименование
-          %dd.uk-margin-bottom
-            %text.hometitle{"data-pk"=>i+1} #{h.title}
-          %dt.uk-margin-bottom Адрес
-          %dd
-            %text.homeaddress{"data-pk"=>i+1} #{h.address}
-        .uk-panel.uk-panel-box
-          .uk-panel-title
-            Счетчики
-            %a{:href=>"/home/#{i+1}/counter/new", "data-uk-tooltip"=>"", :title=>"Добавить новый счетчик"}
-              %i.uk-icon-plus-circle
-          -if @environment[h][:counters].size > 0
-            %table.uk-table
-              %thead
-                %tr
-                  %th{:width=>"34%"} Наименование
-                  %th{:width=>"33%"} Тип счетчика
-                  %th{:width=>"33%"} Лицевой счет
-              -@environment[h][:counters].each_with_index do |c, ci|
-                %tr
-                  %td
-                    %text.countertitle{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/countertitleupdate"} #{c.title}
-                    %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
-                      %i.uk-icon-minus-circle.delcounter{"data-myhref"=>"/home/#{i+1}/counter/#{ci+1}/delete"}
-                  %td
-                    %text.countertype{"data-pk"=>ci+1, "data-value"=>c.type, "data-url"=>"/home/#{i+1}/countertypeupdate"}
-                      //%option{:value=>c.type} #{c.typestr}
-                  %td
-                    %text.counteraccount{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counteraccountupdate"} #{c.account}
+        %i.uk-icon-caret-down{:id=>"settings-caret-down", :style=>"display: none;"}
+        %i.uk-icon-caret-right{:id=>"settings-caret-right"}
+        %span.uk-h3.uk-text-bold Дополнительные параметры
+    %div#settings.uk-margin-top{:style=>"display: none;"}
+      %dl.uk-description-list-horizontal
+        %dt.uk-margin-bottom{:style=>"width: 400px;"} Разрешить измененение отправленных показаний
+        .editindicationclick
+          -if @profile.editindication
+            %dd.uk-margin-bottom
+              %i.uk-icon-check-square-o.editindicationicon{:style=>"cursor: pointer;"}
+              %i.uk-icon-square-o.editindicationicon{:style=>"cursor: pointer; display: none;"}
           -else
-            .uk-alert.uk-alert-warning Счетчики не определены
-        .uk-panel.uk-panel-box.uk-margin-top
-          .uk-panel-title
-            Получатели
-            %a{:href=>"/home/#{i+1}/channel/new", "data-uk-tooltip"=>"", :title=>"Создать нового получателя показаний"}
-              %i.uk-icon-plus-circle
-          -if @environment[h][:channels].size > 0
-            %table.uk-table
-              %thead
-                %tr
-                  %th{:width=>"25%"} Наименование
-                  %th{:width=>"17%"} Способ передачи
-                  %th{:width=>"25%"} Получатель
-                  %th{:width=>"33%"} Шаблон передаваемого сообщения
-              -@environment[h][:channels].each_with_index do |ch, chi|
-                %tr
-                  %td
-                    %text.channeltitle{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channeltitleupdate"} #{ch.title}
-                    %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить получателя"}
-                      %i.uk-icon-minus-circle.delchannel{"data-myhref"=>"/home/#{i+1}/channel/#{chi+1}/delete"}
-                  %td
-                    %span
-                      #{ch.type}
-                      -if ch.type == 'sms' && @account.type != 1
-                        .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Передача показаний этому получателю невозможна до покупки полного функционала"} !
-                  %td
-                    %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
-                  %td
-                    %pre
-                      %p= find_and_preserve "<code>#{ch.pattern}</code>"
-                    %a{:href=>"/home/#{i+1}/channel/#{chi+1}/updatepattern"} Изменить
+            %dd.uk-margin-bottom
+              %i.uk-icon-square-o.editindicationicon{:style=>"cursor: pointer;"}
+              %i.uk-icon-check-square-o.editindicationicon{:style=>"cursor: pointer; display: none;"}
+        %dt.uk-margin-bottom{:style=>"width: 400px;"} Разрешить повторную отправку показаний
+        .resendindicationclick
+          -if @profile.resendindication
+            %dd.uk-margin-bottom
+              %i.uk-icon-check-square-o.resendindicationicon{:style=>"cursor: pointer;"}
+              %i.uk-icon-square-o.resendindicationicon{:style=>"cursor: pointer; display: none;"}
           -else
-            .uk-alert.uk-alert-warning Получатели показаний счетчиков не определены
-  .uk-text-center
-    %a.uk-button.uk-button-primary.uk-margin-bottom{:href=>"/"} Передать показания счетчиков
+            %dd.uk-margin-bottom
+              %i.uk-icon-square-o.resendindicationicon{:style=>"cursor: pointer;"}
+              %i.uk-icon-check-square-o.resendindicationicon{:style=>"cursor: pointer; display: none;"}
+    -@environment.each_with_index do |(h,v), i|
+      .uk-placeholder{:style=>"background: rgba(250, 250, 250, 0.90);"}
+        .togglehome{"data-toggle-num"=>"#{i+1}", :style=>"cursor: pointer"}
+          %div
+            %i.uk-icon-caret-down{:id=>"caret-down#{i+1}"}
+            %i.uk-icon-caret-right{:id=>"caret-right#{i+1}", :style=>"display: none;"}
+            %mark.uk-h2
+              Помещение #{i+1}
+            %a.delhome.uk-small-margin-right{:style=>"text-decoration: none !important;", :href=>"#", "data-myhref"=>"/home/#{i+1}/delete", "data-uk-tooltip"=>"", :title=>"Удалить помещение"}
+              %i.uk-icon-minus-circle
+            %a.uk-margin-small-right{:style=>"text-decoration: none !important;", :href=>"/home/new", "data-uk-tooltip"=>"", :title=>"Добавить новое помещение"}
+              %i.uk-icon-plus-circle
+        //%a.uk-text-small.uk-display-inline{"data-uk-toggle"=>"{target:'#home#{i+1}', animation:'uk-animation-slide-bottom, uk-animation-slide-bottom'}"}
+        //  скрыть/отобразить помещение
+        %div.uk-margin-top{:id=>"home#{i+1}"}
+          %dl.uk-description-list-horizontal
+            %dt.uk-margin-bottom Наименование
+            %dd.uk-margin-bottom
+              %text.hometitle{"data-pk"=>i+1} #{h.title}
+            %dt.uk-margin-bottom Адрес
+            %dd
+              %text.homeaddress{"data-pk"=>i+1} #{h.address}
+          .togglecounter{"data-toggle-num"=>"#{i+1}", :style=>"cursor: pointer"}
+            %div
+              %i.uk-icon-caret-down{:id=>"counter-caret-down#{i+1}", :style=>"display: none;"}
+              %i.uk-icon-caret-right{:id=>"counter-caret-right#{i+1}"}
+              %span.uk-h3 Счетчики
+              %a{:href=>"/home/#{i+1}/counter/new", "data-uk-tooltip"=>"", :title=>"Добавить новый счетчик"}
+                %i.uk-icon-plus-circle
+          %div{:id=>"counter#{i+1}", :style=>"display: none;"}
+            -if @environment[h][:counters].size > 0
+              %table.uk-table
+                %thead
+                  %tr
+                    %th{:width=>"34%"} Наименование
+                    %th{:width=>"33%"} Тип счетчика
+                    %th{:width=>"33%"} Лицевой счет
+                -@environment[h][:counters].each_with_index do |c, ci|
+                  %tr
+                    %td
+                      %text.countertitle{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/countertitleupdate"} #{c.title}
+                      %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить счетчик"}
+                        %i.uk-icon-minus-circle.delcounter{"data-myhref"=>"/home/#{i+1}/counter/#{ci+1}/delete"}
+                    %td
+                      %text.countertype{"data-pk"=>ci+1, "data-value"=>c.type, "data-url"=>"/home/#{i+1}/countertypeupdate"}
+                        //%option{:value=>c.type} #{c.typestr}
+                    %td
+                      %text.counteraccount{"data-pk"=>ci+1, "data-url"=>"/home/#{i+1}/counteraccountupdate"} #{c.account}
+            -else
+              .uk-alert.uk-alert-warning Счетчики не определены
+          .togglechannel{"data-toggle-num"=>"#{i+1}", :style=>"cursor: pointer"}
+            %div
+              %i.uk-icon-caret-down{:id=>"channel-caret-down#{i+1}", :style=>"display: none;"}
+              %i.uk-icon-caret-right{:id=>"channel-caret-right#{i+1}"}
+              %span.uk-h3 Получатели
+              %a{:href=>"/home/#{i+1}/channel/new", "data-uk-tooltip"=>"", :title=>"Создать нового получателя показаний"}
+                %i.uk-icon-plus-circle
+          %div{:id=>"channel#{i+1}", :style=>"display: none;"}
+            -if @environment[h][:channels].size > 0
+              %table.uk-table
+                %thead
+                  %tr
+                    %th{:width=>"25%"} Наименование
+                    %th{:width=>"17%"} Способ передачи
+                    %th{:width=>"25%"} Получатель
+                    %th{:width=>"33%"} Шаблон передаваемого сообщения
+                -@environment[h][:channels].each_with_index do |ch, chi|
+                  %tr
+                    %td
+                      %text.channeltitle{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channeltitleupdate"} #{ch.title}
+                      %a{:href=>"#", "data-uk-tooltip"=>"", :title=>"Удалить получателя"}
+                        %i.uk-icon-minus-circle.delchannel{"data-myhref"=>"/home/#{i+1}/channel/#{chi+1}/delete"}
+                    %td
+                      %span
+                        #{ch.type}
+                        -if ch.type == 'sms' && @account.type != 1
+                          .uk-badge.uk-badge-warning{"data-uk-tooltip"=>"", :title=>"Передача показаний этому получателю невозможна до покупки полного функционала"} !
+                    %td
+                      %text.channelto{"data-pk"=>chi+1, "data-url"=>"/home/#{i+1}/channelreceiverupdate"} #{ch.to}
+                      -if ch.emailtomyself
+                        .uk-text-small (копия на #{@user.email})
+                    %td
+                      %pre
+                        %p= find_and_preserve "<code>#{ch.pattern}</code>"
+                      %a{:href=>"/home/#{i+1}/channel/#{chi+1}/updatepattern"} Изменить
+            -else
+              .uk-alert.uk-alert-warning Получатели показаний счетчиков не определены
+    .uk-text-center
+      %a.uk-button.uk-button-primary.uk-margin-bottom{:href=>"/"} Передать показания счетчиков
 
 :javascript
   $(function() {
@@ -437,7 +477,7 @@
       }
     });
 
-   $('.delhome').click(function() {
+    $('.delhome').click(function() {
      var isConfirmed = confirm("Удаляя помещение вы удалите и все соответствующие счетчики, их показания и их получателей. Пожалуйста, подтвердите или отмените операцию удаления.");
      if(isConfirmed) {
        $.ajax({
@@ -448,9 +488,9 @@
          }
        });
      }
-   });
+    });
 
-   $('.delcounter').click(function() {
+    $('.delcounter').click(function() {
      var isConfirmed = confirm("Удаляя счетчик вы удалите их показания и всех их получателей. Пожалуйста, подтвердите или отмените операцию удаления.");
      if(isConfirmed) {
        $.ajax({
@@ -461,9 +501,9 @@
          }
        });
      }
-   });
+    });
 
-   $('.delchannel').click(function() {
+    $('.delchannel').click(function() {
      var isConfirmed = confirm("Удаляя получателя вы удалите и все показания счетчиков, отправленные ему. Пожалуйста, подтвердите или отмените операцию удаления.");
      if(isConfirmed) {
        $.ajax({
@@ -474,6 +514,64 @@
          }
        });
      }
-   });
+    });
+
+    $('.togglehome').click(function(){
+      var homediv = $("#home" + $(this).data("toggle-num"));
+      var caretdown = $("#caret-down" + $(this).data("toggle-num"));
+      var caretright = $("#caret-right" + $(this).data("toggle-num"));
+      caretdown.toggle();
+      caretright.toggle();
+      homediv.slideToggle("slow");
+    });
+
+    $('.togglecounter').click(function(){
+      var div = $("#counter" + $(this).data("toggle-num"));
+      var caretdown = $("#counter-caret-down" + $(this).data("toggle-num"));
+      var caretright = $("#counter-caret-right" + $(this).data("toggle-num"));
+      caretdown.toggle();
+      caretright.toggle();
+      div.slideToggle("slow");
+    });
+
+    $('.togglechannel').click(function(){
+      var div = $("#channel" + $(this).data("toggle-num"));
+      var caretdown = $("#channel-caret-down" + $(this).data("toggle-num"));
+      var caretright = $("#channel-caret-right" + $(this).data("toggle-num"));
+      caretdown.toggle();
+      caretright.toggle();
+      div.slideToggle("slow");
+    });
+
+    $('.togglesettings').click(function(){
+      var div = $("#settings");
+      var caretdown = $("#settings-caret-down");
+      var caretright = $("#settings-caret-right");
+      caretdown.toggle();
+      caretright.toggle();
+      div.slideToggle("slow");
+    });
+
+    $('.editindicationclick').click(function(){
+      $.ajax({
+        url: "/editindication",
+        type: 'POST',
+        success: function(response) {
+          displaynotify(response.msg);
+        }
+      });
+      $('.editindicationicon').toggle();
+    });
+
+    $('.resendindicationclick').click(function(){
+      $.ajax({
+        url: "/resendindication",
+        type: 'POST',
+        success: function(response) {
+          displaynotify(response.msg);
+        }
+      });
+      $('.resendindicationicon').toggle();
+    });
 
   });
